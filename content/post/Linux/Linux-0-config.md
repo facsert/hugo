@@ -1,4 +1,12 @@
-# OS
+---
+title: Linux 配置
+description: 
+date: 2022-08-09 21:20:45
+categories:
+    - Linux 教程
+tags:
+    - Linux
+---
 
 Linux 配置
 

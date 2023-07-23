@@ -1,4 +1,12 @@
-# Golang
+---
+title: Go 文件IO
+description: 
+date: 2023-03-06 19:23:13
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 ## read file
 

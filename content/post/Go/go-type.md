@@ -1,4 +1,12 @@
-# Type
+---
+title: Go 泛型
+description: 
+date: 2023-03-06 19:25:13
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 
 ## 类型约束

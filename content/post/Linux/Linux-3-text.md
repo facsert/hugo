@@ -1,4 +1,12 @@
-# Linux Text
+---
+title: Linux 文本
+description: 
+date: 2022-07-18 15:02:16
+categories:
+    - Linux 教程
+tags:
+    - Linux
+---
 
 ## 文本搜索
 

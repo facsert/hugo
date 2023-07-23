@@ -1,4 +1,12 @@
-# Pointer
+---
+title: Go 指针
+description: 
+date: 2023-03-06 19:24:13
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 ## 指针
 

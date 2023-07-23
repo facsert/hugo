@@ -1,4 +1,12 @@
-# Golang struct
+---
+title: Go 结构体
+description: 
+date: 2023-04-19 19:26:24
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 ## Struct
 

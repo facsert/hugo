@@ -1,5 +1,12 @@
-# Ansible
-
+---
+title: Ansible
+description: 
+date: 2022-11-08 16:03:37
+categories:
+    - 工具
+tags:
+    - Ansible
+---
 
 ## 介绍
 

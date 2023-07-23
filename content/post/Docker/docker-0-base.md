@@ -1,11 +1,18 @@
-# Docker Base
+---
+title: Docker 基础
+description: 
+date: 2023-03-06 19:31:13
+categories:
+    - Docker 教程
+tags:
+    - Docker
+---
 
 ## 安装
 
 - Docker 安装
 - Docker 配置
 
-1. 
 
 ```bash
 # 卸载原有 docker

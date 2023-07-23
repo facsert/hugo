@@ -1,3 +1,13 @@
+---
+title: Python 扁平化字典
+description: 
+date: 2022-07-19 19:05:13
+categories:
+    - Python 技巧
+tags:
+    - Python
+---
+
 <!--
  * @FilePath: \文档\Learning\python\python-flat-dict.md
  * @Author: facser

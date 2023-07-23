@@ -7,18 +7,36 @@
 #icon = "home"
 #newtab = true
 
+#[[main]]
+#identifier = "about"
+#name = "Home"
+#url = "/"
+#[main.params]
+#icon = "home"
+#newtab = true
+
 [[social]]
 identifier = "github"
 name = "GitHub"
-url = "https://github.com/CaiJimmy/hugo-theme-stack"
+url = "https://github.com/facsert"
 
 [social.params]
 icon = "brand-github"
 
 [[social]]
-identifier = "twitter"
-name = "Twitter"
+identifier = "mail"
+name = "Email"
 url = "https://twitter.com"
 
 [social.params]
-icon = "brand-twitter"
+icon = "mail"
+
+# [[social]]
+# identifier = "twitter"
+# name = "Twitter"
+# url = "https://twitter.com"
+
+# [social.params]
+# icon = "brand-twitter"
+
+

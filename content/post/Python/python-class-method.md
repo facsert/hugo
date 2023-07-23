@@ -1,3 +1,13 @@
+---
+title: Python 类
+description: 
+date: 2022-07-24 12:08:37
+categories:
+    - Python 技巧
+tags:
+    - Python
+---
+
 <!--
  * @FilePath: \文档\Learning\python\python-class.md
  * @Author: facser

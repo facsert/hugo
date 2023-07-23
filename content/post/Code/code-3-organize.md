@@ -1,4 +1,12 @@
-# 组织代码功能
+---
+title: 组织设计
+description: 
+date: 2022-11-04 21:27:49
+categories:
+    - 代码艺术
+tags:
+    - Code
+---
 
 - 模块化
 - 分离工具代码

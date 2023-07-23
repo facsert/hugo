@@ -1,3 +1,13 @@
+---
+title: Bash 基础
+description: 
+date: 2022-08-09 21:20:45
+categories:
+    - Bash 教程
+tags:
+    - Bash
+---
+
 <!--
  * @FilePath: \文档\Learning\BASH\BASH-1-basic.md
  * @Author: facser

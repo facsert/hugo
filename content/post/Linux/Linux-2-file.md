@@ -1,3 +1,13 @@
+---
+title: Linux 文件
+description: 
+date: 2022-07-18 15:02:16
+categories:
+    - Linux 教程
+tags:
+    - Linux
+---
+
 <!--
  * @FilePath: \文档\Learning\Linux\Linux-2-file.md
  * @Author: facser

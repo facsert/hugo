@@ -1,0 +1,55 @@
+{{- $ThemeVersion := "3.17.0" -}}
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
+            {{ .Site.Params.footer.since }} - 
+        {{ end }}
+        {{ now.Format "2006" }}&nbsp;  {{ .Site.Title }}&nbsp;
+    
+        {{ if .Site.Params.footer.RunDays.enabled }}
+            <br />
+            博客运行{{ T "footer.runDays" }} <i class="fas fa-bell"></i> <a id="days">0</a> {{ T "footer.runDays1" }} 天
+        {{ end }}
+
+        {{ if .Site.Params.footer.articleTotalStatistics.enabled }}
+            &nbsp;&nbsp;
+            {{$scratch := newScratch}}
+            {{ range (where .Site.Pages "Kind" "page" )}}
+                {{$scratch.Add "total" .WordCount}}
+            {{ end }}
+            
+            {{ .Site.Params.footer.articleTotalStatistics.totalArticleWordEmoji }}&nbsp;
+            {{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2 }}k&nbsp;
+            {{ T "footer.totalArticleWord" }}
+            &nbsp;&nbsp;
+            {{ .Site.Params.footer.articleTotalStatistics.totalArticleEmoji }}&nbsp;
+            {{ len (where .Site.RegularPages "Section" "post") }}篇&nbsp;
+            {{ T "footer.totalArticle" }}
+        {{ end }}
+    </section>
+    
+    <section class="powerby">
+        {{ with .Site.Params.footer.customText }}
+            {{ . | safeHTML }} <br/>
+        {{ end }}
+
+        {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
+        {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
+        {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
+
+        <!-- {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
+        {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }} -->
+    </section>
+
+    {{ if .Site.Params.footer.RunDays.enabled }}
+        <script>
+            var s1 = "{{ .Site.Params.footer.RunDays.launchDate }}";
+            s1 = new Date(s1.replace(/-/g, "/"));
+            s2 = new Date();
+            var days = s2.getTime() - s1.getTime();
+            var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+            document.getElementById('days').innerHTML = number_of_days;
+        </script>
+    {{ end }}
+</footer>

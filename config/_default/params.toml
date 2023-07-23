@@ -2,19 +2,30 @@
 mainSections = ["post"]
 # Output page's full content in RSS.
 rssFullContent = true
-favicon = "/favicon.png"
+favicon = "icon.png"
 
 [footer]
-since = 2020
+since = 2023
 customText = ""
+ccLicenseIcon = true
+
+[footer.RunDays]
+enabled = true
+launchDate = "2023-07-22"
+
+[footer.articleTotalStatistics]
+enabled = true
+totalArticleWordEmoji = "⌨️"
+totalArticleEmoji = "📄"
 
 [dateFormat]
 published = "Jan 02, 2006"
 lastUpdated = "Jan 02, 2006 15:04 MST"
 
 [sidebar]
-emoji = "🍥"
-subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+# emoji = "🍥"
+emoji = "🌟"
+subtitle = "学习与思考"
 
 [sidebar.avatar]
 enabled = true
@@ -76,7 +87,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "giscus"
 
 [comments.disqusjs]
 shortname = ""
@@ -127,10 +138,10 @@ serverName = "cactus.chat"
 siteName = ""
 
 [comments.giscus]
-repo = ""
-repoID = ""
-category = ""
-categoryID = ""
+repo = "facsert/discussion"
+repoID = "R_kgDOIBKyeA"
+category = "Announcements"
+categoryID = "DIC_kwDOIBKyeM4CRf1a"
 mapping = ""
 lightTheme = ""
 darkTheme = ""

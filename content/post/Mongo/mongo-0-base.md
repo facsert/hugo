@@ -1,4 +1,13 @@
-# Mongo
+---
+title: Mongo 基础
+description: 
+date: 2022-07-18 15:02:16
+categories:
+    - Mongo 教程
+tags:
+    - Mongo
+    - Database
+---
 
 ## 示例
 

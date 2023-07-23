@@ -1,4 +1,12 @@
-# String
+---
+title: Bash 字符串
+description: 
+date: 2022-08-09 21:20:45
+categories:
+    - Bash 教程
+tags:
+    - Bash
+---
 
 ## 介绍
 

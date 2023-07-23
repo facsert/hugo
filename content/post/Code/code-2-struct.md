@@ -1,5 +1,12 @@
-
-# 简化代码控制流
+---
+title: 代码逻辑
+description: 
+date: 2022-11-03 21:27:49
+categories:
+    - 代码艺术
+tags:
+    - Code
+---
 
 - 分支
 - 边界

@@ -1,4 +1,12 @@
-# Code Readability Overview
+---
+title: 概述
+description: 
+date: 2022-11-01 21:27:49
+categories:
+    - 代码艺术
+tags:
+    - Code
+---
 
 ## 代码可读性
 
@@ -28,7 +36,7 @@
 ### 分支
 
 避免分支嵌套, 提前退出
-优先正向分支 
+优先正向分支
 
 ### 边界
 

@@ -1,4 +1,12 @@
-# Golang interface
+---
+title: Go 接口
+description: 
+date: 2023-03-06 19:23:13
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 ## 引申
 

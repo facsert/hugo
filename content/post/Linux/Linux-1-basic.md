@@ -1,4 +1,12 @@
-# Linux Basic
+---
+title: Linux 基础
+description: 
+date: 2022-07-27 22:49:44
+categories:
+    - Linux 教程
+tags:
+    - Linux
+---
 
 [linux 命令](https://www.linuxcool.com/)
 
