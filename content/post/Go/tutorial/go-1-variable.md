@@ -1,7 +1,7 @@
 ---
 title: Go 变量
 description: 
-date: 2023-03-06 19:21:13
+date: 2022-09-19 19:21:13
 categories:
     - Go 教程
 tags:
@@ -17,16 +17,12 @@ tags:
 
 - Go 变量命名要求以字母或下划线开头
 - 不可以使用 Go 中的 25 [关键字](#关键字)及 37 个[保留字](#保留字)
-- 变量要求声明类型使用类型推导
+- 变量要求声明类型或使用类型推导
 
 ### 变量声明
 
-变量声明使用关键字 `var`
-变量声明需要确定变量类型
-变量声明可以使用类型推导
-
 ```go
-var <variable name> <type> = <value>             // 变量定义, 最完整的变量定义
+var <variable name> <type> = <value>             // 使用 var 进行变量定义, 最完整的变量定义
 var age int = 18                                 // 声明变量类型并赋值
 
 var <variable name> <type>                       // 变量定义, 只定义变量名和类型, 变量默认为对应类型的初始值
@@ -55,19 +51,17 @@ str, num := "hello", 3                           // 多个变量声明并赋值
 
 ### 匿名变量
 
-- Go 中存在**未被使用**的变量会报错
-- Go 中存在**未被使用**的模块会报错
-
-需要使用匿名变量 "_" 处理后才能正常运行
+Go 中存在**未被使用**的变量会报错  
+使用匿名变量 "_" 处理无需使用的变量
 
 ```go
-var name string = "facser"
+var name string = "facsert"
 fmt.Println("hello world")
 > ./main.go:10:6: name declared but not used     // 变量 name 未使用, 报错
 
-name, _ := "facser", "variable"                  // 使用匿名变量, 忽略后一个值 
+name, _ := "facsert", "variable"                 // 使用匿名变量, 忽略后一个值 
 fmt.Println("hello ", name)
-> hello  facser
+> hello  facsert
 
 import {
    . "fmt"                                       // 使用模块时无需添加模块名称
@@ -79,8 +73,8 @@ Println("hello world")                           // 引入时使用 . 使调用 
 
 ## 常量
 
-常量声明时候必须赋值
-常量一旦声明就不可变化
+常量声明时候必须赋值  
+常量一旦声明就不可变化  
 
 ```go
 const e = 2.7182                                 // 常量声明必须要赋值, 且不可更改
@@ -95,9 +89,9 @@ const (                                          // 快速声明常量, a b 赋�
 
 ### iota
 
-iota 是定义常量时使用的自增关键字
-同 const 定义块互不干扰, 所有注释行和空行全部忽略
-从第 1 行开始，iota 从 0 逐行加 1
+iota 是定义常量时使用的自增关键字  
+同 const 定义块互不干扰, 所有注释行和空行全部忽略  
+从第 1 行开始，iota 从 0 逐行加 1  
 
 ```go
 const (
@@ -123,9 +117,9 @@ const (                                          // iota 插值
 
 ## 打印
 
-通过占位符替换值打印
-通过不同占位符可以打印变量不同属性值
-万能占用符 `%v` (`%#v %+v` 表示不同打印形式)
+- 通过占位符替换值打印  
+- 通过不同占位符可以打印变量不同属性值  
+- 万能占用符 `%v` (`%#v %+v` 表示不同打印形式)  
 
 ```go
 fmt.Printf(<str>, <string>, <int>, <bool> ...)   // 第一个参数是字符串,后接任意类型值, 占位符需与值数量对应 
@@ -168,5 +162,4 @@ Golang 中存在一些关键字和保留字， 不能作为变量名称
     Functions:   make  len  cap  new  append  copy  close  delete
                  complex  real  imag
                  panic  recover
-
 ```

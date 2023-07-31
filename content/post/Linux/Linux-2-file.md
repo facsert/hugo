@@ -1,25 +1,14 @@
 ---
 title: Linux 文件
 description: 
-date: 2022-07-18 15:02:16
+date: 2022-07-18 22:49:44
 categories:
     - Linux 教程
 tags:
     - Linux
 ---
 
-<!--
- * @FilePath: \文档\Learning\Linux\Linux-2-file.md
- * @Author: facser
- * @Date: 2022-07-18 15:02:16
- * @LastEditTime: 2022-08-08 21:44:26
- * @LastEditors: facser
- * @Description: 
--->
-
-# Linux File
-
-## 常用目录
+## 特殊目录文件
 
 |位置|全称|说明|
 |:-:|:-|:-|
@@ -31,8 +20,6 @@ tags:
 |`/home`|Home Directories      |普通用户的主目录|
 |`/proc`|Process Information   |虚拟文件系统, 以映射系统与进程在内存中的信息|
 
-### 特殊文件
-
 |位置|说明|
 |:-|:-|
 |`/etc/environment`                    |任意用户打开命令行加载, 系统环境变量|
@@ -43,7 +30,6 @@ tags:
 |`/etc/apt/source.list`                |(Ubuntu) apt 下载源文件|
 |`/var/cache/apt/archives/`            |(Ubuntu) apt 下载包安放位置|
 |`/ect/rc.d/rc.local`                  |系统启动时执行的文件(centos, redhat)|
-|`/lib/systemd/system/rc-local.service`|系统启动时执行的文件(Ubuntu)|
 
 ## 文件查看
 

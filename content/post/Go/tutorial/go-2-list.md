@@ -1,7 +1,7 @@
 ---
 title: Go 数组和切片
 description: 
-date: 2023-03-06 19:22:13
+date: 2023-02-07 19:22:13
 categories:
     - Go 教程
 tags:
@@ -13,11 +13,11 @@ tags:
 
 ## 数组
 
-数组是**确定数量**元素的集合, 数组元素类型可以不一致
-数组有容量和长度两个属性 `cap() len()` 查看数组属性
-数组的长度和容量始终相等 `length == capacity`
-数组元素可以修改, 但是数组长度和容量声明后就不能修改
-数组中未赋值的元素会使用类型的默认值
+- 数组是**确定数量**元素的集合, 数组元素类型可以不一致  
+- 数组有容量和长度两个属性 `cap() len()` 查看数组属性  
+- 数组的长度和容量始终相等 `length == capacity`  
+- 数组元素可以修改, 但是数组长度和容量声明后就不能修改  
+- 数组中未赋值的元素会使用类型的默认值  
 
 ```go
 strList := [3]string{"hey", "you", "world"}      // 定义长度为 3 , 元素类型为字符串的数组
@@ -38,53 +38,55 @@ cap(intList)                                     // 3 intList 容量为 3
 any 类型数组的元素可以是任意类型
 
 ```go
- var anyList [3]any                              // [<nil> <nil> <nil>] any 类型初始值是 nil
- anyList[0], anyList[1] = "he", 20000            // [he 2 <nil>]
- 
- anyList[0] = anyList[0].(string) + " llo"       // any 转实际类型操作需要显示声明
- anyList[1] = anyList[1].(int) + 1
-  
- for index, value := range anyList {
-    fmt.Printf("index: %v, value: %v  type: %T\n", index, value, value)
- }
+var anyList [3]any                               // [<nil> <nil> <nil>] any 类型初始值是 nil
+anyList[0], anyList[1] = "he", 20000             // [he 2 <nil>]
 
- > index: 0, value: hello type: string 
- > index: 1, value: 20000 type: int 
- > index: 2, value: <nil> type: <nil> 
+anyList[0] = anyList[0].(string) + " llo"        // any 转实际类型操作需要显示声明
+anyList[1] = anyList[1].(int) + 1
+
+for index, value := range anyList {
+    fmt.Printf("index: %v, value: %v  type: %T\n", index, value, value)
+}
+
+> index: 0, value: hello type: string 
+> index: 1, value: 20000 type: int 
+> index: 2, value: <nil> type: <nil> 
 ```
 
-### 数组值传递
+### 数组传递
 
-不同长度的数组是不同类型
-数组作为参数时需要确定数组长度
+数组赋值或作为函数参数时, 传递的都是数组的拷贝  
+函数若想修改源数组, 传参时需要传入数组地址  
 
 ```go
- array := [...]int{0, 1, 2, 3}
- 
- func (list [4]int) {                            // 数组作为参数时, 实参的长度和类型都必须和形参一致
-     for i:= 0; i<= len(list); i++ { list[i] = i }
-     fmt.Println(list)                           // [0 1 2 3] 传入函数的是数组的复制体, 不改变原先数组内容
- }(array)
- fmt.Println(array)                              // [0 0 0 0] 数组赋值和传参都会复制数组使用, 不改变原数组
 
- func (list *[4]int) {
-     for i:= 0; i<= len(list); i++ { list[i] = i }
-     fmt.Println(list)                           // &[0 1 2 3] 传入数组的地址, 修改地址对应的值相当于改变原数组
- }(&array)
- fmt.Println(array)                              // [0 1 2 3] 数组地址赋值和传参都会复制数组使用, 会改变原数组
+func three(list [3]int) {                        // 参数是数组值传递, 外部数组不变
+    list[0] = 6                                  
+}
+
+func third(list *[3]int) {                       // 参数是数组的指针类型, 修改会同步外部数组
+    list[0] = 9
+}
+
+source := [...]int{0,1,2}                       // 定义 source 数组
+copy := source                                  // copy 为 source 的拷贝, 互不影响
+third(&copy)                                    // 传入 copy 地址, 函数内的修改会同步给外部 copy 
+three(source)                                   // 传入 source 的拷贝, 函数内修改不影响外部 source 
+fmt.Printf("source: %v  copy: %v\n", source, copy)
+> source: [0 1 2]  copy: [9 1 2]
 ```
 
 ## 切片
 
-切片是一组**数量可变**的元素集合
-切片是引用类型, 切片本身不存储数据, 切片赋值传递的是地址
-切片会自动扩容以存储所有添加的数据
+- 切片是一组**数量可变**的元素集合  
+- 切片是引用类型, 切片本身不存储数据, 切片赋值传递的是地址  
+- 切片会自动扩容以存储所有添加的数据  
 
 ### 切片定义
 
-`var` 声明切片
-`make` 构造切片
-从数组截取切片
+`var` 声明切片  
+`make` 构造切片  
+从数组截取切片  
 
 ```go
 type slice struct {                              // 切片定义 $GOROOT/go/src/runtime/slice.go
@@ -101,8 +103,8 @@ fmt.Println(strSlice == nil)                     // true nil 切片与 nil 一�
 fmt.Println(intSlice == nil)                     // false 空切片与 nil 不一致
 ```
 
-切片也可以从数组中截取一段
-切片的长度为截取数据的数量, 切片容量为切片开端到数组结尾数量
+切片也可以从数组中截取一段  
+切片的长度为截取数据的数量, 切片容量为切片开端到数组结尾数量  
 
 ```go
 list := [...]int{0,1,2,3,4}
@@ -111,14 +113,14 @@ Printf("length: %d capacity: %d \n", len(slice), cap(slice))
 > length: 2 capacity: 4                          // 切片长度为截取元素数量, 容量切片开头元素到数组结尾
 ```
 
-声明的切片与从数组截取的切片完全一致, 声明的切片对应一个不可见的数组
-切片扩容超过切片容量时, 切片会指向一个更大容量的数组, 并把旧数组的数据复制到新数组
+声明的切片与从数组截取的切片完全一致, 声明的切片对应一个不可见的数组  
+切片扩容超过切片容量时, 切片会指向一个更大容量的数组, 并把旧数组的数据复制到新数组  
 
 ### 切片特性
 
-切片是引用类型, 切片不存储数据, 赋值或参数时传递的是地址
-切片扩容超过容量后会生成新的切片
-切片扩容未容量不会生成新的切片
+切片是引用类型, 切片不存储数据, 赋值或参数时传递的是地址  
+切片扩容超过容量后会生成新的切片  
+切片扩容未容量不会生成新的切片  
 
 ```go
 intSlice := []int{0,0,0,0}                       // 整数切片初始化, 长度容量均为 4
@@ -166,8 +168,8 @@ if cap > doublecap {                             // 所需容量大于两倍的�
 }
 ```
 
-Golang 扩容增速从 2 倍逐渐减少至 1.25 倍
-不同类型切片在扩容时候还有特殊的偏移增长机制
+Golang 扩容增速从 2 倍逐渐减少至 1.25 倍  
+不同类型切片在扩容时候还有特殊的偏移增长机制  
 
 ```go
 slice := make([]int, 80, 80)
@@ -211,10 +213,10 @@ for i:=0; i < 2049; i ++ {
  > slice: slice: [0 2 0 1 1]                     // append 插入数据
 ```
 
-切片索引 `0 <= index < length <= capacity`
-截取切片片段 list[low:high]
-切片索引不能为负数
-截取切片时以 list[low:high:max] 设定长度和容量
+切片索引 `0 <= index < length <= capacity`  
+截取切片片段 list[low:high]  
+切片索引不能为负数  
+截取切片时以 list[low:high:max] 设定长度和容量  
 
 ```go
 list := [...]int{0,1,2,3}

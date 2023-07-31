@@ -1,4 +1,13 @@
-# Gin
+---
+title: Gin
+description: 
+date: 2023-07-12 09:29:19
+toc: true
+categories:
+    - Go 教程
+tags:
+    - Go
+---
 
 [Gin官网](https://gin-gonic.com/zh-cn/)
 
@@ -135,4 +144,81 @@ func routeQuery(c *gin.Context) {                          // http://localhost:8
     m := c.Query("name")                                   // query 获取参数值
     c.String(200, "n: %s  m: %s", n, m)                    // n: jack  m: jack
 }
+```
+
+## Form 参数
+
+Form 表单数据存储在 POST 请求体中, 请求体格式: `application/x-www-form-urlencoded`
+
+```go
+func (c *Context) PostForm(key string) string
+func (c *Context) DefaultPostForm(key, defaultValue string) stri
+func (c *Context) GetPostForm(key string) (string, bool)
+func (c *Context) PostFormMap(key string) map[string]string
+
+
+func (c *Context) PostFormArray(key string) []string
+func (c *Context) GetPostFormArray(key string) ([]string, bool)
+func (c *Context) GetPostFormMap(key string) (map[string]string, bool)
+```
+
+```go
+func main() {
+    ...
+    engine.POST("/table/", table)                          // 注册路由和对应函数
+    ...
+}
+                                                   
+func table(c *gin.Context) {                               // curl -X 'POST' http://localhost:8080/table 
+    name := c.PostForm("name")                             // -H 'Content-Type: application/x-www-form-urlencoded'
+    age := c.PostForm("age")                               // -d 'name=lily&age=16'
+    c.String(200, "name:%s age:%s", name, age)             // name:lily age:16
+}
+```
+
+### JSON 参数
+
+JSON 数据存储在 POST 请求体中, 请求体 `application/json`, 获取原始数据后格式化转 map
+
+```go
+func main() {
+    ...
+    engine.POST("/raw/", rawData)                          // 注册路由和对应函数
+    ...
+}
+                                                   
+func rawData(c *gin.Context) {                             // curl -X 'POST' http://localhost:8080/raw 
+    data, _ := c.GetRawData()                              // -H 'Content-Type: application/json'
+    var m map[string]any                                   // -d '{name:lily, age:16}'
+    _ = json.Unmarshal(data, &m)
+    c.String(200, "Json: %#v", m)                          // Json: map[string]interface {}{"age":"14", "user":"petter"}
+}
+```
+
+### 参数绑定
+
+基于请求类型开发接口比较麻烦, 且多种参数都是 `key-valuse` 形式, 于是有了自适应解析
+定义一个结构体, 将请求体字段与结构体属性绑定, 通过 `ShouldBind` 赋值给结构体属性
+
+```go
+type Person struct {                                       // 结构体属性开头大写, 允许外部使用
+    Name string `json:"name" form:"name" binding:"required"`
+    Age  string `json:"age" form:"age" binding:"required"`
+}
+
+func main() {
+    engine := gin.Default()
+    engine.POST("/model", func(c *gin.Context) {           // Body {"age": "16","name": "lily"}
+        var p Person
+        err := c.ShouldBind(&p)                            // 自适应解析
+        if err != nil { c.String(400, "login fail") }
+        c.String(200, "login info: %#v", p)               // login info: main.Person{Name:"Bob", Age:"16"}
+    })
+}
+```
+
+### 文件上传
+
+```go
+
 ```

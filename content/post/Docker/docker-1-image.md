@@ -1,7 +1,7 @@
 ---
 title: Docker 镜像
 description: 
-date: 2023-03-06 19:35:13
+date: 2022-12-23 19:35:13
 categories:
     - Docker 教程
 tags:
@@ -11,16 +11,11 @@ tags:
 
 ## 介绍
 
-镜像是容器的模板, 所有容器都是通过容器创建的
-一个镜像可以生成任意数量的容器
-可以使用官方镜像或者自定义镜像
+镜像是容器的模板, 所有容器都通过镜像创建的  
+一个镜像可以生成任意数量的容器  
+可以使用官方镜像或者自定义镜像  
 
-## 镜像命令
-
-- 镜像列表
-- 镜像查找
-  
-### 镜像列表
+## 镜像列表
 
 ```bash
  $ docker images [OPTIONS] [REPOSITORY[:TAG]]
@@ -29,23 +24,20 @@ tags:
       --digests         Show digests
   -f, --filter filter   Filter output based on conditions provided
       --format string   Pretty-print images using a Go template
-      --no-trunc        Don\'t truncate output
+      --no-trunc        Do not truncate output
   -q, --quiet           Only show numeric IDs
-```
 
-```bash
  $ docker images
-
- > REPOSITORY                                                TAG                       IMAGE ID            CREATED             SIZE
- > mongo                                                     latest                    0850fead9327        12 days ago         700MB
- > pipreqs                                                   1.0                       d4633ae3a8af        2 months ago        1.08GB
+ > REPOSITORY  TAG     IMAGE ID      CREATED       SIZE
+ > mongo       latest  0850fead9327  12 days ago   700MB
+ > pipreqs     1.0     d4633ae3a8af  2 months ago  1.08GB
 ```
 
 |`REPOSITORY`|`TAG`|`IMAGE ID`|`CREATED`|`SIZE`|
 |:-|:-|:-|:-|:-|
 |镜像仓库源|镜像 tag|镜像 ID|镜像创建时间|镜像大小|
 
-### 拉取镜像
+## 拉取镜像
 
 - 官方镜像
 - 私有镜像
@@ -55,12 +47,11 @@ tags:
 
 ```bash
  $ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
-
  Options:
    -a, --all-tags                Download all tagged images in the repository
        --disable-content-trust   Skip image verification (default true)  
 
- $ docker pull ubuntu:20.04                                                    
+ $ docker pull ubuntu:20.04
 ```
 
 从私有仓库拉取镜像前需要先登录, 然后指定仓库中的镜像拉取  
@@ -68,8 +59,7 @@ tags:
 
 ```bash
  $ docker login [person registry]
-
- ❯ docker login registry.facser:8081
+ > docker login registry.facser:8081
  Username (facser): facser 
  Password: 
  Login Succeeded
@@ -77,7 +67,7 @@ tags:
  $ docker pull registry.facser:8081/ubuntu:20.04
 ```
 
-### 删除镜像
+## 删除镜像
 
 ```bash
  $ docker rmi [OPTIONS] IMAGE [IMAGE...]
@@ -86,32 +76,31 @@ tags:
        --no-prune   Do not delete untagged parents
 
  $ docker images 
- > REPOSITORY                                                TAG                       IMAGE ID            CREATED             SIZE
- > mongo                                                     latest                    0850fead9327        12 days ago         700MB
- > pipreqs                                                   1.0                       d4633ae3a8af        2 months ago        1.08GB
+ > REPOSITORY  TAG     IMAGE ID      CREATED       SIZE
+ > mongo       latest  0850fead9327  12 days ago   700MB
+ > pipreqs     1.0     d4633ae3a8af  2 months ago  1.08GB
 
  $ docker rmi 0850fead9327
 ```
 
-### 其它操作
+## 其它操作
 
-1. 查找镜像
-2. 保存镜像
-3. 镜像历史
-4. 修改镜像 tag
+- 查找镜像
 
 ```bash
  $ docker search [OPTIONS]  [IMAGE NAME]
- $ docker search ubuntu
 
- > NAME                             DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
- > ubuntu                           Ubuntu is a Debian-based Linux operating sys…   15368               [OK]                
- > websphere-liberty                WebSphere Liberty multi-architecture images …   290                 [OK]     
+ $ docker search ubuntu
+ > NAME               DESCRIPTION                                     STARS   OFFICIAL   AUTOMATED
+ > ubuntu             Ubuntu is a Debian-based Linux operating sys…   15368   [OK]                
+ > websphere-liberty  WebSphere Liberty multi-architecture images …   290     [OK]     
 ```
 
 |`NAME`|`DESCRIPTION`|`STARS`|`OFFICIAL`|`AUTOMATED`|
 |:-|:-|:-|:-|:-|
 |镜像名称|镜像名称|点赞数|是否官方|是否自动构建|
+
+- 保存镜像
 
 ```bash
  $ docker save [OPTIONS] IMAGE [IMAGE...]
@@ -121,28 +110,32 @@ tags:
  > -rw-r--r-- 1 root  root   23K Mar  7 21:10 mongo.tar.gz
 ```
 
+- 镜像历史
+
 ```bash
  $ docker history [OPTIONS] IMAGE
  $ docker history 0850fead9327
 
- > IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
- > 0850fead9327        12 days ago         /bin/sh -c #(nop)  CMD ["mongod"]               0B         
+ > IMAGE         CREATED      CREATED BY                          SIZE  COMMENT
+ > 0850fead9327  12 days ago  /bin/sh -c #(nop)  CMD ["mongod"]   0B         
 ```
+
+- 修改镜像 tag
 
 ```bash
  $  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
 
 ❯ docker images
-REPOSITORY                                                TAG                       IMAGE ID            CREATED             SIZE
-mongo-base                                                v1                        43761bd5b76d        41 hours ago        700MB
-mongo-base                                                v2                        43761bd5b76d        41 hours ago        700MB
+REPOSITORY  TAG  IMAGE ID      CREATED       SIZE
+mongo-base  v1   43761bd5b76d  41 hours ago  00MB
+mongo-base  v2   43761bd5b76d  41 hours ago  700MB
 
 $ docker tag mongo-base:v2  mongo-person:1.0.0                           
 
 ❯ docker images
-REPOSITORY                                                TAG                       IMAGE ID            CREATED             SIZE
-mongo-base                                                v1                        43761bd5b76d        41 hours ago        700MB
-mongo-person                                              1.0.0                     43761bd5b76d        41 hours ago        700MB
+REPOSITORY    TAG    IMAGE ID      CREATED       SIZE
+mongo-base    v1     43761bd5b76d  41 hours ago  700MB
+mongo-person  1.0.0  43761bd5b76d  41 hours ago  700MB
 ```
 
 ## 自定义镜像
@@ -160,8 +153,8 @@ mongo-person                                              1.0.0                 
  $ docker build -t nginx-base:v1 .                                             # "." 查找当前目录下的 Dockerfile 构建镜像
  $ docker build -t nginx-base:v1 -f /root/Dockerfile                           # 指定 Dockerfile 构建镜像
 
-REPOSITORY                                                TAG                       IMAGE ID            CREATED             SIZE
-nginx-base                                                v1                        43761bd5b76d        41 hours ago        700MB
+REPOSITORY  TAG  IMAGE ID      CREATED       SIZE
+nginx-base  v1   43761bd5b76d  41 hours ago  700MB
 ```
 
 ### Dockerfile
@@ -252,6 +245,7 @@ CMD /bin/bash                                                                  #
  $ docker run -it --name nginx-demo nginx-base echo "create mongo container"   # echo 命令覆盖 /bin/bash 指令
 ```
 
-注: 创建容器时, 若执行的命令在一定时间内能完成, 则容器在执行完命令就会关闭
-ex: echo "hello docker", 创建容器在执行完 echo 命令后便关闭改容器
-    /bin/bash, 该命令未收到 exit 退出前会一直执行, 该容器会保持运行状态
+注: 创建容器时, 若执行的命令在一定时间内能完成, 则容器在执行完命令就会关闭  
+
+- echo "hello docker", 创建容器在执行完 echo 命令后便关闭改容器
+- /bin/bash, 该命令未收到 exit 退出前会一直执行, 该容器会保持运行状态  

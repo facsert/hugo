@@ -1,7 +1,7 @@
 ---
 title: Linux 基础
 description: 
-date: 2022-07-27 22:49:44
+date: 2022-07-18 15:02:16
 categories:
     - Linux 教程
 tags:
@@ -10,9 +10,7 @@ tags:
 
 [linux 命令](https://www.linuxcool.com/)
 
-## 基础命令
-
-### 查看帮助信息
+## 帮助信息
 
 ```bash
  $ man <command>                                 # man (manual) 帮助手册, 查看命令的帮助手册
@@ -32,7 +30,7 @@ tags:
  > Display the current time in the given FORMAT, or set the system date.
 ```
 
-### 文件目录操作
+## 文件与路径
 
 ```bash
  $ pwd                                           # 查看当前目录
@@ -68,7 +66,7 @@ tags:
  > 'seed/'           -> delete
 ```
 
-### 查看执行过命令
+## 查看执行过命令
 
 ```bash
  $ history                                       # 查看执行的命令历史
@@ -78,7 +76,8 @@ tags:
  $ !!                                            # 执行上一条命令
  $ !<command key> + enter                        # 通过命令关键字和 enter 执行上一个包含关键字的命令
  
- $ control + r + <command key>                   # 快捷键进入历史列表, 通过关键字查找, enter 选择命令  
+ $ control + r + <command key>                   # 快捷键进入历史列表, 通过关键字查找, enter 执行命令
+ > (reverse-i-search)`echo $': echo $PWD         # `echo $' 是输入关键字, : 后为匹配的命令, 方向键选择命令但不执行
 ```
 
 ## 全局变量
@@ -102,20 +101,28 @@ tags:
  > 2166
 ```
 
-可以自定义环境变量以进行脚本间通信
-使用 export 临时修改环境变量
-修改 shell 启动文件(每次打开命令行均会执行)以永久设置环境变量
+修改 shell 启动文件(每次打开命令行均会执行)以永久设置环境变量, 使用 export 添加环境变量
 
 ```bash
-
 export <variable name>=<value>                   # 使用 export 临时修改环境变量, 执行的命令窗口关闭即失效
-
 export PATH=$PATH:/home/facsert                  # 将 /home/facsert 临时加入环境目录
-
 export LEARN=TRUE                                # 自定义新的环境变量, 脚本间可以通过自定义环境变量通信
-
 export PATH=$PATH:/home/facsert                  # 将命令写入 shell 启动文件(每次启动 shell 均会执行文件上命令)
 source ~/.bashrc                                 # 重新加载 shell 启动文件(~/.bashrc, ~/.zshrc )
+```
+
+bash 执行脚本: 新建子 shell 执行脚本, 脚本中的 export 的变量只在子 shell 生效, 脚本结束变量失效
+source 执行脚本: 脚本中的 export 变量加载入当前终端, 脚本结束仍然生效, 当前终端关闭后失效
+
+```bash
+ $ echo 'export linux="bash"' > bash.sh          # 生成脚本 bash.sh 
+ $ echo 'export linux="source"' > source.sh      # 生成脚本 source.sh
+
+ $ bash bash.sh && echo "linux: $linux"          # 使用 bash 添加 linux 变量
+ > linux:                                        # 脚本结束, 变量失效
+ 
+ $ source source.sh && echo "linux: $linux"      # 使用 source 执行脚本
+ > linux: source shell                           # 脚本结束, 变量仍然生效
 ```
 
 ## 系统相关
@@ -130,7 +137,7 @@ source ~/.bashrc                                 # 重新加载 shell 启动文�
  $ unmae -a                                      # 查看系统内核信息
  > inux facser 5.15.79.1-microsoft-standard-WSL2 #1 SMP Wed Nov 23 01:01:46 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
 
- $ ps -af                                        # 查看当前正在运行的所有进程
+ $ ps -ef                                        # 查看当前正在运行的所有进程
  > UID        PID  PPID  C STIME TTY          TIME CMD
  > root      1399    71  0 19:08 pts/4    00:00:00 /bin/zsh -i
  > root      9481   490  0 20:24 pts/4    00:00:00 bash -x a.sh
@@ -140,7 +147,9 @@ source ~/.bashrc                                 # 重新加载 shell 启动文�
  > [1]  + 9481 terminated  bash -x a.sh  
 ```
 
-## 启用 Root 用户
+## 用户
+
+### 启用 root 用户
 
 ```bash
  $ sudo passwd root
@@ -154,6 +163,20 @@ source ~/.bashrc                                 # 重新加载 shell 启动文�
  $ su <user>                                     # 切换用户
 ```
 
+### 创建用户
+
+```bash
+ $ useradd -m <username>                         # 创建用户, 并在 /home 生成用户目录
+ $ useradd -l <oldName> <newName>                # 更换用户名称
+
+ $ passwd <username>                             # 用户添加密码
+ > New password:                                 # 输入密码, 密码不显示
+ > Retype new password:                          # 重复输入密码, 密码不显示
+
+ $ userdel -r <username>                         # 删除用户
+ > no crontab for facsert
+```
+
 sudo 免密码
 
 ```bash
@@ -161,6 +184,7 @@ sudo 免密码
 
  > %sudo ALL=(ALL:ALL) ALL                       # 找到这一栏, 建议注释掉复制一行修改
  > %sudo ALL=(ALL:ALL) NOPASSWD:ALL              # 修改后, 强制保存退出
+ > <username> ALL=(ALL) NOPASSWD:ALL
 ```
 
 注: 该文件必须强制写入, 不能修改文件权限, 否则报错
@@ -213,9 +237,9 @@ sudo 免密码
 
 ### 输出重定向
 
-| 输出重定向 | 输出重定向追加写入 | 输入重定向 | 读取标准输入直至分界符号 |
-| :--------: | :----------------: | :--------: | :----------------------: |
-|   `>`   |       `>>`       |   `<`   |          `<<`          |
+|输出重定向|输出重定向追加写入|输入重定向|读取标准输入直至分界符号|
+|:-:|:-:|:-:|:-:|
+|   `>`   |      `>>`      |   `<`    |        `<<`         |
 
 ```bash
  $ <command> > <file>                            # 将命令返回值覆盖写入文件(原文件清空后写入)
@@ -240,9 +264,9 @@ sudo 免密码
  > EOF
 ```
 
-`&1`: 标准输出, 命令行输出, 能直接重定向至文件
-`&2`: 标准错误, 命令执行错误输出, 需要将错误重定向至标准输出再指向文件
-`/dev/null`: 空, 指代垃圾桶或回收站
+`&1`: 标准输出, 命令行输出, 能直接重定向至文件  
+`&2`: 标准错误, 命令执行错误输出, 需要将错误重定向至标准输出再指向文件  
+`/dev/null`: 空, 指代垃圾桶或回收站  
 
 ```bash
  $ mian                                          # 错误命令,显示错误输出
@@ -253,7 +277,6 @@ sudo 免密码
 
  $ data 2 > date.log                             # 命令行显示错误, 文件不显示, 错误输出无法直接重定向文件
  $ data > date.log 2>&1                          # 命令行不显示错误, 文件内显示, 错误输出重定向至文件
-
 ```
 
 ## 单词缩写
@@ -276,29 +299,26 @@ sudo 免密码
 
 ### 符号
 
-|  符号  | 含义                   |
-| :----: | :--------------------- |
-|   `   | `                      |
-| `>` | 输出重定向, 覆盖       |
-| `>>` | 输出重定向, 追加       |
-| `&` | 程序放入后台执行       |
-| `#` | 注释                   |
-| `&&` | 且, 左边成功才执行右边 |
-|   `   |                        |
+|符号| 含义                  |
+|:-:|:-|
+|`>` | 输出重定向, 覆盖       |
+|`>>`| 输出重定向, 追加       |
+|`&` | 程序放入后台执行       |
+|`#` | 注释                  |
+|`&&`| 且, 左边成功才执行右边 |
 
 ### 正则表达式
 
-|    符号    | 模式                          |
-| :--------: | :---------------------------- |
-|   `^`   | 锚定行首                      |
-|   `$`   | 锚定行尾                      |
-|   `()`   | 捆绑成一个整体                |
-|   `.`   | 任意一个字符                  |
-|   `?`   | 前面字符或模式 0 或 1 次      |
-|  `{m}`  | 前面字符或模式 m 次           |
-| `{m, n}` | 前面字符或模式次数在 m n 之间 |
-|   `+`   | 前面字符或模式 1 次或多次     |
-|   `*`   | 前面字符或模式任意次          |
-|     `     | `                             |
-|   `[]`   | 括号范围内均可                |
-|  `[^]`  | 括号范围之外均可              |
+|  符号   | 模式                      |
+|:-:|:-|
+|`^`     | 锚定行首                   |
+|`$`     | 锚定行尾                   |
+|`()`    | 捆绑成一个整体             |
+|`.`     | 任意一个字符               |
+|`?`     | 前面字符或模式 0 或 1 次    |
+|`{m}`   | 前面字符或模式 m 次         |
+|`{m, n}`| 前面字符或模式次数在 m n 之间|
+|`+`     | 前面字符或模式 1 次或多次    |
+|`*`     | 前面字符或模式任意次         |
+|`[]`    | 括号范围内均可              |
+|`[^]`   | 括号范围之外均可            |

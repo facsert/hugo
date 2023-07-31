@@ -1,7 +1,7 @@
 ---
 title: Go Map
 description: 
-date: 2023-04-19 19:21:24
+date: 2023-03-23 19:21:24
 categories:
     - Go 教程
 tags:
@@ -10,12 +10,12 @@ tags:
 
 ## Map
 
-map 是一组**无序**的键值对的集合
+map 是一组**无序**的键值对的集合  
 map 是引用类型, 赋值时传递的是地址
 
 ### map 初始化
 
-map 只声明不初始化取零值 nil, nil map 只能读不能写入
+map 只声明不初始化取零值 nil, nil map 只能读不能写入  
 map 初始化未添加值是 empty map, empty map 不等于 nil map
 
 ```go
@@ -41,7 +41,7 @@ Printf("str map length %v\n", len(strMap))
 
 ### map 传递
 
-map 将引用拷贝了一份给赋值变量, 两个引用指向同一个数据
+map 将引用拷贝了一份给赋值变量, 两个引用指向同一个数据  
 map 作为函数参数传递时也是拷贝一份引用进入函数
 
 ```go
@@ -62,7 +62,7 @@ Printf("copyMap %#v\n", copyMap)
 
 ### map 遍历
 
-map 使用 range 遍历 map
+map 使用 range 遍历 map  
 map 值拷贝也需要使用 range 遍历, copy 只适用于切片
 
 ```go

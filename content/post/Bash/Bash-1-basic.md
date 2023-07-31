@@ -8,16 +8,6 @@ tags:
     - Bash
 ---
 
-<!--
- * @FilePath: \文档\Learning\BASH\BASH-1-basic.md
- * @Author: facser
- * @Date: 2022-08-09 21:20:45
- * @LastEditTime: 2022-08-14 13:40:09
- * @LastEditors: facser
- * @Description: 
--->
-# BASH Basic
-
 [BASH 教程](https://wangdoc.com/bash/)
 
 BASH 基础语法
@@ -25,13 +15,13 @@ BASH 基础语法
 ```bash
  $ command <option> <args>                       # shell 命令一般格式
 
- $ cat -n log.txt                                # 命令 cat, 选项 -n, 参数 log.txt
+ $ cat -n log.txt                                # 读取 log.txt 文件, 命令 cat, 选项 -n, 参数 log.txt
  > 1 1st 
  > 2 2nd
  > 3 3rd
 
- $ command | <command> | <command>
- $ cat log.txt | grep "3rd"
+ $ command | <command> | <command>               # 命令管道
+ $ cat log.txt | grep "3rd"                      # 管道前的值作为管道后命令的参数
  > 3rd
 ```
 
@@ -203,7 +193,7 @@ BASH 环境中的变量, 系统自定义的全局变量, 变量名全为大写, 
 ## 常用转义符号
 
 |符号|含义|
-|:--:|:--:|
+|:--|:--|
 |`\n`|换行符|
 |`\r`|回车, 回到行首|
 |`\t`|Tab 键|
@@ -212,7 +202,7 @@ BASH 环境中的变量, 系统自定义的全局变量, 变量名全为大写, 
 ## 常用环境变量
 
 |变量|含义|
-|:-:|:-:|
+|:-|:-|
 |`HOME`|当前用户目录|
 |`USER`|当前用户|
 |`SHELL`|当前使用的 shell|
@@ -222,7 +212,7 @@ BASH 环境中的变量, 系统自定义的全局变量, 变量名全为大写, 
 ## 特殊变量
 
 |变量|含义|
-|:-:|:-:|
+|:-|:-|
 |`$?`|上一个命令的返回值|
 |`$!`|上一个命令的 pid|
 |`$$`|当前 shell 进程|

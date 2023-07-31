@@ -1,7 +1,7 @@
 ---
 title: Python eval exec
 description: 
-date: 2022-09-04 22:22:31
+date: 2022-08-30 22:22:31
 categories:
     - Python 技巧
 tags:

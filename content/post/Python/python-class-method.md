@@ -17,8 +17,6 @@ tags:
  * @Description: 
 -->
 
-# python class method
-
 ## 引申
 
 开发的时候用到 logging 模块, 重新封装后发现使用有点麻烦

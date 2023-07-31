@@ -1,7 +1,7 @@
 ---
 title: Go 泛型
 description: 
-date: 2023-03-06 19:25:13
+date: 2022-10-20 19:25:13
 categories:
     - Go 教程
 tags:

@@ -33,21 +33,21 @@ Golang 基本类型有
 
 ### 整形类型转换
 
-不同整形之间不可以进行运算, 需要转换为同一类型运算
-数字可以与任何整形运算, 结果为变量类型
+不同整形之间不可以进行运算, 需要转换为同一类型运算  
+数字可以与任何整形运算, 运算结果类型不变
 
 ```go
 var num8 int8 = 8
 var num16 int16 = 16
 
 Printf("type: %T\n", 3)
-Printf("num8 add: %d \n",num8 + 3)
+Printf("num8 add: %d \n",num8 + 3)               // 数字可直接与 int8 类型数据运算
 Println("num16 add: %d \n",num16 + 3)
 > type: int
-> num8 add:11 type:int8 
+> num8 add:11 type:int8                          // 结果任然为 int8
 > num8 add:19 type:int16
 
-Println("num16 add num8: %d \n",num16 + num16)
+Println("num16 add num8: %d \n",num16 + num16)   // int8 与 int16 不能直接运算
 > ./main.go:42:34: invalid operation: num16 + num8 (mismatched types int16 and int8)
 ```
 
@@ -76,14 +76,14 @@ hexadecimal := 0x11                              // int hexadecimal = 17  16 进
 
 var ten int = 10
 fmt.Printf("%d \n", ten)                         // 10
-fmt.Printf("%b \n", ten)                         // 1010  占位符%b表示二进制
+fmt.Printf("%b \n", ten)                         // 1010 占位符%b表示二进制
 
 var eight int = 077                              // 八进制  以0开头
-fmt.Printf("%o \n", eight)                       // 77
+fmt.Printf("%o \n", eight)                       // 77 占位符%o表示八进制
 
 var sixteen int = 0xff                           // 十六进制  以0x开头
-fmt.Printf("%x \n", sixteen)                     // ff
-fmt.Printf("%X \n", sixteen)                     // FF
+fmt.Printf("%x \n", sixteen)                     // ff 占位符%x表示十六进制
+fmt.Printf("%X \n", sixteen)                     // FF 占位符%X表示十六进制
 ```
 
 ### 类型最大值和最小值
@@ -126,9 +126,9 @@ Printf("pi: %f \n", pi)                          // pi: 3.141593
 
 ## 布尔类型
 
-布尔值: true false
-布尔值不能进行数字运算
-布尔类型的值默认值是 false
+布尔值: true false  
+布尔值不能进行数字运算  
+布尔类型的值默认值是 false  
 
 ```go
 yes, no := true, false
@@ -136,10 +136,10 @@ yes == no                                        // false
 yes || no                                        // true 逻辑或
 yes && no                                        // false 逻辑且
 
-love, happy := true, false
+love, happy := true, false                       // 布尔运算的哲学
 !love                                            // false  not love is false
-love == happy                                    // false  love equal happy is false 
-love != happy                                    // true   love not equal happy
+love == happy                                    // false  love equal to happy is false 
+love != happy                                    // true   love not equal to happy is true
 happy && love                                    // false  love and happy is not true
 happy || love                                    // true   love or happy is true 
 ```
@@ -148,8 +148,8 @@ happy || love                                    // true   love or happy is true
 
 ### 字符
 
-byte(uint8) ACSII 表中的一个字符, 底层是一个 0-255 数字(数字与 ACSII 表字符绑定)
-rune(int32) Unicode 编码中的一个字符(包含世界大部分语言字符), Unicode 表包含 ACSII 表
+byte(uint8) ACSII 表中的一个字符, 底层是一个 0-255 数字(数字与 ACSII 表字符绑定)  
+rune(int32) Unicode 编码中的一个字符(包含世界大部分语言字符), Unicode 表包含 ACSII 表  
 
 ```go
 var a byte = 'D'                                  // 'D' 在 ACSII 中第 68 位
@@ -169,8 +169,8 @@ Printf("unicode length: %d\n", len("中文"))
 
 ### 字符串
 
-Golang 字符串本质是单个字符的集合, 单个字符的本质是数字, 通过不同规范和字符对应(ACSII 和 Unicode)
-单个 acsii 和 unicode 字符长度不同, 使用 range 遍历
+Golang 字符串本质是单个字符的集合, 单个字符的本质是数字, 通过不同规范和字符对应(ACSII 和 Unicode)  
+单个 acsii 和 unicode 字符长度不同, 使用 range 遍历  
 
 ```go
 var acsii, unicode string = "str", "中文"
@@ -213,7 +213,7 @@ fmt.Printf("Type: %T, value: %v\n", string(strRune), string(strRune))
 > Type: string, value: 文                         // rune 转 string
 ```
 
-unicode 数值范围内任意数字可以转化为对应的字符
+unicode 数值范围内任意数字可以转化为对应的字符  
 负数不在 unicode 数值范围内, 负数转化后显示一致, 未能查询到相关解释
 
 ```go

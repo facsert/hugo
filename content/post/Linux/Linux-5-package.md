@@ -1,14 +1,12 @@
 ---
 title: Linux 包管理
 description: 
-date: 2022-07-18 15:02:16
+date: 2022-08-19 15:02:16
 categories:
     - Linux 教程
 tags:
     - Linux
 ---
-
-# Linux package
 
 ## 包管理工具
 

@@ -1,23 +1,12 @@
 ---
 title: Linux 系统
 description: 
-date: 2022-07-18 15:02:16
+date: 2022-08-08 15:02:16
 categories:
     - Linux 教程
 tags:
     - Linux
 ---
-
-<!--
- * @FilePath: \文档\Learning\Linux\Linux-4-system.md
- * @Author: facser
- * @Date: 2022-07-18 15:02:16
- * @LastEditTime: 2022-08-08 22:29:37
- * @LastEditors: facser
- * @Description: 
--->
-
-# Linux system
 
 ## 系统
 

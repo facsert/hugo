@@ -1,16 +1,14 @@
 ---
 title: Docker 容器
 description: 
-date: 2023-03-06 19:31:13
+date: 2022-12-23 20:37:13
 categories:
     - Docker 教程
 tags:
     - Docker
 ---
 
-## 容器操作
-
-### 容器列表
+## 容器列表
 
 ```bash
  $ docker ps [OPTIONS]                                                         # 显示容器列表及相关信息
@@ -30,18 +28,16 @@ ee0c15a3a0ee   mongo         "docker-entrypoint.s…"   44 hours ago   Up 44 hou
 |容器 ID|生成容器的镜像|启动容器时运行的命令|容器创建时间|容器状态|机器端口->容器端口|容器名称|容器大小|
 
 ```bash
- docker stop    <CONTAINER ID | NAMES>                                         # 关闭容器
- docker start   <CONTAINER ID | NAMES>                                         # 启动容器
- docker kill    <CONTAINER ID | NAMES>                                         # 杀死容器进程
- docker restart <CONTAINER ID | NAMES>                                         # 重启容器
- docker rm -f   <CONTAINER ID | NAMES>                                         # 强制删除容器(运行中的容器也会删除) 
+ $ docker stop    <CONTAINER ID | NAMES>                                       # 关闭容器
+ $ docker start   <CONTAINER ID | NAMES>                                       # 启动容器
+ $ docker kill    <CONTAINER ID | NAMES>                                       # 杀死容器进程
+ $ docker restart <CONTAINER ID | NAMES>                                       # 重启容器
+ $ docker rm -f   <CONTAINER ID | NAMES>                                       # 强制删除容器(运行中的容器也会删除) 
 
- docker logs    <CONTAINER ID | NAMES>                                         # 显示指定容器 log
- docker top     <CONTAINER ID | NAMES>                                         # 列出指定容器进程
- docker port    <CONTAINER ID | NAMES>                                         # 显示容器的端口映射
-```
+ $ docker logs    <CONTAINER ID | NAMES>                                       # 显示指定容器 log
+ $ docker top     <CONTAINER ID | NAMES>                                       # 列出指定容器进程
+ $ docker port    <CONTAINER ID | NAMES>                                       # 显示容器的端口映射
 
-```bash
  $ docker exec [OPTIONS] CONTAINER COMMAND [ARG...]                            # 进入容器执行命令(容器在运行状态才可进入)
  $ docker exec -it mongo-slave1 bash                                           # 以交互式进入 mongo-slave1 容器,执行 bash, 并留在容器中(exit 退出容器)
  $ docker exec mongo-slave1 mongosh --version                                  # 进入 mongo-slave1 容器查看 mongosh 版本并退出
@@ -61,7 +57,7 @@ Options:
   -l, --label list                                                             # 给容器添加标签
   --name <name>                                                                # 设置容器名称，否则会自动命名
   --network string                                                             # 将容器加入指定网络
-  -p, --publish list                                                           # 设置容器映射端口
+  -p, --publish list                                                           # 设置容器映射端口 <server port>:<docker port>
   -P,--publish-all                                                             # 将容器设置的所有exposed端口进行随机映射
   --restart <restart option>                                                   # 容器重启策略，默认为不重启
     on-failure[:max-retries]：                                                 # 在容器非正常退出时重启，可以设置重启次数。
@@ -70,17 +66,17 @@ Options:
   --rm                                                                         # 容器退出时则自动删除容器
   -t, --tty                                                                    # 分配一个伪终端
   -u, --user <username>                                                        # 运行用户或者UID
-  -v, --volume list                                                            # 数据挂载
+  -v, --volume list                                                            # 容器目录映射到主机目录 <server path>:<docker path>
   -w, --workdir <work path>                                                    # 容器的工作目录
   --privileged                                                                 # 给容器特权
-
 ```
 
 ```bash
  $ docker run -it --rm ubuntu bash                                             # 以 ubuntu 镜像创建容器(自动命名), 创建后执行 bash, 退出后自动删除容器 
- $ docker run -itd -p 8589:27017 --name demo mongo                             # 以 mongo 镜像创建名为 demo 容器, 后台运行, 机器 8589 端口映射到容器 27017 端口
+ $ docker run -itd -p 8589:27017 --name demo mongo                             # 以 mongo 镜像创建 demo 容器, 后台运行, 机器 8589 端口映射到容器 27017 端口
+ $ docker run -it --rm -v /root/docker:/root debian bash                       # debian 镜像创建容器, 容器 /root 目录映射到主机 /root/docker 目录
 
-❯ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
-ee0c15a3a0ee        mongo               "docker-entrypoint.s…"   13 seconds ago      Up 11 seconds       0.0.0.0:8589->27017/tcp   demo
+$ docker ps
+CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS                     NAMES
+ee0c15a3a0ee  mongo  "docker-entrypoint.s…"  13 seconds ago  Up 11 seconds  0.0.0.0:8589->27017/tcp   demo
 ```
