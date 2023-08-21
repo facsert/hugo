@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git 教程 on Facsert</title><link>https://facsert.github.io/categories/git-%E6%95%99%E7%A8%8B/</link><description>Recent content in Git 教程 on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 13 Jul 2022 21:23:54 +0000</lastBuildDate><atom:link href="https://facsert.github.io/categories/git-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Git 远端仓库</title><link>https://facsert.github.io/p/git-%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93/</link><pubDate>Wed, 13 Jul 2022 21:23:54 +0000</pubDate><guid>https://facsert.github.io/p/git-%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
+&lt;p>远程仓库是托管在网上的项目版本库, 需要在代码平台上创建, 常见的如&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/" target="_blank" rel="noopener"
+>Github&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://about.gitlab.com/" target="_blank" rel="noopener"
+>Gitlab&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://gitee.com/" target="_blank" rel="noopener"
+>Gitee&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>可以通过两种方式添加远程仓库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git clone &amp;lt;Repository url&amp;gt; &lt;span class="c1"># 克隆远端仓库到本地, 自动绑定链接对应的仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git remote -v &lt;span class="c1"># 查看本地仓库关联的所有远端仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; origin git@github.com:facser/Learning.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; origin git@github.com:facser/Learning.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git remote add origin &amp;lt;Repository url&amp;gt; &lt;span class="c1"># 将远程仓库命名为 origin 并关联本地仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>一个本地仓库可以关联多个远程仓库&lt;/li>
+&lt;li>本地仓库可以提交代码到任意一个已关联的远程仓库&lt;/li>
+&lt;li>使用克隆后, 该远程仓库默认被命名为 origin&lt;/li>
+&lt;/ul>
+&lt;h2 id="gitignore">.gitignore&lt;/h2>
+&lt;p>忽略指定文件, 不对其追踪和提交, 文件名固定为 &lt;code>.gitignore&lt;/code>, 项目内可创建&lt;strong>多个&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ cat .gitignore
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; *.pyc &lt;span class="c1"># 忽略当前项目内所有 .pyc 结尾的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; !main.pyc &lt;span class="c1"># 强制跟踪所有 main.pyc&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /*.log &lt;span class="c1"># 忽略当前目录下 .log 结尾文件, 不影响上层的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; temp/ &lt;span class="c1"># 忽略整个项目内所有 temp 文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /lib/*.pyc &lt;span class="c1"># 忽略当前 lib 目录 下一级的 pyc 文件, lib 下多层目录不受影响 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; lib/**/.pyc &lt;span class="c1"># 忽略项目内所有 lib 文件夹内的 pyc 文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="ssh-key-密钥">SSH key 密钥&lt;/h2>
+&lt;p>本地仓库推送代码到远端时, git 会要求用户输入用户名和密码, 设置 ssh key 即可&lt;strong>免密码&lt;/strong>推送&lt;/p>
+&lt;h3 id="生成密钥">生成密钥&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">密钥&lt;/th>
+&lt;th style="text-align:center">linux&lt;/th>
+&lt;th style="text-align:center">windows&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">id_rsa (私钥)&lt;/td>
+&lt;td style="text-align:center">&lt;code>/root/.ssh/id_rsa&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>C:\Users\&amp;lt;user&amp;gt;\.ssh&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">id_rsa.pub (公钥)&lt;/td>
+&lt;td style="text-align:center">&lt;code>/root/.ssh/id_rsa.pub&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>C:\Users\&amp;lt;user&amp;gt;\.ssh&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>生成两个密钥文件, 将&lt;strong>公钥&lt;/strong>放到代码托管平台的账号设置中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ ssh-keygen &lt;span class="c1"># 自动生成密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ssh-keygen -t rsa -C &lt;span class="s2">&amp;#34;key message&amp;#34;&lt;/span> &lt;span class="c1"># 生成 rsa 类型带 key 注释信息的密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat ~/.ssh/id_rsa.pub &lt;span class="c1"># 公钥以 ssh-rsa 开头, 注释信息结尾&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ssh-rsa xxx....xxx key message
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>密钥由系统生成, 放入用户设置, 所以是系统和账户绑定&lt;/li>
+&lt;li>系统下的本地仓库推送代码到该账户使用 ssh 链接时即可免密&lt;/li>
+&lt;/ul></description></item><item><title>Git 本地仓库</title><link>https://facsert.github.io/p/git-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/</link><pubDate>Sun, 10 Jul 2022 21:13:54 +0000</pubDate><guid>https://facsert.github.io/p/git-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
+&lt;p>本地仓库是&lt;/p>
+&lt;h2 id="创建">创建&lt;/h2>
+&lt;p>使用 &lt;code>git init&lt;/code> 创建本地仓库, 在创建位置会创建 .git 隐藏文件夹
+仓库所有配置及版本文件均保存在 .git 文件夹中&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ mkdir -p ~/Desktop/repository &lt;span class="c1"># 在左面创建 repository 文件夹 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> ~/Desktop/repository &lt;span class="c1"># 进入 repository 文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git init &lt;span class="c1"># 在 repository 目录下创建本地仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Initialized empty Git repository in /root/Desktop/repository/.git/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -a &lt;span class="c1"># 查看创建的隐藏文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; . .. .git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="状态">状态&lt;/h2>
+&lt;blockquote>
+&lt;p>git-status - Show the working tree status&lt;/p>
+&lt;/blockquote>
+&lt;p>git 用一下3种描述表示&lt;strong>文件状态&lt;/strong>, 进一步可划分为&lt;strong>未追踪&lt;/strong>和&lt;strong>已追踪&lt;/strong>
+工作区 &amp;ndash; &lt;code>git add&lt;/code> &amp;ndash;&amp;gt; 暂存区 &amp;ndash; &lt;code>git commit&lt;/code> &amp;ndash;&amp;gt; 本地仓库&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">区域&lt;/th>
+&lt;th style="text-align:center">描述&lt;/th>
+&lt;th style="text-align:center">状态&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>Untracked files&lt;/code>&lt;/td>
+&lt;td style="text-align:center">新增文件&lt;/td>
+&lt;td style="text-align:center">文件处于工作区, 未被追踪&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>Changes not staged for commit&lt;/code>&lt;/td>
+&lt;td style="text-align:center">有新修改的文件&lt;/td>
+&lt;td style="text-align:center">文件处于工作区, 新修改未被追踪&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>Changes to be committed&lt;/code>&lt;/td>
+&lt;td style="text-align:center">无修改的文件&lt;/td>
+&lt;td style="text-align:center">文件处于暂存区, 修改已追踪&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git status &lt;span class="c1"># 查看本地仓库状态, 有新增文件未被记录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Untracked files: &lt;span class="c1"># 新增文件 first_file.txt&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; first_file.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Changes to be committed: &lt;span class="c1"># ADD 新文件 first_file.txt, 待 commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; new file: first_file.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Changes not staged &lt;span class="k">for&lt;/span> commit: &lt;span class="c1"># 已被记录文件 first_file.txt，又有新修改但未被记录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; modified: first_file.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-add - Add file contents to the index&lt;/p>
+&lt;/blockquote>
+&lt;p>追踪本地仓库的修改, 追踪的文件内容进入暂存区, 等待新的 ADD 覆盖或者 commit 生成版本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git add &amp;lt;file&amp;gt; &lt;span class="c1"># 记录指定文件修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git add . &lt;span class="c1"># 记录当前目录下所有文件修改(上层文件未记录)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git add --all &lt;span class="c1"># 记录仓库目录下所有文件修改(推荐)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git status &lt;span class="c1"># 新增文件已被记录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Changes not staged &lt;span class="k">for&lt;/span> commit: &lt;span class="c1"># 文件被修改但未被记录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> modified: first_file.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git add --all &lt;span class="c1"># 记录 repository 目录下所有修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Changes to be committed: &lt;span class="c1"># 文件修改已被记录, 待 commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> modified: first_file.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-commit - Record changes to the repository&lt;/p>
+&lt;/blockquote>
+&lt;p>将暂存区的文件内容生成可回溯的版本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git commit -m &lt;span class="s2">&amp;#34;&amp;lt;commit message&amp;gt;&amp;#34;&lt;/span> &lt;span class="c1"># message 较短描述可直接填写&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit -s &lt;span class="c1"># message 较长, 使用默认编辑器编辑 commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit --amend &lt;span class="c1"># 在上次 commit 基础上修改, 并替换原来的 commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit --amend --no-edit &lt;span class="c1"># 使用上次 commit 且不修改, 即本次 commit 和上次合并&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git checkout --&amp;lt;file&amp;gt; &lt;span class="c1"># 撤销工作区的修改, 回到上次 commit 状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Changes to be committed: &lt;span class="c1"># 文件修改已被记录, 待 commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> modified: first_file.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit -m &lt;span class="s2">&amp;#34;first commit&amp;#34;&lt;/span> &lt;span class="c1"># 暂存区文件内容生成版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">1&lt;/span> file changed, &lt;span class="m">1&lt;/span> insertion&lt;span class="o">(&lt;/span>+&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git status &lt;span class="c1"># 修改已保存生成版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; nothing to commit, working tree clean
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git log &lt;span class="c1"># 查看 commit 版本信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; commit 38c1df5cf2bed00f5b7365ee4913916e25238009 &lt;span class="o">(&lt;/span>HEAD -&amp;gt; master&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Author: facser &amp;lt;root@facser&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Date: Mon Feb &lt;span class="m">13&lt;/span> 20:42:18 &lt;span class="m">2023&lt;/span> +0800
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> first commit &lt;span class="c1"># 本次版本描述 &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-log - Show commit logs&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git log &lt;span class="c1"># 显示所有 commit 的版本的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git log --pretty&lt;span class="o">=&lt;/span>oneline &lt;span class="c1"># 显示 commit 版本的简略信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 38c1df5cf2bed00f5b7365ee4913916e25238009 &lt;span class="o">(&lt;/span>HEAD -&amp;gt; master&lt;span class="o">)&lt;/span> first commit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; d2716b6e88567c3fdfe390580d48ca82b581c04f &lt;span class="o">(&lt;/span>HEAD -&amp;gt; master&lt;span class="o">)&lt;/span> add file and line
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-reset - Reset current HEAD to the specified state&lt;/p>
+&lt;/blockquote>
+&lt;p>通过 &lt;code>git log&lt;/code> 定位回退的版本, 使用 &lt;code>git reset&lt;/code> 执行回退&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git reset --hard HEAD &amp;lt;commit number&amp;gt; &lt;span class="c1"># 回到指定 commit 版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git reset --hard HEAD^ &lt;span class="c1"># 回退到上个版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; HEAD is now at d2716b6 add file and line
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-diff - Show changes between commits, commit and working tree, etc&lt;/p>
+&lt;/blockquote>
+&lt;p>未被追踪(not ADD)和已追踪(ADD)内容进行比对, 已被追踪则不比对&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git diff
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; diff --git a/file b/file &lt;span class="c1"># file 已 ADD 和未 ADD 比对&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; index 08fe272..06fcdd7 &lt;span class="m">100644&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; --- a/file &lt;span class="c1"># - 开头是被追踪的内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; +++ b/file &lt;span class="c1"># + 开头是未被追踪的内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; @@ -1 +1,2 @@
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; first line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; +second line &lt;span class="c1"># 新增行&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>git-push - Update remote refs along with associated objects&lt;/p>
+&lt;/blockquote>
+&lt;p>将本地所有新增的 commit 推送到远端仓库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git push origin master &lt;span class="c1"># 提交所有 commit 到 origin 仓库的 master 分支&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git push -u origin master &lt;span class="c1"># 将 origin 仓库 master 分支作为拉取和推送的默认值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git push &amp;lt;repo&amp;gt; &amp;lt;branch&amp;gt; &lt;span class="c1"># 使用过 -u 后可以省略仓库和分支&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; To github.com:facser/Learning.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 309ae9f..74beac3 main -&amp;gt; main
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Git 基础</title><link>https://facsert.github.io/p/git-%E5%9F%BA%E7%A1%80/</link><pubDate>Fri, 08 Jul 2022 21:08:54 +0000</pubDate><guid>https://facsert.github.io/p/git-%E5%9F%BA%E7%A1%80/</guid><description>&lt;h2 id="git-介绍">Git 介绍&lt;/h2>
+&lt;blockquote>
+&lt;p>Git is a free and open source distributed version control system designed to
+handle everything from small to very large projects with speed and efficiency&lt;/p>
+&lt;/blockquote>
+&lt;p>Git 是一个开源的文件版本控制器&lt;/p>
+&lt;ul>
+&lt;li>在云端仓库, 本地仓库, 任意位置传输文件&lt;/li>
+&lt;li>记录代码和文件的改动及状态&lt;/li>
+&lt;li>回溯到已记录的某个节点&lt;/li>
+&lt;li>分布式版本控制器&lt;/li>
+&lt;/ul>
+&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>&lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>Git 官网&lt;/a>下载安装&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git --version &lt;span class="c1"># 检查 git 是否安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; git version 1.8.3.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum install git &lt;span class="c1"># Centos Redhat 系统使用 yum 安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sudo apt-get install git &lt;span class="c1"># Ubuntu Debian 系统使用 apt&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
+&lt;blockquote>
+&lt;p>git-config - Get and set repository or global options&lt;/p>
+&lt;/blockquote>
+&lt;p>将文件或代码上传云端时, 需要设置用户名和邮箱, Git 用户和邮箱有 3 个等级&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">leve&lt;/th>
+&lt;th style="text-align:center">file&lt;/th>
+&lt;th style="text-align:left">introduce&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>system&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>/etc/gitconfig&lt;/code>&lt;/td>
+&lt;td style="text-align:left">系统上每一个用户及他们仓库的通用配置(不常用)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>global&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>~/.gitconfig&lt;/code>&lt;/td>
+&lt;td style="text-align:left">当前系统用户, 这会对你系统上所有的仓库生效&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>local&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>.git/config&lt;/code>&lt;/td>
+&lt;td style="text-align:left">在仓库内默认使用 local 配置(优先级最高)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="查看-git-配置">查看 git 配置&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git config --list --show-origin &lt;span class="c1"># 查看所有配置及所在的文件, 早期版本不支持&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --system --list &lt;span class="c1"># 查看系统的 git 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global --list &lt;span class="c1"># 查看系统当前用户的 git 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --local --list &lt;span class="c1"># 查看当前库的 git 配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --list &lt;span class="c1"># 列出上述所有配置, 可能出现重复项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; user.name&lt;span class="o">=&lt;/span>facser
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; core.editor&lt;span class="o">=&lt;/span>vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="修改-git-配置">修改 git 配置&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git config -e &lt;span class="c1"># 编辑配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global core.editor vim &lt;span class="c1"># 修改系统当前用户的 git 编辑器为 vim&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global color.ui &lt;span class="nb">true&lt;/span> &lt;span class="c1"># 系统当前用户的 git 输出显示颜色&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global commit.template &amp;lt;file&amp;gt; &lt;span class="c1"># 设置 commit 签名模板&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global user.name facser &lt;span class="c1"># 设置系统当前的 git 用户名为 facser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config user.name &lt;span class="c1"># 查看当前使用的 git 用户名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --global user.email abc@email &lt;span class="c1"># 设置系统当前的 git 邮箱为 abc@email&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config user.email &lt;span class="c1"># 查看当前使用的 git 用户名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git config --list &lt;span class="c1"># 列出上述所有配置, 可能出现重复项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; user.name&lt;span class="o">=&lt;/span>facser
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; user.email&lt;span class="o">=&lt;/span>abc@email
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; core.editor&lt;span class="o">=&lt;/span>vim
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="仓库">仓库&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">区域&lt;/th>
+&lt;th style="text-align:center">位置&lt;/th>
+&lt;th style="text-align:center">介绍&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">本地仓库&lt;/td>
+&lt;td style="text-align:center">当前 .git&lt;/td>
+&lt;td style="text-align:center">记录文件当前状态生成一个版本并保存至本地仓库&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">远程仓库&lt;/td>
+&lt;td style="text-align:center">网络平台&lt;/td>
+&lt;td style="text-align:center">将当前记录的所有版本上传到远程仓库&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="本地仓库">本地仓库&lt;/h3>
+&lt;p>在本地任意位置使用 &lt;code>git init&lt;/code> 即可创建一个本地仓库&lt;/p>
+&lt;p>工作区 &amp;ndash; &lt;code>git add&lt;/code> &amp;ndash;&amp;gt; 暂存区 &amp;ndash; &lt;code>git commit&lt;/code> &amp;ndash;&amp;gt; 本地仓库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git init &lt;span class="c1"># 初始化本地仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git add --all &lt;span class="c1"># 追踪本地仓库所有修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit -m &lt;span class="s2">&amp;#34;version message&amp;#34;&lt;/span> &lt;span class="c1"># 生成可回溯的版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git push &amp;lt;repository name&amp;gt; &amp;lt;branch name&amp;gt; &lt;span class="c1"># 将本地仓库分支所有版本推送到远程仓库对应分支&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git log &lt;span class="c1"># 查看记录的版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; commit d2716b6e88567c3fdfe390580d48ca82b581c04f &lt;span class="o">(&lt;/span>HEAD -&amp;gt; master&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Author: facser &amp;lt;root@facser&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Date: Mon Jan &lt;span class="m">30&lt;/span> 22:09:15 &lt;span class="m">2023&lt;/span> +0800
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; version message
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="远程仓库">远程仓库&lt;/h3>
+&lt;p>将本地仓库上传到远程仓库, 或从远程仓库下载文件到本地&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git clone &amp;lt;repository link&amp;gt; &lt;span class="c1"># 克隆远程仓库项目到本地&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git add --all &lt;span class="c1"># 追踪本地仓库所有修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git commit -m &lt;span class="s2">&amp;#34;version message&amp;#34;&lt;/span> &lt;span class="c1"># 生成可回溯的版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git push &amp;lt;repository name&amp;gt; &amp;lt;branch name&amp;gt; &lt;span class="c1"># 将本地仓库分支所有版本推送到远程仓库对应分支&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git remote -v &lt;span class="c1"># 产看远程仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; origin git@github.com:facser/Learning.git &lt;span class="o">(&lt;/span>fetch&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; origin git@github.com:facser/Learning.git &lt;span class="o">(&lt;/span>push&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ git remote add origin &amp;lt;Repository url&amp;gt; &lt;span class="c1"># 将远程仓库命名为 origin 并关联本地仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

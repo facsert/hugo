@@ -1,0 +1,356 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="linux 命令 帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ man &amp;lt;command&amp;gt; # man (manual) 帮助手册, 查看命令的帮助手册 $ man -f &amp;lt;command&amp;gt; # 显示命令的简短描述 $ man -f date &amp;gt; date (1) - print or set the system date"><title>Linux 基础</title><link rel=canonical href=https://facsert.github.io/p/linux-%E5%9F%BA%E7%A1%80/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Linux 基础"><meta property="og:description" content="linux 命令 帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ man &amp;lt;command&amp;gt; # man (manual) 帮助手册, 查看命令的帮助手册 $ man -f &amp;lt;command&amp;gt; # 显示命令的简短描述 $ man -f date &amp;gt; date (1) - print or set the system date"><meta property="og:url" content="https://facsert.github.io/p/linux-%E5%9F%BA%E7%A1%80/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Linux"><meta property="article:published_time" content="2022-07-18T15:02:16+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Linux 基础"><meta name=twitter:description content="linux 命令 帮助信息 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ man &amp;lt;command&amp;gt; # man (manual) 帮助手册, 查看命令的帮助手册 $ man -f &amp;lt;command&amp;gt; # 显示命令的简短描述 $ man -f date &amp;gt; date (1) - print or set the system date"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#帮助信息>帮助信息</a></li><li><a href=#文件与路径>文件与路径</a></li><li><a href=#查看执行过命令>查看执行过命令</a></li><li><a href=#全局变量>全局变量</a></li><li><a href=#系统相关>系统相关</a></li><li><a href=#用户>用户</a><ol><li><a href=#启用-root-用户>启用 root 用户</a></li><li><a href=#创建用户>创建用户</a></li></ol></li><li><a href=#通配符号>通配符号</a><ol><li><a href=#-任意单个字符><code>？</code> 任意单个字符</a></li><li><a href=#-任意多个字符><code>*</code> 任意多个字符</a></li><li><a href=#-任意多级目录><code>**</code> 任意多级目录</a></li><li><a href=#-匹配范围><code>[]</code> 匹配范围</a></li></ol></li><li><a href=#特殊符号>特殊符号</a><ol><li><a href=#输出重定向>输出重定向</a></li></ol></li><li><a href=#单词缩写>单词缩写</a><ol><li><a href=#符号>符号</a></li><li><a href=#正则表达式>正则表达式</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/linux-%E6%95%99%E7%A8%8B/>Linux 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux-%E5%9F%BA%E7%A1%80/>Linux 基础</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-07-18</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>5 minute read</time></div></footer></div></header><section class=article-content><p><a class=link href=https://www.linuxcool.com/ target=_blank rel=noopener>linux 命令</a></p><h2 id=帮助信息>帮助信息</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ man &lt;command&gt;                                 <span class=c1># man (manual) 帮助手册, 查看命令的帮助手册</span>
+</span></span><span class=line><span class=cl> $ man -f &lt;command&gt;                              <span class=c1># 显示命令的简短描述</span>
+</span></span><span class=line><span class=cl> $ man -f date
+</span></span><span class=line><span class=cl> &gt; date <span class=o>(</span>1<span class=o>)</span>             - print or <span class=nb>set</span> the system date and <span class=nb>time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ whatis &lt;command&gt;                              <span class=c1># 显示命令的简短描述, 等同于 man -f &lt;command&gt;</span>
+</span></span><span class=line><span class=cl> $ whatis date
+</span></span><span class=line><span class=cl> &gt; date <span class=o>(</span>1<span class=o>)</span>             - print or <span class=nb>set</span> the system date and <span class=nb>time</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ &lt;command&gt; -h/--help                           <span class=c1># 命令使用 -h/--help 参数</span>
+</span></span><span class=line><span class=cl> $ date -h
+</span></span><span class=line><span class=cl> $ date --help
+</span></span><span class=line><span class=cl> &gt; Usage: date <span class=o>[</span>OPTION<span class=o>]</span>... <span class=o>[</span>+FORMAT<span class=o>]</span>
+</span></span><span class=line><span class=cl> &gt;   or:  date <span class=o>[</span>-u<span class=p>|</span>--utc<span class=p>|</span>--universal<span class=o>]</span> <span class=o>[</span>MMDDhhmm<span class=o>[[</span>CC<span class=o>]</span>YY<span class=o>][</span>.ss<span class=o>]]</span>
+</span></span><span class=line><span class=cl> &gt; Display the current <span class=nb>time</span> in the given FORMAT, or <span class=nb>set</span> the system date.
+</span></span></code></pre></td></tr></table></div></div><h2 id=文件与路径>文件与路径</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>pwd</span>                                           <span class=c1># 查看当前目录</span>
+</span></span><span class=line><span class=cl> &gt; /root/Desktop
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ls                                            <span class=c1># 查看当前目录下的文件及文件夹</span>
+</span></span><span class=line><span class=cl> &gt; source.sh  target.tar.gz
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>cd</span> &lt;path&gt;                                     <span class=c1># 切换到 path 目录(无返回值), path 不存在则报错</span>
+</span></span><span class=line><span class=cl> ~/Desktop/Zip$                                  <span class=c1># 命令行 $ 左边即为当前目录</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ cp &lt;source&gt; &lt;destination&gt;                     <span class=c1># 文件复制</span>
+</span></span><span class=line><span class=cl> $ mv &lt;source&gt; &lt;destination&gt;                     <span class=c1># 文件移动或重命名</span>
+</span></span><span class=line><span class=cl> $ rm &lt;file&gt;                                     <span class=c1># 删除文件</span>
+</span></span><span class=line><span class=cl> $ mkdir &lt;path&gt;                                  <span class=c1># 创建文件夹</span>
+</span></span><span class=line><span class=cl> $ touch &lt;file&gt;                                  <span class=c1># 创建文件</span>
+</span></span><span class=line><span class=cl> $ cat &lt;file&gt;                                    <span class=c1># 查看文件内容</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ touch learn.log                               <span class=c1># 创建文件 learn.log</span>
+</span></span><span class=line><span class=cl> $ mkdir seeds                                   <span class=c1># 创建文件夹 seeds  </span>
+</span></span><span class=line><span class=cl> $ cp learn.log seeds/                           <span class=c1># learn.log 复制到 seeds 文件夹下</span>
+</span></span><span class=line><span class=cl> $ rm learn.log                                  <span class=c1># 删除当前目录下的 learn.log</span>
+</span></span><span class=line><span class=cl> $ mv seeds/learn.log study.log                  <span class=c1># 将 seeds 下的 learn.log 移动到当前目录并重命名</span>
+</span></span><span class=line><span class=cl> $ rm -r seeds                                   <span class=c1># 删除 seeds 文件夹及文件夹下的所有文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;learn.log&#39;</span>       -&gt; create
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;seed/&#39;</span>           -&gt; create
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;learn.log&#39;</span>       -&gt; <span class=s1>&#39;seed/learn.log&#39;</span>
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;learn.log&#39;</span>       -&gt; delete
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;seeds/learn.log&#39;</span> -&gt; <span class=s1>&#39;study.log&#39;</span>
+</span></span><span class=line><span class=cl> &gt; <span class=s1>&#39;seed/&#39;</span>           -&gt; delete
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看执行过命令>查看执行过命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>history</span>                                       <span class=c1># 查看执行的命令历史</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>1</span> ls
+</span></span><span class=line><span class=cl> &gt; <span class=m>2</span> date
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ !!                                            <span class=c1># 执行上一条命令</span>
+</span></span><span class=line><span class=cl> $ !&lt;<span class=nb>command</span> key&gt; + enter                        <span class=c1># 通过命令关键字和 enter 执行上一个包含关键字的命令</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ control + r + &lt;<span class=nb>command</span> key&gt;                   <span class=c1># 快捷键进入历史列表, 通过关键字查找, enter 执行命令</span>
+</span></span><span class=line><span class=cl> &gt; <span class=o>(</span>reverse-i-search<span class=o>)</span><span class=sb>`</span><span class=nb>echo</span> <span class=s1>$&#39;: echo $PWD         # `echo $&#39;</span> 是输入关键字, : 后为匹配的命令, 方向键选择命令但不执行
+</span></span></code></pre></td></tr></table></div></div><h2 id=全局变量>全局变量</h2><p>全局变量是在整个操作系统中都可用的变量，其值可以在任何地方被访问和修改</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=nv>$HOME</span>                                    <span class=c1># 当前用户名</span>
+</span></span><span class=line><span class=cl> &gt; root
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=nv>$PATH</span>                                    <span class=c1># 执行命令时所搜寻的路径列表, 以 : 分隔(环境变量设置路径)</span>
+</span></span><span class=line><span class=cl> &gt; /usr/local/sbin:/usr/local/bin:/usr/bin
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=nv>$SHELL</span>                                   <span class=c1># 当前使用的 shell </span>
+</span></span><span class=line><span class=cl> &gt; /bin/zsh
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=nv>$PWD</span>                                     <span class=c1># 当前绝对路径</span>
+</span></span><span class=line><span class=cl> &gt; /root/Desktop/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=nv>$RANDOM</span>                                  <span class=c1># 生成随机数字</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>2166</span>
+</span></span></code></pre></td></tr></table></div></div><p>修改 shell 启动文件(每次打开命令行均会执行)以永久设置环境变量, 使用 export 添加环境变量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> &lt;variable name&gt;<span class=o>=</span>&lt;value&gt;                   <span class=c1># 使用 export 临时修改环境变量, 执行的命令窗口关闭即失效</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$PATH</span>:/home/facsert                  <span class=c1># 将 /home/facsert 临时加入环境目录</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>LEARN</span><span class=o>=</span>TRUE                                <span class=c1># 自定义新的环境变量, 脚本间可以通过自定义环境变量通信</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$PATH</span>:/home/facsert                  <span class=c1># 将命令写入 shell 启动文件(每次启动 shell 均会执行文件上命令)</span>
+</span></span><span class=line><span class=cl><span class=nb>source</span> ~/.bashrc                                 <span class=c1># 重新加载 shell 启动文件(~/.bashrc, ~/.zshrc )</span>
+</span></span></code></pre></td></tr></table></div></div><p>bash 执行脚本: 新建子 shell 执行脚本, 脚本中的 export 的变量只在子 shell 生效, 脚本结束变量失效
+source 执行脚本: 脚本中的 export 变量加载入当前终端, 脚本结束仍然生效, 当前终端关闭后失效</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s1>&#39;export linux=&#34;bash&#34;&#39;</span> &gt; bash.sh          <span class=c1># 生成脚本 bash.sh </span>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s1>&#39;export linux=&#34;source&#34;&#39;</span> &gt; source.sh      <span class=c1># 生成脚本 source.sh</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ bash bash.sh <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;linux: </span><span class=nv>$linux</span><span class=s2>&#34;</span>          <span class=c1># 使用 bash 添加 linux 变量</span>
+</span></span><span class=line><span class=cl> &gt; linux:                                        <span class=c1># 脚本结束, 变量失效</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ <span class=nb>source</span> source.sh <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;linux: </span><span class=nv>$linux</span><span class=s2>&#34;</span>      <span class=c1># 使用 source 执行脚本</span>
+</span></span><span class=line><span class=cl> &gt; linux: <span class=nb>source</span> shell                           <span class=c1># 脚本结束, 变量仍然生效</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=系统相关>系统相关</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ shutdown -h now                               <span class=c1># 关机</span>
+</span></span><span class=line><span class=cl> $ shutdown -r now                               <span class=c1># 重启</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ date                                          <span class=c1># 系统时间</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:34:10 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ unmae -a                                      <span class=c1># 查看系统内核信息</span>
+</span></span><span class=line><span class=cl> &gt; inux facser 5.15.79.1-microsoft-standard-WSL2 <span class=c1>#1 SMP Wed Nov 23 01:01:46 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ps -ef                                        <span class=c1># 查看当前正在运行的所有进程</span>
+</span></span><span class=line><span class=cl> &gt; UID        PID  PPID  C STIME TTY          TIME CMD
+</span></span><span class=line><span class=cl> &gt; root      <span class=m>1399</span>    <span class=m>71</span>  <span class=m>0</span> 19:08 pts/4    00:00:00 /bin/zsh -i
+</span></span><span class=line><span class=cl> &gt; root      <span class=m>9481</span>   <span class=m>490</span>  <span class=m>0</span> 20:24 pts/4    00:00:00 bash -x a.sh
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>kill</span> &lt;pid&gt;                                    <span class=c1># 根据 pid 关掉指定进程</span>
+</span></span><span class=line><span class=cl> $ <span class=nb>kill</span> <span class=m>9481</span>
+</span></span><span class=line><span class=cl> &gt; <span class=o>[</span>1<span class=o>]</span>  + <span class=m>9481</span> terminated  bash -x a.sh  
+</span></span></code></pre></td></tr></table></div></div><h2 id=用户>用户</h2><h3 id=启用-root-用户>启用 root 用户</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sudo passwd root
+</span></span><span class=line><span class=cl> &gt; Enter new UNIX password:                      <span class=c1># 设置 root 用户密码(输入时密码不可见)</span>
+</span></span><span class=line><span class=cl> &gt; Retype new UNIX password:                     <span class=c1># 重复输入 root 密码</span>
+</span></span><span class=line><span class=cl> &gt; passwd: password updated successfully         <span class=c1># 设置成功</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> facser@master:~/Desktop$ su root                <span class=c1># 切换 root 用户 (用户名@hostname:当前路径)</span>
+</span></span><span class=line><span class=cl> root@master:~/Desktop# <span class=nb>exit</span>                     <span class=c1># 退出 root, 普通用户 $ 开头, root 用户 # 开头</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ su &lt;user&gt;                                     <span class=c1># 切换用户</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=创建用户>创建用户</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ useradd -m &lt;username&gt;                         <span class=c1># 创建用户, 并在 /home 生成用户目录</span>
+</span></span><span class=line><span class=cl> $ useradd -l &lt;oldName&gt; &lt;newName&gt;                <span class=c1># 更换用户名称</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ passwd &lt;username&gt;                             <span class=c1># 用户添加密码</span>
+</span></span><span class=line><span class=cl> &gt; New password:                                 <span class=c1># 输入密码, 密码不显示</span>
+</span></span><span class=line><span class=cl> &gt; Retype new password:                          <span class=c1># 重复输入密码, 密码不显示</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ userdel -r &lt;username&gt;                         <span class=c1># 删除用户</span>
+</span></span><span class=line><span class=cl> &gt; no crontab <span class=k>for</span> facsert
+</span></span></code></pre></td></tr></table></div></div><p>sudo 免密码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sudo vi /etc/sudoers                          <span class=c1># 编辑配置文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> &gt; %sudo <span class=nv>ALL</span><span class=o>=(</span>ALL:ALL<span class=o>)</span> ALL                       <span class=c1># 找到这一栏, 建议注释掉复制一行修改</span>
+</span></span><span class=line><span class=cl> &gt; %sudo <span class=nv>ALL</span><span class=o>=(</span>ALL:ALL<span class=o>)</span> NOPASSWD:ALL              <span class=c1># 修改后, 强制保存退出</span>
+</span></span><span class=line><span class=cl> &gt; &lt;username&gt; <span class=nv>ALL</span><span class=o>=(</span>ALL<span class=o>)</span> NOPASSWD:ALL
+</span></span></code></pre></td></tr></table></div></div><p>注: 该文件必须强制写入, 不能修改文件权限, 否则报错</p><h2 id=通配符号>通配符号</h2><h3 id=-任意单个字符><code>？</code> 任意单个字符</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ touch ab a bc abc                             <span class=c1># 生成 ab a ba abc 4 个文件</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ ls ?b                                         <span class=c1># ? 可以指代任意单个字符</span>
+</span></span><span class=line><span class=cl> &gt; ab
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ls b?
+</span></span><span class=line><span class=cl> &gt; bc
+</span></span></code></pre></td></tr></table></div></div><h3 id=-任意多个字符><code>*</code> 任意多个字符</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ touch ab a bc abc                             <span class=c1># 生成 ab a ba abc 4 个文件</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ ls *                                          <span class=c1># * 可以指代任意多个字符</span>
+</span></span><span class=line><span class=cl> &gt; a  ab  abc  bc
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ls a*                                    
+</span></span><span class=line><span class=cl> &gt; a  ab  abc
+</span></span></code></pre></td></tr></table></div></div><h3 id=-任意多级目录><code>**</code> 任意多级目录</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ cat /etc/**/word                               <span class=c1># /etc/ 文件夹下所有 word 文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ls learn/**/*.md                               <span class=c1># 显示 learn 目录下所有 markdown 文件 </span>
+</span></span><span class=line><span class=cl> &gt; a.md b.md c.md
+</span></span></code></pre></td></tr></table></div></div><h3 id=-匹配范围><code>[]</code> 匹配范围</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ touch aa ab ac aab                            <span class=c1># 生成 ab a ba abc 4 个文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ ls a<span class=o>[</span>ab<span class=o>]</span>                                      <span class=c1># 匹配 [] 内任意一个字符</span>
+</span></span><span class=line><span class=cl> &gt; aa ab
+</span></span></code></pre></td></tr></table></div></div><h2 id=特殊符号>特殊符号</h2><h3 id=输出重定向>输出重定向</h3><div class=table-wrapper><table><thead><tr><th style=text-align:center>输出重定向</th><th style=text-align:center>输出重定向追加写入</th><th style=text-align:center>输入重定向</th><th style=text-align:center>读取标准输入直至分界符号</th></tr></thead><tbody><tr><td style=text-align:center><code>></code></td><td style=text-align:center><code>>></code></td><td style=text-align:center><code>&lt;</code></td><td style=text-align:center><code>&lt;&lt;</code></td></tr></tbody></table></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ &lt;command&gt; &gt; &lt;file&gt;                            <span class=c1># 将命令返回值覆盖写入文件(原文件清空后写入)</span>
+</span></span><span class=line><span class=cl> $ date &gt; file.log                               <span class=c1># 将 date 命令返回值写入 file.log 文件, 命令行不显示结果</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:39:56 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ &lt;command&gt; &gt;&gt; &lt;file&gt;                           <span class=c1># 将输出追加写入文件(原文件内容保留)</span>
+</span></span><span class=line><span class=cl> $ date &gt;&gt; file.log                              <span class=c1># 将 date 命令返回值追加写入 file.log 内容结尾, 命令行不显示结果</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:39:56 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:40:51 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ &lt;command&gt; &lt; &lt;file&gt;                            <span class=c1># 将文件内容重定向为标准输入</span>
+</span></span><span class=line><span class=cl> $ cat &lt; file.log                                <span class=c1># 读取 file.log 并打印</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:39:56 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl> &gt; Sat Feb <span class=m>25</span> 20:40:51 CST <span class=m>2023</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ touch <span class=k>$(</span>&lt; fileName.log<span class=k>)</span>                       <span class=c1># 根据文件内的文件列表生成文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ cat <span class=s>&lt;&lt; EOF                                    # 实现多行输入, 分界符号 EOF</span> 可自定义
+</span></span><span class=line><span class=cl> &gt; line
+</span></span><span class=line><span class=cl> &gt; line
+</span></span><span class=line><span class=cl> &gt; EOF
+</span></span></code></pre></td></tr></table></div></div><p><code>&amp;1</code>: 标准输出, 命令行输出, 能直接重定向至文件<br><code>&amp;2</code>: 标准错误, 命令执行错误输出, 需要将错误重定向至标准输出再指向文件<br><code>/dev/null</code>: 空, 指代垃圾桶或回收站</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ mian                                          <span class=c1># 错误命令,显示错误输出</span>
+</span></span><span class=line><span class=cl> &gt; Command <span class=s1>&#39;mian&#39;</span> not found
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ data 2&gt;/dev/null                              <span class=c1># 错误命令, 错误输出重定向至回收站, 不显示错误     </span>
+</span></span><span class=line><span class=cl> $ date 2&gt;/dev/null                              <span class=c1># 正确命令, 标准输出重定向至回收站, 不显示返回值</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ data <span class=m>2</span> &gt; date.log                             <span class=c1># 命令行显示错误, 文件不显示, 错误输出无法直接重定向文件</span>
+</span></span><span class=line><span class=cl> $ data &gt; date.log 2&gt;<span class=p>&amp;</span><span class=m>1</span>                          <span class=c1># 命令行不显示错误, 文件内显示, 错误输出重定向至文件</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=单词缩写>单词缩写</h2><div class=table-wrapper><table><thead><tr><th style=text-align:center>缩写</th><th style=text-align:left>全称</th><th style=text-align:left>翻译</th></tr></thead><tbody><tr><td style=text-align:center>a</td><td style=text-align:left><code>all</code></td><td style=text-align:left>全部</td></tr><tr><td style=text-align:center>b</td><td style=text-align:left><code>backup</code></td><td style=text-align:left>备份</td></tr><tr><td style=text-align:center>c</td><td style=text-align:left><code>count</code></td><td style=text-align:left>计数</td></tr><tr><td style=text-align:center>d</td><td style=text-align:left><code>directory</code></td><td style=text-align:left>文件</td></tr><tr><td style=text-align:center>f</td><td style=text-align:left><code>force</code></td><td style=text-align:left>强制</td></tr><tr><td style=text-align:center>h</td><td style=text-align:left><code>help</code></td><td style=text-align:left>帮助</td></tr><tr><td style=text-align:center>i</td><td style=text-align:left><code>interactive</code></td><td style=text-align:left>交互的</td></tr><tr><td style=text-align:center>l</td><td style=text-align:left><code>long</code></td><td style=text-align:left>长格式的</td></tr><tr><td style=text-align:center>r / R</td><td style=text-align:left><code>recursive</code></td><td style=text-align:left>递归</td></tr><tr><td style=text-align:center>s / S</td><td style=text-align:left><code>sort/size</code></td><td style=text-align:left>排序/大小</td></tr><tr><td style=text-align:center>t</td><td style=text-align:left><code>time</code></td><td style=text-align:left>时间</td></tr><tr><td style=text-align:center>u</td><td style=text-align:left><code>user</code></td><td style=text-align:left>用户</td></tr><tr><td style=text-align:center>v</td><td style=text-align:left><code>version / verbose</code></td><td style=text-align:left>版本/详细的</td></tr></tbody></table></div><h3 id=符号>符号</h3><div class=table-wrapper><table><thead><tr><th style=text-align:center>符号</th><th style=text-align:left>含义</th></tr></thead><tbody><tr><td style=text-align:center><code>></code></td><td style=text-align:left>输出重定向, 覆盖</td></tr><tr><td style=text-align:center><code>>></code></td><td style=text-align:left>输出重定向, 追加</td></tr><tr><td style=text-align:center><code>&</code></td><td style=text-align:left>程序放入后台执行</td></tr><tr><td style=text-align:center><code>#</code></td><td style=text-align:left>注释</td></tr><tr><td style=text-align:center><code>&&</code></td><td style=text-align:left>且, 左边成功才执行右边</td></tr></tbody></table></div><h3 id=正则表达式>正则表达式</h3><div class=table-wrapper><table><thead><tr><th style=text-align:center>符号</th><th style=text-align:left>模式</th></tr></thead><tbody><tr><td style=text-align:center><code>^</code></td><td style=text-align:left>锚定行首</td></tr><tr><td style=text-align:center><code>$</code></td><td style=text-align:left>锚定行尾</td></tr><tr><td style=text-align:center><code>()</code></td><td style=text-align:left>捆绑成一个整体</td></tr><tr><td style=text-align:center><code>.</code></td><td style=text-align:left>任意一个字符</td></tr><tr><td style=text-align:center><code>?</code></td><td style=text-align:left>前面字符或模式 0 或 1 次</td></tr><tr><td style=text-align:center><code>{m}</code></td><td style=text-align:left>前面字符或模式 m 次</td></tr><tr><td style=text-align:center><code>{m, n}</code></td><td style=text-align:left>前面字符或模式次数在 m n 之间</td></tr><tr><td style=text-align:center><code>+</code></td><td style=text-align:left>前面字符或模式 1 次或多次</td></tr><tr><td style=text-align:center><code>*</code></td><td style=text-align:left>前面字符或模式任意次</td></tr><tr><td style=text-align:center><code>[]</code></td><td style=text-align:left>括号范围内均可</td></tr><tr><td style=text-align:center><code>[^]</code></td><td style=text-align:left>括号范围之外均可</td></tr></tbody></table></div></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/><div class=article-details><h2 class=article-title>Linux 包管理</h2></div></a></article><article><a href=/p/linux-%E9%85%8D%E7%BD%AE/><div class=article-details><h2 class=article-title>Linux 配置</h2></div></a></article><article><a href=/p/linux-%E7%B3%BB%E7%BB%9F/><div class=article-details><h2 class=article-title>Linux 系统</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E6%9C%AC/><div class=article-details><h2 class=article-title>Linux 文本</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E4%BB%B6/><div class=article-details><h2 class=article-title>Linux 文件</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

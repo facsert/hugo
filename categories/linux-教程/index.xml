@@ -1,0 +1,2497 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux 教程 on Facsert</title><link>https://facsert.github.io/categories/linux-%E6%95%99%E7%A8%8B/</link><description>Recent content in Linux 教程 on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 19 Aug 2022 15:02:16 +0000</lastBuildDate><atom:link href="https://facsert.github.io/categories/linux-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux 包管理</title><link>https://facsert.github.io/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/</link><pubDate>Fri, 19 Aug 2022 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/</guid><description>&lt;h2 id="包管理工具">包管理工具&lt;/h2>
+&lt;h3 id="yumhttpslinuxaliangacomcyumhtml">&lt;a class="link" href="https://linux.alianga.com/c/yum.html" target="_blank" rel="noopener"
+>yum&lt;/a>&lt;/h3>
+&lt;p>ellowdogUpdater,Modified: centos redhat 包管理器&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ yum &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt; &lt;span class="c1"># RedHat Centos 包管理工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum install &amp;lt;pack&amp;gt; &lt;span class="c1"># 下载安装包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum update &amp;lt;pack&amp;gt; &lt;span class="c1"># 更新已安装的包 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum remove &amp;lt;pack&amp;gt; &lt;span class="c1"># 卸载已安装的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum search &amp;lt;pack&amp;gt; &lt;span class="c1"># 检查软件包的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum list &lt;span class="c1"># 列出所有已安装的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum list installed &amp;lt;pack&amp;gt; &lt;span class="c1"># 检查包是否安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum list &lt;span class="p">|&lt;/span> grep zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Repodata is over &lt;span class="m">2&lt;/span> weeks old. Install yum-cron? Or run: yum makecache fast
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh.x86_64 5.0.2-34.el7_8.2 base
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh-html.x86_64 5.0.2-34.el7_8.2 base
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: yum 配置文件 &lt;code>/etc/yum.repos.d/&lt;/code>
+只下载安装包而不安装
+command: &lt;code>yum reinstall --downloadonly --downloaddir=&amp;lt;path&amp;gt; &amp;lt;package name&amp;gt;&lt;/code>&lt;/p>
+&lt;h3 id="rpmhttpslinuxaliangacomcrpmhtml">&lt;a class="link" href="https://linux.alianga.com/c/rpm.html" target="_blank" rel="noopener"
+>rpm&lt;/a>&lt;/h3>
+&lt;p>RedHat Package Manager&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ rpm &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rpm -i &amp;lt;pack&amp;gt; &lt;span class="c1"># 安装 rpm 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -v &lt;span class="c1"># 显示安装信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -h &lt;span class="c1"># 安装包时列出标记&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -e &lt;span class="c1"># 卸载 rpm 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ rpm -ivh &amp;lt;pack&amp;gt; &lt;span class="c1"># 安装 rpm 包, 显示安装过程&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="apt-gethttpslinuxaliangacomcapt-gethtml">&lt;a class="link" href="https://linux.alianga.com/c/apt-get.html" target="_blank" rel="noopener"
+>apt-get&lt;/a>&lt;/h3>
+&lt;p>Advanced Package Tool get: ubuntu debian 的包管理器&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ apt &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt-get install &amp;lt;pack&amp;gt; &lt;span class="c1"># 下载并安装软件包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt-get remove &amp;lt;pack&amp;gt; &lt;span class="c1"># 卸载已安装的软件包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt-get upgrade &lt;span class="c1"># 更新所有已安装的软件包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt-get update &lt;span class="c1"># 更新软件包列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt install &amp;lt;pack&amp;gt; &lt;span class="c1"># apt 集成 apt-get 功能&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt download &amp;lt;pack&amp;gt; &lt;span class="c1"># 仅下载包, 不安装 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt search &amp;lt;pack&amp;gt; &lt;span class="c1"># 查找 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt remove &amp;lt;pack&amp;gt; &lt;span class="c1"># 卸载已安装的包 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ apt list --installed &lt;span class="p">|&lt;/span> grep zsh &lt;span class="c1"># 列出已安装的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh-common/oldstable,oldstable,now 5.7.1-1+deb10u1 all &lt;span class="o">[&lt;/span>installed,automatic&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh/oldstable,oldstable,now 5.7.1-1+deb10u1 amd64 &lt;span class="o">[&lt;/span>installed&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: OS 默认下载源文件 &lt;code>/etc/apt/source.list&lt;/code>
+只下载包而不安装, (下载的包会存放在 &lt;code>/var/cache/apt/archives&lt;/code>)
+command: &lt;code>apt install -d &amp;lt;package name&amp;gt;&lt;/code>&lt;/p>
+&lt;h3 id="dpkghttpslinuxaliangacomcdpkghtml">&lt;a class="link" href="https://linux.alianga.com/c/dpkg.html" target="_blank" rel="noopener"
+>dpkg&lt;/a>&lt;/h3>
+&lt;p>Debian package: 离线包安装&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ dpkg &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ dpkg -i &amp;lt;pack&amp;gt; &lt;span class="c1"># 安装 deb 安装包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ dpkg -r &amp;lt;pack&amp;gt; &lt;span class="c1"># 卸载 deb 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ dpkg -l &lt;span class="c1"># 列出所有安装的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">Desired&lt;/span>&lt;span class="o">=&lt;/span>Unknown/Install/Remove/Purge/Hold
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="p">|&lt;/span> &lt;span class="nv">Status&lt;/span>&lt;span class="o">=&lt;/span>Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="p">|&lt;/span>/ Err?&lt;span class="o">=(&lt;/span>none&lt;span class="o">)&lt;/span>/Reinst-required &lt;span class="o">(&lt;/span>Status,Err: &lt;span class="nv">uppercase&lt;/span>&lt;span class="o">=&lt;/span>bad&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">||&lt;/span>/ Name Version Architecture Description
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; +++-&lt;span class="o">=========================================&lt;/span>-&lt;span class="o">==========================================&lt;/span>-&lt;span class="o">============&lt;/span>-&lt;span class="o">===========&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ii acl 2.2.53-4 amd64 access control list - utilities
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ii adduser 3.118 all add and remove users and groups
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ii adwaita-icon-theme 3.30.1-1 all default icon theme of GNOME
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ii alien 8.95 all convert and install rpm and other packages
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ii apache2 2.4.38-3+deb10u4 amd64 Apache HTTP Server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="压缩-解压">压缩 解压&lt;/h2>
+&lt;h3 id="tarhttpslinuxaliangacomctarhtml">&lt;a class="link" href="https://linux.alianga.com/c/tar.html" target="_blank" rel="noopener"
+>tar&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ tar &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tar -zxvf &amp;lt;package name&amp;gt; -C &amp;lt;path&amp;gt; &lt;span class="c1"># 解压 tar.gz 压缩包到 &amp;lt;path&amp;gt; 路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tar -zxvf package.tar.gz -C /root/ &lt;span class="c1"># 将 package.tar.gz 解压到 /root/ 目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tar -zcvf &amp;lt;package name&amp;gt; &amp;lt;file&lt;span class="p">|&lt;/span>dir&amp;gt; &lt;span class="c1"># 将文件或目录压缩&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tar -zcvf learn.tar.gz learn/ &lt;span class="c1"># 将当前目录下的 learn 文件夹压缩成 learn.tar.gz&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tar -ztvf &amp;lt;tar.gz&amp;gt; &lt;span class="c1"># 列出压缩包的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; drwxr-xr-x root/root &lt;span class="m">0&lt;/span> 2023-04-03 03:24 test/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -rw-r--r-- root/root &lt;span class="m">0&lt;/span> 2023-04-03 03:24 test/3rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -rw-r--r-- root/root &lt;span class="m">0&lt;/span> 2023-04-03 03:24 test/2nd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -rw-r--r-- root/root &lt;span class="m">0&lt;/span> 2023-04-03 03:24 test/1st
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">parameter&lt;/th>
+&lt;th style="text-align:left">meaning&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-c, --create&lt;/code>&lt;/td>
+&lt;td style="text-align:left">创建一个新归档&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-f, --file=ARCHIVE&lt;/code>&lt;/td>
+&lt;td style="text-align:left">使用归档文件或 ARCHIVE 设备&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-t, --list&lt;/code>&lt;/td>
+&lt;td style="text-align:left">列出归档内容&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-v, --verbose&lt;/code>&lt;/td>
+&lt;td style="text-align:left">详细地列出处理的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-x, --extract, --get&lt;/code>&lt;/td>
+&lt;td style="text-align:left">从归档中解出文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>-z, --gzip, --gunzip, --ungzip&lt;/code>&lt;/td>
+&lt;td style="text-align:left">通过 gzip 过滤归档&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="ziphttpslinuxaliangacomcziphtml">&lt;a class="link" href="https://linux.alianga.com/c/zip.html" target="_blank" rel="noopener"
+>zip&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ zip &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ zip &amp;lt;package name&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 压缩文件成 zip 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ zip -r &amp;lt;package name&amp;gt; &amp;lt;path&amp;gt; &lt;span class="c1"># 压缩文件夹成 zip 包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zip -r learn.zip learn/ &lt;span class="c1"># 将当前目录下的 learn 文件夹压缩成 learn.zip&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ unzip &amp;lt;package name&amp;gt; &lt;span class="c1"># 解压 zip 压缩包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ unzip -v &amp;lt;zip&amp;gt; &lt;span class="c1"># 查看 zip 压缩文件内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Archive: test.zip
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Length Method Size Cmpr Date Time CRC-32 Name
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -------- ------ ------- ---- ---------- ----- -------- ----
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> Stored &lt;span class="m">0&lt;/span> 0% 2023-04-03 03:24 &lt;span class="m">00000000&lt;/span> test/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> Stored &lt;span class="m">0&lt;/span> 0% 2023-04-03 03:24 &lt;span class="m">00000000&lt;/span> test/3rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> Stored &lt;span class="m">0&lt;/span> 0% 2023-04-03 03:24 &lt;span class="m">00000000&lt;/span> test/2nd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> Stored &lt;span class="m">0&lt;/span> 0% 2023-04-03 03:24 &lt;span class="m">00000000&lt;/span> test/1st
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -------- ------- --- -------
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> 0% &lt;span class="m">4&lt;/span> files
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Linux 配置</title><link>https://facsert.github.io/p/linux-%E9%85%8D%E7%BD%AE/</link><pubDate>Tue, 09 Aug 2022 21:20:45 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="网络配置">网络配置&lt;/h2>
+&lt;p>Debian 网络配置&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi /etc/network/interfaces
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> auto enp125s0f0 &lt;span class="c1"># 网卡名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iface enp125s0f0 inet static &lt;span class="c1"># 设置静态 IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> address 10.58.14.96/24 &lt;span class="c1"># 设置 IP 地址和掩码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gateway 10.10.10.1 &lt;span class="c1"># 设置网关&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> auto enp125s0f0 &lt;span class="c1"># 网卡名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> iface enp125s0f0 inet dhcp &lt;span class="c1"># 设置动态 IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> address 10.58.14.96/24 &lt;span class="c1"># 设置 IP 地址和子网掩码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> gateway 10.10.10.1 &lt;span class="c1"># 设置网关&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl restart networking &lt;span class="c1"># 重启网络服务&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Centos&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> vi /etc/sysconfig/network-scripts/ifcfg-eth0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">TYPE&lt;/span>&lt;span class="o">=&lt;/span>Ethernet &lt;span class="c1"># 类型=以太网络&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">PROXY_METHOD&lt;/span>&lt;span class="o">=&lt;/span>none &lt;span class="c1"># 代理模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">BROWSER_ONLY&lt;/span>&lt;span class="o">=&lt;/span>no
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">DEFROUTE&lt;/span>&lt;span class="o">=&lt;/span>yes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV4_FAILURE_FATAL&lt;/span>&lt;span class="o">=&lt;/span>no
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6INIT&lt;/span>&lt;span class="o">=&lt;/span>yes &lt;span class="c1"># 启用IPV6协议&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6_AUTOCONF&lt;/span>&lt;span class="o">=&lt;/span>yes &lt;span class="c1"># 自动配置IPV6地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6_DEFROUTE&lt;/span>&lt;span class="o">=&lt;/span>yes
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6_FAILURE_FATAL&lt;/span>&lt;span class="o">=&lt;/span>no
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6_ADDR_GEN_MODE&lt;/span>&lt;span class="o">=&lt;/span>stable-privacy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">NAME&lt;/span>&lt;span class="o">=&lt;/span>ens32
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">UUID&lt;/span>&lt;span class="o">=&lt;/span>0e6d72a7-8a6c-43ac-aef2-25d165562fd0　　
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">DEVICE&lt;/span>&lt;span class="o">=&lt;/span>eth0 &lt;span class="c1"># 设备名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">BOOTPROTO&lt;/span>&lt;span class="o">=&lt;/span>none &lt;span class="c1"># 开机协议 static dhcp none&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ONBOOT&lt;/span>&lt;span class="o">=&lt;/span>yes &lt;span class="c1"># 启动或重启网络时，启动该设备，yes启动，no不启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPADDR&lt;/span>&lt;span class="o">=&lt;/span>192.168.1.15 &lt;span class="c1"># IPV4 地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">PREFIX&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">24&lt;/span> &lt;span class="c1"># 子网掩码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">GATEWAY&lt;/span>&lt;span class="o">=&lt;/span>192.168.1.1 &lt;span class="c1"># 网关&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">DNS1&lt;/span>&lt;span class="o">=&lt;/span>192.168.1.2 &lt;span class="c1"># DNS服务器地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">IPV6_PRIVACY&lt;/span>&lt;span class="o">=&lt;/span>no &lt;span class="c1"># IPV6协议&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl restart network &lt;span class="c1"># 重启网络&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置-ssh">配置 ssh&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi /etc/ssh/sshd_config &lt;span class="c1"># 编辑 ssh 系统配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#PermitRootLogin prohibit-password&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> PermitRootLogin yes &lt;span class="c1"># 允许远程 root 用户登录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#PasswordAuthentication no&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> PasswordAuthentication yes &lt;span class="c1"># 允许用户密码作为口令验证&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl restart sshd &lt;span class="c1"># 重启 ssh 服务，令配置生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="host-配置">host 配置&lt;/h2>
+&lt;p>命令行开头 &lt;code>root@debian:~/#&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>root: 用户名称&lt;/li>
+&lt;li>debian: Linux host 名称&lt;/li>
+&lt;li>~/: 当前目录&lt;/li>
+&lt;li>#: root 用户标识(普通用户为 $)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ hostname &lt;span class="c1"># 打印本机 hostname&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; debian
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ hostname -i &lt;span class="c1"># 打印本机 IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; debian
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ hostnamectl set-hostname ubuntu &lt;span class="c1"># 修改 hostname, 立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ hostname
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ubuntu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过 &lt;code>/etc/hosts&lt;/code> 文件可以将主机名与 IP 绑定快速解析&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi /etc/hosts &lt;span class="c1"># 域名解析为 IP 地址的配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 127.0.0.1 localhost &lt;span class="c1"># localhost 会被解析为 IP 127.0.0.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 192.168.1.49 node &lt;span class="c1"># node 被解析为对应 IP, 例如 ping node == ping 192.168.1.49&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 123.123.123.123 baidu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>通过 &lt;code>/etc/resolve.conf&lt;/code> 指定 DNS 解析的服务器地址
+用户通过域名访问网站, 请求发送到 DNS 服务器, DNS 服务器将域名解析为具体的 IP 返回给用户机器&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi /etc/resolve.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> nameserver 8.8.8.8 &lt;span class="c1"># 添加 DNS 解析服务器 IP 地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> nameserver 10.10.10 &lt;span class="c1"># 添加 DNS 解析服务器 IP 地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> /etc/resolve.conf &lt;span class="c1"># 配置生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> www.baidu.com 123.123.123.123 123.123.123.123
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">computer -------&amp;gt; DNS server -------&amp;gt; computer -------&amp;gt; baidu server
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="windows-wsl-ssh-连接">Windows WSL ssh 连接&lt;/h2>
+&lt;p>WSL 下查看 ssh 服务端口&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ ss -ntlp &lt;span class="p">|&lt;/span> grep ssh &lt;span class="c1"># Debian Ubuntu 默认端口查看工具&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; LISTEN &lt;span class="m">0&lt;/span> &lt;span class="m">128&lt;/span> 0.0.0.0:2222 0.0.0.0:* users:&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;sshd&amp;#34;&lt;/span>,pid&lt;span class="o">=&lt;/span>&lt;span class="nv">4628fd&lt;/span>&lt;span class="o">=&lt;/span>4&lt;span class="o">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; LISTEN &lt;span class="m">0&lt;/span> &lt;span class="m">128&lt;/span> &lt;span class="o">[&lt;/span>::&lt;span class="o">]&lt;/span>:2222 &lt;span class="o">[&lt;/span>::&lt;span class="o">]&lt;/span>:* users:&lt;span class="o">((&lt;/span>&lt;span class="s2">&amp;#34;sshd&amp;#34;&lt;/span>,pid&lt;span class="o">=&lt;/span>4628,fd&lt;span class="o">=&lt;/span>3&lt;span class="o">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -ntlp &lt;span class="p">|&lt;/span> grep ssh &lt;span class="c1"># Redhat Centos netstat 查看端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tcp &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> 0.0.0.0:2222 0.0.0.0:* LISTEN 4628/sshd: /usr/sbi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tcp6 &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> :::2222 :::* LISTEN 4628/sshd: /usr/sbi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemclt start sshd &lt;span class="c1"># 启动 ssh 服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ service ssh start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Windows &amp;gt; 设置 &amp;gt; 应用 &amp;gt; 可选功能 &amp;gt; 添加可选功能&lt;br>
+选择 OpenSSH 服务端和 OpenSSH 服务端安装&lt;br>
+安装后在可选功能界面下方检查是否安装成功&lt;/p>
+&lt;p>Windows 打开终端管理员, 设置 WSL IP 和 ssh 端口映射到 Windows 端口&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">netsh&lt;/span> &lt;span class="n">interface&lt;/span> &lt;span class="n">portproxy&lt;/span> &lt;span class="n">add&lt;/span> &lt;span class="n">v4tov4&lt;/span> &lt;span class="n">listenport&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="mf">2222&lt;/span> &lt;span class="n">listenaddress&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="mf">0.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span> &lt;span class="n">connectport&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="mf">2222&lt;/span> &lt;span class="n">connectaddress&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="mf">172.28&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">185&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">15&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># listenport windows 端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># listenaddress windows IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># connectport WSL 端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># connectaddress WSL IP&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 查看端口映射列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">netsh&lt;/span> &lt;span class="n">interface&lt;/span> &lt;span class="n">portproxy&lt;/span> &lt;span class="n">show&lt;/span> &lt;span class="n">all&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">侦听&lt;/span> &lt;span class="n">ipv4&lt;/span>&lt;span class="err">:&lt;/span> &lt;span class="n">连接到&lt;/span> &lt;span class="n">ipv4&lt;/span>&lt;span class="err">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">地址&lt;/span> &lt;span class="n">端口&lt;/span> &lt;span class="n">地址&lt;/span> &lt;span class="n">端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">---------------&lt;/span> &lt;span class="p">----------&lt;/span> &lt;span class="p">---------------&lt;/span> &lt;span class="p">----------&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="mf">0.0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">0&lt;/span> &lt;span class="mf">2222&lt;/span> &lt;span class="mf">172.28&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">185&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">15&lt;/span> &lt;span class="mf">2222&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Linux 系统</title><link>https://facsert.github.io/p/linux-%E7%B3%BB%E7%BB%9F/</link><pubDate>Mon, 08 Aug 2022 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E7%B3%BB%E7%BB%9F/</guid><description>&lt;h2 id="系统">系统&lt;/h2>
+&lt;h3 id="unamehttpslinuxaliangacomcunamehtml">&lt;a class="link" href="https://linux.alianga.com/c/uname.html" target="_blank" rel="noopener"
+>uname&lt;/a>&lt;/h3>
+&lt;p>Unix name&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ uname -a &lt;span class="c1"># 打印操作系统的所有信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Linux master 3.10.0-1160.81.1.el7.x86_64 &lt;span class="c1">#1 SMP Fri Dec 16 17:29:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="datehttpslinuxaliangacomcdatehtml">&lt;a class="link" href="https://linux.alianga.com/c/date.html" target="_blank" rel="noopener"
+>date&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ date &lt;span class="c1"># 现实系统时间&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Fri &lt;span class="m">07&lt;/span> Apr &lt;span class="m">2023&lt;/span> 02:16:35 AM EDT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date +&lt;span class="s2">&amp;#34;%Y-%m-%d %H:%M:%S&amp;#34;&lt;/span> &lt;span class="c1"># 格式化输出时间&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2023-04-07 02:16:52
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date -s &lt;span class="s2">&amp;#34;01:01:01 2022-08-09&amp;#34;&lt;/span> &lt;span class="c1"># 设置时间&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="dfhttpslinuxaliangacomcdfhtml">&lt;a class="link" href="https://linux.alianga.com/c/df.html" target="_blank" rel="noopener"
+>df&lt;/a>&lt;/h3>
+&lt;p>disk free&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ df &lt;span class="c1"># 显示系统磁盘占用信息, 默认以 KB 为单位&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ df -h &lt;span class="c1"># 容量数据以 MB 为单位&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ df -h &lt;span class="c1"># 容量信息智能添加单位 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Filesystem Size Used Avail Use% Mounted on
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; udev 3.9G &lt;span class="m">0&lt;/span> 3.9G 0% /dev
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tmpfs 796M 41M 755M 6% /run
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /dev/sda1 58G 17G 39G 30% /
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="duhttpslinuxaliangacomcduhtml">&lt;a class="link" href="https://linux.alianga.com/c/du.html" target="_blank" rel="noopener"
+>du&lt;/a>&lt;/h3>
+&lt;p>disk usage: 查看文件或文件夹占用大小&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ du &amp;lt;arg&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 显示目录占用空间大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ du -s &amp;lt;file&amp;gt; &lt;span class="c1"># --summarize 只显示总计占用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ du -h &amp;lt;file&amp;gt; &lt;span class="c1"># --human-readable 添加单位&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ du * &lt;span class="c1"># 列出所有文件及大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">97764&lt;/span> go20.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">4&lt;/span> host.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">24&lt;/span> mongo.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ du -h &lt;span class="c1"># 智能显示单位&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 4.0K ./test
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 834M .
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="freehttpslinuxaliangacomcfreehtml">&lt;a class="link" href="https://linux.alianga.com/c/free.html" target="_blank" rel="noopener"
+>free&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ free &lt;span class="c1"># 显示系统内存占用(KB)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ free -m &lt;span class="c1"># 以 MB 为单位显示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ free -g &lt;span class="c1"># 以 GB 为单位显示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ free -h &lt;span class="c1"># 智能显示单位&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> total used free shared buff/cache available
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Mem: 7.8Gi 1.2Gi 5.3Gi 41Mi 1.3Gi 6.3Gi
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Swap: 974Mi 0B 974Mi
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="pshttpslinuxaliangacomcpshtml">&lt;a class="link" href="https://linux.alianga.com/c/ps.html" target="_blank" rel="noopener"
+>ps&lt;/a>&lt;/h3>
+&lt;p>process status: 进程状态&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ ps &amp;lt;opt&amp;gt; &lt;span class="c1"># 显示系统进程状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ps aux &lt;span class="c1"># 显示系统所有进程的详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root &lt;span class="m">1&lt;/span> 0.0 0.1 &lt;span class="m">104188&lt;/span> &lt;span class="m">10472&lt;/span> ? Ss Apr02 0:03 /sbin/init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root &lt;span class="m">2&lt;/span> 0.0 0.0 &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> ? S Apr02 0:00 &lt;span class="o">[&lt;/span>kthreadd&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root &lt;span class="m">3&lt;/span> 0.0 0.0 &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> ? I&amp;lt; Apr02 0:00 &lt;span class="o">[&lt;/span>rcu_gp&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="systemctlhttpslinuxaliangacomcsystemctlhtml">&lt;a class="link" href="https://linux.alianga.com/c/systemctl.html" target="_blank" rel="noopener"
+>systemctl&lt;/a>&lt;/h3>
+&lt;p>systemctl control&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ systemctl &amp;lt;opt&amp;gt; &amp;lt;service&amp;gt; &lt;span class="c1"># 设置某项服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl start &amp;lt;service&amp;gt; &lt;span class="c1"># 启动nfs服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl &lt;span class="nb">enable&lt;/span> &amp;lt;service&amp;gt; &lt;span class="c1"># 设置开机自启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl disable &amp;lt;service&amp;gt; &lt;span class="c1"># 停止开机自启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl status &amp;lt;service&amp;gt; &lt;span class="c1"># 查看服务当前状态&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl restart &amp;lt;service&amp;gt; &lt;span class="c1"># 重新启动某服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl list-units --type&lt;span class="o">=&lt;/span>service &lt;span class="c1"># 查看所有已启动的服务&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl statuc docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ● docker.service - Docker Application Container Engine
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Loaded: loaded &lt;span class="o">(&lt;/span>/lib/systemd/system/docker.service&lt;span class="p">;&lt;/span> enabled&lt;span class="p">;&lt;/span> vendor preset: enabled&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Active: active &lt;span class="o">(&lt;/span>running&lt;span class="o">)&lt;/span> since Sun 2023-04-02 20:24:38 EDT&lt;span class="p">;&lt;/span> &lt;span class="m">4&lt;/span> days ago
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Docs: https://docs.docker.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Main PID: &lt;span class="m">704&lt;/span> &lt;span class="o">(&lt;/span>dockerd&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ......
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="netstathttpslinuxaliangacomcnetstathtml--network-statistics">&lt;a class="link" href="https://linux.alianga.com/c/netstat.html" target="_blank" rel="noopener"
+>netstat&lt;/a> : network statistics&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ netstat &amp;lt;opt&amp;gt; &lt;span class="c1"># 显示网络端口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -a &lt;span class="c1"># 显示所有网络端口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -t &lt;span class="c1"># 显示 TCP 网络端口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -u &lt;span class="c1"># 显示 UDP 网络端口信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -l &lt;span class="c1"># --listening 显示处于监听状态的端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ netstat -anlp &lt;span class="p">|&lt;/span> grep &lt;span class="m">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tcp &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> 0.0.0.0:22 0.0.0.0:* LISTEN 577/sshd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tcp &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> 10.0.2.15:22 10.0.2.2:61110 ESTABLISHED 19205/sshd: root@no
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; tcp6 &lt;span class="m">0&lt;/span> &lt;span class="m">0&lt;/span> :::22 :::* LISTEN 577/sshd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="ifconfighttpslinuxaliangacomcifconfightml">&lt;a class="link" href="https://linux.alianga.com/c/ifconfig.html" target="_blank" rel="noopener"
+>ifconfig&lt;/a>&lt;/h3>
+&lt;p>network interfaces configuring&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ ifconfig &lt;span class="c1"># 显示网络接口配置和参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; enp0s3: &lt;span class="nv">flags&lt;/span>&lt;span class="o">=&lt;/span>4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt; mtu &lt;span class="m">1500&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; inet 10.0.2.15 netmask 255.255.255.0 broadcast 10.0.2.255
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; inet6 fe80::a00:27ff:fe2e:3801 prefixlen &lt;span class="m">64&lt;/span> scopeid 0x20&amp;lt;link&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ether 08:00:27:2e:38:01 txqueuelen &lt;span class="m">1000&lt;/span> &lt;span class="o">(&lt;/span>Ethernet&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; RX packets &lt;span class="m">1226712&lt;/span> bytes &lt;span class="m">239728472&lt;/span> &lt;span class="o">(&lt;/span>228.6 MiB&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; RX errors &lt;span class="m">0&lt;/span> dropped &lt;span class="m">0&lt;/span> overruns &lt;span class="m">0&lt;/span> frame &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; TX packets &lt;span class="m">857854&lt;/span> bytes &lt;span class="m">146145492&lt;/span> &lt;span class="o">(&lt;/span>139.3 MiB&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; TX errors &lt;span class="m">0&lt;/span> dropped &lt;span class="m">0&lt;/span> overruns &lt;span class="m">0&lt;/span> carrier &lt;span class="m">0&lt;/span> collisions &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ......
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="killhttpslinuxaliangacomckillhtml">&lt;a class="link" href="https://linux.alianga.com/c/kill.html" target="_blank" rel="noopener"
+>kill&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">kill&lt;/span> &amp;lt;opt&amp;gt; &amp;lt;pid&amp;gt; &lt;span class="c1"># 杀死进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">kill&lt;/span> -9 &amp;lt;pid&amp;gt; &lt;span class="c1"># 强制杀死 &amp;lt;pid&amp;gt; 进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ killall &amp;lt;name&amp;gt; &lt;span class="c1"># 杀死所有名字为 &amp;lt;name&amp;gt; 进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ pkill -o &amp;lt;name&amp;gt; &lt;span class="c1"># 杀死 &amp;lt;name&amp;gt; 进程中进程号最小的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ pkill -n &amp;lt;name&amp;gt; &lt;span class="c1"># 杀死 &amp;lt;name&amp;gt; 进程中进程号最大的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sleep &lt;span class="m">300&lt;/span> &lt;span class="p">&amp;amp;&lt;/span> &lt;span class="c1"># 后台执行 sleep 指令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> &lt;span class="m">23287&lt;/span> &lt;span class="c1"># 系统返回后台的进程 pid&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">kill&lt;/span> -9 &lt;span class="m">23287&lt;/span> &lt;span class="c1"># 根据 pip 杀死指定进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> + &lt;span class="m">23287&lt;/span> killed sleep &lt;span class="m">300&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Linux 文本</title><link>https://facsert.github.io/p/linux-%E6%96%87%E6%9C%AC/</link><pubDate>Tue, 19 Jul 2022 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E6%96%87%E6%9C%AC/</guid><description>&lt;h2 id="文本搜索">文本搜索&lt;/h2>
+&lt;p>读取文本内容搜索或刷选符合条件的内容&lt;/p>
+&lt;h3 id="grephttpslinuxaliangacomcgrephtml">&lt;a class="link" href="https://linux.alianga.com/c/grep.html" target="_blank" rel="noopener"
+>grep&lt;/a>&lt;/h3>
+&lt;blockquote>
+&lt;p>global search regular expression and print out the line&lt;/p>
+&lt;/blockquote>
+&lt;p>文本搜索和筛选&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ grep &amp;lt;patten&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 从文件中筛选出符合模式的行, 可搜索多个文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ egrep &amp;lt;regex&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 与 grep -E 类似&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ grep &lt;span class="s2">&amp;#34;3r&amp;#34;&lt;/span> host.txt &lt;span class="c1"># grep 会显示所有包含 “3r” 的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> grep &lt;span class="s2">&amp;#34;3r&amp;#34;&lt;/span> &lt;span class="c1"># 与上述命令效果一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ grep -nE &lt;span class="s2">&amp;#34;[0-9]th&amp;#34;&lt;/span> host.txt &lt;span class="c1"># 通过正则表达式匹配, 并显示行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 4:4th
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 5:5th
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> egrep -i &lt;span class="s2">&amp;#34;[0-9]TH&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -v &lt;span class="m">5&lt;/span> &lt;span class="c1"># 多次管道筛选行, egrep 与 grep -E 一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 4th &lt;span class="c1"># 通过正则忽略大小写筛选, 去除包含 5 的行 &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">parameter&lt;/th>
+&lt;th style="text-align:left">meaning&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>c&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--count&lt;/code> 只显示匹配行的数量&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>E&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--extend-regexp&lt;/code> 使用正则匹配&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>i&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--ignore-case&lt;/code> 忽略大小写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>o&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--only-matching&lt;/code> 只显示匹配到内容, 同行其它内容不显示&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>n&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--line-number&lt;/code> 同时显示行数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>v&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--revert-match&lt;/code> 反转查找, 显示不匹配的所有行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>w&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--word-regexp&lt;/code> 单词全匹配, 存在该单词的行, 不包含子字符串&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>x&lt;/code>&lt;/td>
+&lt;td style="text-align:left">&lt;code>--line-regexp&lt;/code> 行全匹配, 必须与行完全一致&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="wchttpslinuxaliangacomcwchtml">&lt;a class="link" href="https://linux.alianga.com/c/wc.html" target="_blank" rel="noopener"
+>wc&lt;/a>&lt;/h3>
+&lt;p>Word count 文字计数&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ wc -c &lt;span class="c1"># --bytes char 统计字符数量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ wc -w &lt;span class="c1"># --words 统计单词数量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ wc -l &lt;span class="c1"># --lines 统计行的数量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> wc -l &lt;span class="c1"># wc 是以行尾是否有换行符号判断为一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">4&lt;/span> host.txt &lt;span class="c1"># 实际有 5 行, 第 5 行结尾没有换行符号&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="文本编辑">文本编辑&lt;/h2>
+&lt;h3 id="xargshttpslinuxaliangacomcxargshtml">&lt;a class="link" href="https://linux.alianga.com/c/xargs.html" target="_blank" rel="noopener"
+>xargs&lt;/a>&lt;/h3>
+&lt;p>extended arguments: 文本格式转换与扩充&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &amp;lt;command&amp;gt; &lt;span class="p">|&lt;/span> xargs &amp;lt;options&amp;gt; &amp;lt;command&amp;gt; &lt;span class="c1"># 处理左边命令的输出, 并作为右边命令的输入执行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;end&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> xargs &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;start&amp;#34;&lt;/span> &lt;span class="c1"># 将 &amp;#34;end&amp;#34; 传递给右边 echo 命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; start end &lt;span class="c1"># 与 echo &amp;#34;start&amp;#34; &amp;#34;end&amp;#34; 一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> xargs -n &lt;span class="m">3&lt;/span> &lt;span class="c1"># 读取文本内容, 修改格式, 每行 3 个字符串 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st 2nd 3rd &lt;span class="c1"># xargs 右边不填命令, 默认使用 echo &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 4th 5th
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1-2-3-4&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> xagrs -d &lt;span class="s1">&amp;#39;-&amp;#39;&lt;/span> -n &lt;span class="m">2&lt;/span> &lt;span class="c1"># 以 &amp;#39;-&amp;#39; 分割字符串, 分隔符号可以是单个字符,单个数字或单个字母 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">1&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="c1"># 每行显示两个字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">3&lt;/span> &lt;span class="m">4&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1 2 3&amp;#34;&lt;/span>&lt;span class="p">|&lt;/span> xargs -n &lt;span class="m">1&lt;/span> &lt;span class="p">|&lt;/span> xargs -i &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line {} end&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line &lt;span class="m">1&lt;/span> end &lt;span class="c1"># xargs -n 1, 每行一个字符串, 将 1 行分割为 3 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line &lt;span class="m">2&lt;/span> end &lt;span class="c1"># -i 使用 {} 变量替换, 每一行内容替换掉 {} 执行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line &lt;span class="m">3&lt;/span> end
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> xargs -I num sh -c &lt;span class="s1">&amp;#39;echo num start; echo num end&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st start &lt;span class="c1"># -I 设置变量 num(可自定义), 供后续多条命令执行 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st end &lt;span class="c1"># 执行两次 echo 命令, num 替换为 cat 的输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd start
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd end
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="sorthttpslinuxaliangacomcsorthtml">&lt;a class="link" href="https://linux.alianga.com/c/sort.html" target="_blank" rel="noopener"
+>sort&lt;/a>&lt;/h3>
+&lt;p>文本行排序&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sort &amp;lt;file&amp;gt; &lt;span class="c1"># 按每行第首字符的 ACSII 码值顺序排序, 相同则往后一个一个比较&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sort host.txt &lt;span class="c1"># 按每行字符 ACSII 逐个排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 128-1st-1 &lt;span class="c1"># 每行开头分别是 1 2 3, 按顺序排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 255-3rd-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 32-2nd-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sort -n host.txt &lt;span class="c1"># 根据数值比较, 若是字母开头, 按单个字符的 ACSII 数值比较&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 32-2nd-0 &lt;span class="c1"># 每行开头数值是 32 128 255, 根据大小排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 128-1st-1 &lt;span class="c1"># 若开头是字符, 按单个字符 ACSII 数值排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 255-3rd-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ sort -t &lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span> -k &lt;span class="m">4&lt;/span> -n host.txt &lt;span class="c1"># 以 &amp;#39;-&amp;#39; 为分割符号, 取第 4 列按数值排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; c-32-2nd-0 &lt;span class="c1"># -t &amp;#34;-&amp;#34; 以 - 符号分隔行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; b-128-1st-1 &lt;span class="c1"># -k 取第 4 列&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; a-255-3rd-2 &lt;span class="c1"># -n 根据数值排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sort -r &amp;lt;file&amp;gt; &lt;span class="c1"># --reverse 反向排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sort -u &amp;lt;file&amp;gt; &lt;span class="c1"># --unique 不显示重复的行&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="trhttpslinuxaliangacomctrhtml">&lt;a class="link" href="https://linux.alianga.com/c/tr.html" target="_blank" rel="noopener"
+>tr&lt;/a>&lt;/h3>
+&lt;p>transform 文本替换 压缩 删除&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ tr &amp;lt;option&amp;gt; &amp;lt;parameter&amp;gt; &lt;span class="c1"># 文本替换, 删除, 合并相邻重复&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> tr &lt;span class="s1">&amp;#39;a-z&amp;#39;&lt;/span> &lt;span class="s1">&amp;#39;A-Z&amp;#39;&lt;/span> &lt;span class="p">|&lt;/span> tr &lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span> &lt;span class="c1"># 小写全替换为大写, - 替换为 = &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">1ST&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">2ND&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">3RD&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;aaccbbcc&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> tr -s &lt;span class="s1">&amp;#39;ac&amp;#39;&lt;/span> &lt;span class="c1"># -s 压缩多个连续 a 或多个连续 c 为 1 个&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; acbbc &lt;span class="c1"># 仅限于单个字符重复, 且相邻重复才会生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat host.txt &lt;span class="p">|&lt;/span> xargs &lt;span class="p">|&lt;/span> tr -d &lt;span class="s1">&amp;#39;0-9&amp;#39;&lt;/span> &lt;span class="c1"># 删除文件内所有数字 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; st- nd- rd- &lt;span class="c1"># -d 后的内容逐一删除, 即删除 0 1 2 3 4 5 6 7 8 9&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: tr 替换或删除时把字符集看做&lt;strong>多个字符&lt;/strong>进行操作
+如 tr -d &amp;lsquo;abc&amp;rsquo; 表示删除文本中所有 a b c 字符&lt;/p>
+&lt;h3 id="sedhttpslinuxaliangacomcsedhtml">&lt;a class="link" href="https://linux.alianga.com/c/sed.html" target="_blank" rel="noopener"
+>sed&lt;/a>&lt;/h3>
+&lt;p>stream editor 流式编辑&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;range&amp;gt; &amp;lt;model&amp;gt; &amp;lt;file&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; option: 参数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -i: sed 的修改结果写入文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -n: 输出结果, 与 p 合用只打印修改的行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -e: 串联多个 sed 指令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; range: 行号或者正则筛选范围
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 行号: &lt;span class="s1">&amp;#39;3&amp;#39;&lt;/span> 第三行&lt;span class="p">;&lt;/span> &lt;span class="s1">&amp;#39;2,5&amp;#39;&lt;/span> 2到5行&lt;span class="p">;&lt;/span> &lt;span class="s1">&amp;#39;1~2&amp;#39;&lt;/span> 奇数行&lt;span class="p">;&lt;/span> &lt;span class="s1">&amp;#39;2~2&amp;#39;&lt;/span> 偶数行&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 正则: &lt;span class="s1">&amp;#39;/[0-9]/&amp;#39;&lt;/span> 含有数字的行&lt;span class="p">;&lt;/span> &lt;span class="s1">&amp;#39;/1st/,/3rd/&amp;#39;&lt;/span> 1st 行和 3rd 之间所有行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; model: 操作模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; p: 打印模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; d: 删除模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; s: 替换模式
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &amp;lt;n&amp;gt;g: 与 s 替换模式合用, 标明替换次数
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; a&lt;span class="se">\:&lt;/span> 行尾追加
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; i&lt;span class="se">\:&lt;/span> 行首插入
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>select 筛选&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;line index&amp;gt; file &lt;span class="c1"># 根据行序号筛选行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;regex&amp;gt; file &lt;span class="c1"># 根据关键字筛选行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed -n &lt;span class="s1">&amp;#39;2,$p&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 截取第二行到最后一行 $ 代表最后一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd-0 &lt;span class="c1"># 使用 -n 参数和 p 打印符合需求的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed -n &lt;span class="s1">&amp;#39;/[a-z]d/p&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 筛选包含 字母+d 的 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>delete 删除&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;line index&amp;gt; d file &lt;span class="c1"># 根据行序号筛选行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;regex&amp;gt; d file &lt;span class="c1"># 根据关键字筛选行 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &lt;span class="s1">&amp;#39;$d&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 删除最后一行 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st-1 &lt;span class="c1"># 显示删除后剩余的行, 文件保持不变&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed -i &lt;span class="s1">&amp;#39;/0$/d&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 删除以 0 为结尾的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st-1 &lt;span class="c1"># -i 显示删除后剩余的行, 并将修改写入文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>replace 替换&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &lt;span class="s1">&amp;#39;s/&amp;lt;before&amp;gt;/&amp;lt;after&amp;gt;/&amp;lt;n&amp;gt;g&amp;#39;&lt;/span> &amp;lt;file&amp;gt; &lt;span class="c1"># 逐行替换, s 替换模式; &amp;lt;n&amp;gt;g 替换 n 次, n 不填则全替换 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;hi hi ha&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s/hi/ha/g&amp;#39;&lt;/span> &lt;span class="c1"># 将 hi 替换为 ha, n 未填, 全替换&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ha ha ha
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;hi hi ha&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> sed &lt;span class="s1">&amp;#39;s:hi:ha:&amp;#39;&lt;/span> &lt;span class="c1"># 将 hi 替换为 ha, 没有 g, 只替换一次&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ha hi ha &lt;span class="c1"># 定界符除了 / 也可以用 : , 或 | &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed -i &lt;span class="s1">&amp;#39;s/-[0-3]/=end/1g&amp;#39;&lt;/span> host.txt &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> cat host.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">1st&lt;/span>&lt;span class="o">=&lt;/span>end &lt;span class="c1"># -i, 不显示结果, 将修改写入文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">2nd&lt;/span>&lt;span class="o">=&lt;/span>end &lt;span class="c1"># 支持正则表达式, 将 -1 -2 -3 都替换为 =end&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">3rd&lt;/span>&lt;span class="o">=&lt;/span>end &lt;span class="c1"># 结尾没有 g, 只替换一次&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed -n &lt;span class="s1">&amp;#39;s/nd\|rd/th/gp&amp;#39;&lt;/span> host.txt &lt;span class="c1"># -n 和 p 合用打印匹配的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2th-0 &lt;span class="c1"># 将 nd 或 rd 替换为 th&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3th-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &lt;span class="s1">&amp;#39;s/.d/(&amp;amp; or th)/g&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 使用 &amp;amp; 做变量替换&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2&lt;span class="o">(&lt;/span>nd or th&lt;span class="o">)&lt;/span>-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3&lt;span class="o">(&lt;/span>rd or th&lt;span class="o">)&lt;/span>-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>add insert 追加 插入&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sed &amp;lt;option&amp;gt; &amp;lt;regex&amp;gt; &amp;lt;a&lt;span class="se">\ &lt;/span>i&lt;span class="se">\&amp;gt;&lt;/span> &amp;lt;string&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &lt;span class="s1">&amp;#39;/1st/a\first line&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 在包含 1st 的行结尾添加 first line &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st-1 &lt;span class="c1"># 行结尾是换行符, 追加内容在换行符后, 即下一行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; first line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd-2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sed &lt;span class="s1">&amp;#39;/1st/1\first line&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 在包含 1st 的行开头添加 first line &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; first line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st-1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd-0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd-2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="awkhttpslinuxaliangacomcawkhtml">&lt;a class="link" href="https://linux.alianga.com/c/awk.html" target="_blank" rel="noopener"
+>awk&lt;/a>&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;BEGIN{ commands } pattern{ commands } END{ commands }&amp;#39;&lt;/span> &amp;lt;file&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; BEGIN&lt;span class="o">{&lt;/span> commands &lt;span class="o">}&lt;/span>: 操作文本前执行, 选填, 一般用于初始化变量
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; pattern&lt;span class="o">{&lt;/span> commands &lt;span class="o">}&lt;/span>: 行操作, 循环体, 对每行执行
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; END&lt;span class="o">{&lt;/span> commands &lt;span class="o">}&lt;/span>: 每次执行完行操作后执行, 选填, 一般用于打印行操作结果
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;BEGIN{i=0} {i++} END{print i}&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 打印文本行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">3&lt;/span> &lt;span class="c1"># 初始化 i, 每遍历一行, i + 1, 最后打印 i &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;{print $1, $NF, &amp;#34;index:&amp;#34;NR}&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 以空格为分隔,打印第 1 列, 最后一列及行序号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st first index:1 &lt;span class="c1"># $0 表示整行, $&amp;lt;n&amp;gt; 表示第n列, 未指定分隔符号默认空格为分隔&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd second index:2 &lt;span class="c1"># $NF 表示最后一列 $(NF-&amp;lt;N&amp;gt;) 倒数第 n 列&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd third index:3 &lt;span class="c1"># NR 表示行序号, 不需要 $ &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nv">num&lt;/span>&lt;span class="o">=&lt;/span>2&lt;span class="p">;&lt;/span> awk -F &lt;span class="s1">&amp;#39;=&amp;#39;&lt;/span> -v &lt;span class="nv">col&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$num&lt;/span> &lt;span class="s1">&amp;#39;{print &amp;#34;line: &amp;#34;NR &amp;#34; column &amp;#34; col&amp;#34;: &amp;#34; $col}&amp;#39;&lt;/span> host.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line: &lt;span class="m">1&lt;/span> column 2: &lt;span class="m">1&lt;/span> &lt;span class="c1"># -F &amp;#34;=&amp;#34; 以 = 为分隔符号, 与 &amp;#39;BEGIN{ FS = &amp;#34;=&amp;#34; }&amp;#39; 效果一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line: &lt;span class="m">2&lt;/span> column 2: &lt;span class="m">0&lt;/span> &lt;span class="c1"># -v col=$num 从外部添加变量赋值给 col&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line: &lt;span class="m">3&lt;/span> column 2: &lt;span class="m">2&lt;/span> &lt;span class="c1"># &amp;#34;&amp;#34; 内容打印, 变量自动替换, $&amp;lt;n&amp;gt; 取第 n 列&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /dev/sda1 234G 191G 31G 87% /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span>-------&lt;span class="p">|&lt;/span> &lt;span class="p">|&lt;/span>--&lt;span class="p">|&lt;/span> &lt;span class="p">|&lt;/span>--&lt;span class="p">|&lt;/span> &lt;span class="p">|&lt;/span>--&lt;span class="p">|&lt;/span> &lt;span class="p">|&lt;/span>-&lt;span class="p">|&lt;/span> &lt;span class="p">|&lt;/span>--------&lt;span class="p">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">$1&lt;/span> &lt;span class="nv">$2&lt;/span> &lt;span class="nv">$3&lt;/span> &lt;span class="nv">$4&lt;/span> &lt;span class="nv">$5&lt;/span> &lt;span class="nv">$6&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="nv">$NF&lt;/span>&lt;span class="o">)&lt;/span> NR: line index
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">|&lt;/span>-----------------------------------------&lt;span class="p">|&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">$0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>select 筛选&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ awk &amp;lt;pattern&amp;gt; &lt;span class="o">{&lt;/span> &lt;span class="nb">command&lt;/span> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;NR%2==1, $3 ~ /ir/ {print $0}&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 通过表达式筛选符合条件的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st &lt;span class="m">1&lt;/span> first &lt;span class="c1"># NR%2 == 1, 行序号为 2 的倍数余 1 , 即奇数行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd &lt;span class="m">2&lt;/span> third &lt;span class="c1"># $3 ~ /ir/ 即第 3 列包含 ir 字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;$1 !~ /nd/, /^[1-3]/ {print}&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 使用正则筛选行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st &lt;span class="m">1&lt;/span> first &lt;span class="c1"># $1 !~ /nd/ 第 1 列不包含 nd 字符串&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd &lt;span class="m">2&lt;/span> third &lt;span class="c1"># ^[1-3] 以数字 1 2 3 为行开头 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ awk &lt;span class="s1">&amp;#39;/sec/, /3rd/ {print}&amp;#39;&lt;/span> host.txt &lt;span class="c1"># 通过子字符串截取两子字符之间所有的行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 2nd &lt;span class="m">0&lt;/span> second &lt;span class="c1"># sec 在第 2 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 3rd &lt;span class="m">2&lt;/span> third &lt;span class="c1"># 3rd 在第 3 行&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="正则表达式">正则表达式&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">char&lt;/th>
+&lt;th style="text-align:left">meaning&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>^&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配输入字符串的开始位置, ^start 以字符串 start 开头&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>$&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配输入字符串的结束位置, $end 以字符串 end 开头&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>.&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配除&amp;quot;\n&amp;quot;之外的任何单个字符, .&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>[]&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配所包含的任意&lt;strong>一个&lt;/strong>字符, [fac] 匹配 f a c 中任意单个字符, [a-z] 任意单个小写字母 [0-9] 任意单个数字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>[^]&lt;/code>&lt;/td>
+&lt;td style="text-align:left">负值字符范围。匹配任何不在指定范围内的任意字符, [^fac] 匹配不包含 f a c 中任意单个字符&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>|&lt;/code>&lt;/td>
+&lt;td style="text-align:left">或匹配, 符号两边均可 [0-9]|[a-z] 匹配任意单个数字或小写字母&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>？&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配前面的子表达式零次或一次, [0-9]? 匹配 0 个或 1 个数字&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>+&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配前面的子表达式一次或多次, [A-Z]+ 匹配 1 个或多个大写字母&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>*&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配前面的子表达式零次或多次, .*.txt 匹配任意单个字符出现0次或多次, 即表示任意以 .txt 结尾&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>{m}&lt;/code>&lt;/td>
+&lt;td style="text-align:left">n是一个非负整数。匹配确定的n次。{3} 固定匹配 3 次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>{m,n}&lt;/code>&lt;/td>
+&lt;td style="text-align:left">m和n均为非负整数，其中n&amp;lt;=m。{1，3} 最少 1 次最多 3 次, {2,} 最少两次, {,4} 最多 4 次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>()&lt;/code>&lt;/td>
+&lt;td style="text-align:left">匹配pattern并获取这一匹配, 将括号内匹配看成一个整体 （[0-9]=)* &amp;ldquo;数字=&amp;rdquo; 的格式出现任意次&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="正则表达式示例">正则表达式示例&lt;/h3>
+&lt;ul>
+&lt;li>匹配 IPV4&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;127.0.0.1 \n255.255.1 \n0.0.0.0 &amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> egrep -o &lt;span class="s2">&amp;#34;([0-9]{1,3}\.){3}[0-9]{1,3}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 127.0.0.1 &lt;span class="c1"># -o 仅显示匹配内容, [0-9]{1,3} 任意数字出现 1 到 3 次 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 0.0.0.0 &lt;span class="c1"># ([0-9]{1,3}\.){3} 匹配格式 3 次, . 经过转义仅表示 . 字符&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Linux 文件</title><link>https://facsert.github.io/p/linux-%E6%96%87%E4%BB%B6/</link><pubDate>Mon, 18 Jul 2022 22:49:44 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E6%96%87%E4%BB%B6/</guid><description>&lt;h2 id="特殊目录文件">特殊目录文件&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">位置&lt;/th>
+&lt;th style="text-align:left">全称&lt;/th>
+&lt;th style="text-align:left">说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/etc&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Configuration Files&lt;/td>
+&lt;td style="text-align:left">系统和软件的配置文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/usr&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Unix Software Resource&lt;/td>
+&lt;td style="text-align:left">应用程序默认安装位置&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/dev&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Device Files&lt;/td>
+&lt;td style="text-align:left">系统外围设备&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/mnt&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Mount Directory&lt;/td>
+&lt;td style="text-align:left">空目录, 用于临时挂载文件系统&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/bin&lt;/code>&lt;/td>
+&lt;td style="text-align:left">User Binaries&lt;/td>
+&lt;td style="text-align:left">所有用户可用的基本命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/home&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Home Directories&lt;/td>
+&lt;td style="text-align:left">普通用户的主目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>/proc&lt;/code>&lt;/td>
+&lt;td style="text-align:left">Process Information&lt;/td>
+&lt;td style="text-align:left">虚拟文件系统, 以映射系统与进程在内存中的信息&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">位置&lt;/th>
+&lt;th style="text-align:left">说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/etc/environment&lt;/code>&lt;/td>
+&lt;td style="text-align:left">任意用户打开命令行加载, 系统环境变量&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/etc/profile&lt;/code>&lt;/td>
+&lt;td style="text-align:left">任意用户打开命令行加载&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/etc/bash.bashrc&lt;/code>&lt;/td>
+&lt;td style="text-align:left">任意用户打开命令行加载&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>~/.profile&lt;/code>&lt;/td>
+&lt;td style="text-align:left">当前用户打开命令行时执行的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>~/.bashrc&lt;/code>&lt;/td>
+&lt;td style="text-align:left">当前用户打开 bash 命令行时执行的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/etc/apt/source.list&lt;/code>&lt;/td>
+&lt;td style="text-align:left">(Ubuntu) apt 下载源文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/var/cache/apt/archives/&lt;/code>&lt;/td>
+&lt;td style="text-align:left">(Ubuntu) apt 下载包安放位置&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">&lt;code>/ect/rc.d/rc.local&lt;/code>&lt;/td>
+&lt;td style="text-align:left">系统启动时执行的文件(centos, redhat)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="文件查看">文件查看&lt;/h2>
+&lt;h3 id="treehttpswwwlinuxcoolcomtree">&lt;a class="link" href="https://www.linuxcool.com/tree" target="_blank" rel="noopener"
+>tree&lt;/a>&lt;/h3>
+&lt;p>以树状结构展示指定目录下的所有文件和子目录&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ tree &amp;lt;path&amp;gt; &lt;span class="c1"># 显示目录的树状层级图&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Zip/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── targe.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── main.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> directories, &lt;span class="m">2&lt;/span> files
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tree -a &lt;span class="c1"># 显示所有隐藏文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tree -d &lt;span class="c1"># 仅显示目录不显示文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tree -f &lt;span class="c1"># 树状图显示绝对路径&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="pwdhttpswwwlinuxcoolcompwd">&lt;a class="link" href="https://www.linuxcool.com/pwd" target="_blank" rel="noopener"
+>pwd&lt;/a>&lt;/h3>
+&lt;h3 id="dirshttpswwwlinuxcoolcomdirs">&lt;a class="link" href="https://www.linuxcool.com/dirs" target="_blank" rel="noopener"
+>dirs&lt;/a>&lt;/h3>
+&lt;p>pwd: print working directory
+dir: directories&lt;/p>
+&lt;p>显示当前绝对路径&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># 显示当前路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /root/Desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">dirs&lt;/span> &lt;span class="c1"># 显示当前路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /root/Desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$PWD&lt;/span> &lt;span class="c1"># 当前路径的全局变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /root/Desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="lshttpswwwlinuxcoolcomls">&lt;a class="link" href="https://www.linuxcool.com/ls" target="_blank" rel="noopener"
+>ls&lt;/a>&lt;/h3>
+&lt;p>list files 显示当前路径下的文件及目录&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ ls &lt;span class="c1"># 显示当前目录下所有文件及目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -a &lt;span class="c1"># --all 额外显示隐藏文件及目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -l &lt;span class="c1"># 使用长格式显示文集及目录详细信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -R &lt;span class="c1"># --recursive 递归显示所有子目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -S &lt;span class="c1"># sort 根据文件大小排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls -alS &lt;span class="c1"># 参数可无顺序合并, 结果按参数显示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; total &lt;span class="m">40&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; drwxr-xr-x &lt;span class="m">10&lt;/span> root root &lt;span class="m">4096&lt;/span> Feb &lt;span class="m">27&lt;/span> 20:44 .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; drwx------ &lt;span class="m">14&lt;/span> root root &lt;span class="m">4096&lt;/span> Feb &lt;span class="m">27&lt;/span> 20:35 ..
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; drwxr-xr-x &lt;span class="m">3&lt;/span> root root &lt;span class="m">4096&lt;/span> Oct &lt;span class="m">24&lt;/span> 20:33 Blog
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="filehttpslinuxaliangacomcfilehtml">&lt;a class="link" href="https://linux.alianga.com/c/file.html" target="_blank" rel="noopener"
+>file&lt;/a>&lt;/h3>
+&lt;p>显示文件信息&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ file &amp;lt;file&amp;gt; &lt;span class="c1"># 显示文件类型&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ file main.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; main.py: Python script, ASCII text executable &lt;span class="c1"># 文件名, 类型, 编码类型&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="文件操作">文件操作&lt;/h2>
+&lt;h3 id="cdhttpswwwlinuxcoolcomcd">&lt;a class="link" href="https://www.linuxcool.com/cd" target="_blank" rel="noopener"
+>cd&lt;/a>&lt;/h3>
+&lt;p>change directory 切换工作路径&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> &amp;lt;path&amp;gt; &lt;span class="c1"># 切换到 &amp;lt;paht&amp;gt; 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> .. &lt;span class="c1"># 返回上级目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> - &lt;span class="c1"># 回到上次所有在目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> folder &lt;span class="c1"># 目录必须存在, 否则切换失败&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; bash: cd: folder: No such file or directory
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="mkdirhttpswwwlinuxcoolcommkdir">&lt;a class="link" href="https://www.linuxcool.com/mkdir" target="_blank" rel="noopener"
+>mkdir&lt;/a>&lt;/h3>
+&lt;p>make directories 创建目录&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ mkdir &amp;lt;dir&amp;gt; &lt;span class="c1"># 创建目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mkdir -v 1st 2nd 3rd &lt;span class="c1"># 创建多个文件夹, 并显示过程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mkdir: created directory &lt;span class="s1">&amp;#39;1st&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mkdir: created directory &lt;span class="s1">&amp;#39;2nd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mkdir: created directory &lt;span class="s1">&amp;#39;3rd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mkdir -p &amp;lt;path&amp;gt; &lt;span class="c1"># 创建多级目录,无论多级目录是否存在都会创建&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mkdir -p 1st/2nd/3rd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mkdir: created directory &lt;span class="s1">&amp;#39;1st/2nd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mkdir: created directory &lt;span class="s1">&amp;#39;1st/2nd/3rd&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="touchhttpswwwlinuxcoolcomtouch">&lt;a class="link" href="https://www.linuxcool.com/touch" target="_blank" rel="noopener"
+>touch&lt;/a>&lt;/h3>
+&lt;p>创建文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ touch &amp;lt;file&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 文件不存在, 创建文件, 文件存在不创建, 可同时创建多个&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ touch 1st/main.sh &lt;span class="c1"># 创建时可以添加路径, 路径不存在会报错&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; touch: cannot touch &lt;span class="s1">&amp;#39;1st/main.sh&amp;#39;&lt;/span>: No such file or directory
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="rmhttpswwwlinuxcoolcomrm">&lt;a class="link" href="https://www.linuxcool.com/rm" target="_blank" rel="noopener"
+>rm&lt;/a>&lt;/h3>
+&lt;p>remove 删除文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ rm &amp;lt;file&amp;gt; &lt;span class="c1"># 删除文件, 或删除文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rm -f &amp;lt;file&amp;gt; &lt;span class="c1"># --force 强制删除文件, 不询问&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rm -r &amp;lt;path&amp;gt; &lt;span class="c1"># -R, --recursive 递归删除, 删除文件夹及下所有文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rmdir &amp;lt;path&amp;gt; &lt;span class="c1"># 删除空目录, 目录下有文件或文件夹报错&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; rmdir: failed to remove &lt;span class="s1">&amp;#39;1st&amp;#39;&lt;/span>: Directory not empty
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="mvhttpslinuxaliangacomcmvhtml">&lt;a class="link" href="https://linux.alianga.com/c/mv.html" target="_blank" rel="noopener"
+>mv&lt;/a>&lt;/h3>
+&lt;p>move: 移动文件或文件夹&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ mv &amp;lt;file&lt;span class="p">|&lt;/span>dir&amp;gt; &amp;lt;file&lt;span class="p">|&lt;/span>dir&amp;gt; &lt;span class="c1"># 剪切复制并重新命名, 文件目录均可&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv &amp;lt;file&amp;gt; &amp;lt;path&amp;gt;/ &lt;span class="c1"># 保存文件名移动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv -v &lt;span class="c1"># --verbose 显示过程, 打印原名及更改后名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv -f &lt;span class="c1"># --force 强制移动, 存在同名则覆盖&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv -n &lt;span class="c1"># --no-clobber 存在同名文件则不移动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv -bv main.sh master.sh &lt;span class="c1"># 文件重命名, 同名文件修改文件名令 mv 命令得以成功执行 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; renamed &lt;span class="s1">&amp;#39;main.sh&amp;#39;&lt;/span> -&amp;gt; &lt;span class="s1">&amp;#39;master.sh&amp;#39;&lt;/span> &lt;span class="o">(&lt;/span>backup: &lt;span class="s1">&amp;#39;master.sh~&amp;#39;&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; master.sh master.sh~
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="cphttpswangchujiangcomlinux-commandccphtml">&lt;a class="link" href="https://wangchujiang.com/linux-command/c/cp.html" target="_blank" rel="noopener"
+>cp&lt;/a>&lt;/h3>
+&lt;p>copy 复制文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ cp &amp;lt;file&lt;span class="p">|&lt;/span>dir&amp;gt; &amp;lt;file&lt;span class="p">|&lt;/span>dir&amp;gt; &lt;span class="c1"># 复制黏贴重命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -v &lt;span class="c1"># --verbose 显示详细过程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -f &lt;span class="c1"># --force 强制复制, 存在同名直接覆盖&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -r &lt;span class="c1"># -R, --recursive 递归复制&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -b &lt;span class="c1"># backup 存在同名文件时, 目标文件改名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -l &lt;span class="c1"># --link 创建源文件的硬链接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -s &lt;span class="c1"># --symbolic-link 创建源文件的符号链接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp -v mian.sh main.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;mian.sh&amp;#39;&lt;/span> -&amp;gt; &lt;span class="s1">&amp;#39;main.sh&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ln &amp;lt;source&amp;gt; &amp;lt;target&amp;gt; &lt;span class="c1"># 创建文件的硬链接 (使用绝对路径)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ln -s &amp;lt;source&amp;gt; &amp;lt;target&amp;gt; &lt;span class="c1"># --symbolic 创建文件的符号链接 (使用绝对路径)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>硬链接: 一个数据绑定两个名字, 两名字都删除才无法访问数据&lt;/li>
+&lt;li>符号链接: 数据的&amp;quot;软链接&amp;quot; &amp;ldquo;快捷方式&amp;rdquo;, 只是一个链接, 不含数据&lt;/li>
+&lt;/ul>
+&lt;h2 id="文件查找">文件查找&lt;/h2>
+&lt;h3 id="findhttpswangchujiangcomlinux-commandcfindhtml">&lt;a class="link" href="https://wangchujiang.com/linux-command/c/find.html" target="_blank" rel="noopener"
+>find&lt;/a>&lt;/h3>
+&lt;p>查询指定文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ find &amp;lt;path&amp;gt; &amp;lt;options&amp;gt; &lt;span class="c1"># 列出在 &amp;lt;path&amp;gt; 下符合参数的文件或目录(绝对路径)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find . -name &lt;span class="s2">&amp;#34;*.txt&amp;#34;&lt;/span> &lt;span class="c1"># 在 当前目录查找所有后缀为 .txt 的文件，模式匹配需要双括号 &amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ./a.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ./b.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find . -path &lt;span class="s2">&amp;#34;*lib*&amp;#34;&lt;/span> &lt;span class="c1"># 在当前目录所有绝对地址中含有 &amp;#39;lib&amp;#39; 的文件或目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ./temp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ./temp/a.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ./temp/b.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find temp -regex &lt;span class="s2">&amp;#34;.*\.txt&lt;/span>$&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 当前目录的 temp 文件夹下符合正则表达式的文件 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; temp/a.txt &lt;span class="c1"># .* 任意字符任意次, \.txt$ 以 .txt 结尾&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; temp/b.txt
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find &amp;lt;dir&amp;gt; &amp;lt;options&amp;gt; -exec &amp;lt;command&amp;gt; &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span> &lt;span class="c1"># 对查找到的文件进行操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find . -name &lt;span class="s2">&amp;#34;*.sh&amp;#34;&lt;/span> -exec rm &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span> &lt;span class="c1"># 删除当前目录下后缀为 .sh 文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find . -name &lt;span class="s2">&amp;#34;*.py&amp;#34;&lt;/span> -exec mv &lt;span class="o">{}&lt;/span> /root &lt;span class="se">\;&lt;/span> &lt;span class="c1"># 将当前目录下后缀为 .py 文件移动到 /root &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ find . -type f -exec sh -c &lt;span class="s1">&amp;#39;echo &amp;gt;{}&amp;#39;&lt;/span> &lt;span class="se">\;&lt;/span> &lt;span class="c1"># 清空当前目录下所有文件内容&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="文件内容">文件内容&lt;/h2>
+&lt;h3 id="cathttpswwwlinuxcoolcomcat">&lt;a class="link" href="https://www.linuxcool.com/cat" target="_blank" rel="noopener"
+>cat&lt;/a>&lt;/h3>
+&lt;p>concatenate 读取文件内容&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ cat &amp;lt;file&amp;gt; &lt;span class="c1"># 读取并打印文件内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat -n &amp;lt;file&amp;gt; &lt;span class="c1"># 打印文件内容并添加行数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">1&lt;/span> 1st
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">2&lt;/span> 2nd
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">3&lt;/span> 3rd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="headhttpswwwlinuxcoolcomhead">&lt;a class="link" href="https://www.linuxcool.com/head" target="_blank" rel="noopener"
+>head&lt;/a>&lt;/h4>
+&lt;h4 id="tailhttpswwwlinuxcoolcomtail">&lt;a class="link" href="https://www.linuxcool.com/tail" target="_blank" rel="noopener"
+>tail&lt;/a>&lt;/h4>
+&lt;p>读取文件部分内容&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ head &amp;lt;file&amp;gt; &lt;span class="c1"># 显示文件的前 10 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ head -n &lt;span class="m">5&lt;/span> &amp;lt;file&amp;gt; &lt;span class="c1"># --lines 显示文件前 5 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ head -c &lt;span class="m">20&lt;/span> &amp;lt;file&amp;gt; &lt;span class="c1"># --bytes 显示文件前 20 个字符 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tail &amp;lt;file&amp;gt; &lt;span class="c1"># 显示文件的后 10 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tail -n &lt;span class="m">5&lt;/span> &amp;lt;file&amp;gt; &lt;span class="c1"># --lines 显示文件后 5 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ tail -c &lt;span class="m">20&lt;/span> &amp;lt;file&amp;gt; &lt;span class="c1"># --bytes 显示文件最后 20 个字符 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ head -c &lt;span class="m">5&lt;/span> log
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1st
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Linux 基础</title><link>https://facsert.github.io/p/linux-%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 18 Jul 2022 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/linux-%E5%9F%BA%E7%A1%80/</guid><description>&lt;p>&lt;a class="link" href="https://www.linuxcool.com/" target="_blank" rel="noopener"
+>linux 命令&lt;/a>&lt;/p>
+&lt;h2 id="帮助信息">帮助信息&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ man &amp;lt;command&amp;gt; &lt;span class="c1"># man (manual) 帮助手册, 查看命令的帮助手册&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ man -f &amp;lt;command&amp;gt; &lt;span class="c1"># 显示命令的简短描述&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ man -f date
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; date &lt;span class="o">(&lt;/span>1&lt;span class="o">)&lt;/span> - print or &lt;span class="nb">set&lt;/span> the system date and &lt;span class="nb">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ whatis &amp;lt;command&amp;gt; &lt;span class="c1"># 显示命令的简短描述, 等同于 man -f &amp;lt;command&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ whatis date
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; date &lt;span class="o">(&lt;/span>1&lt;span class="o">)&lt;/span> - print or &lt;span class="nb">set&lt;/span> the system date and &lt;span class="nb">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &amp;lt;command&amp;gt; -h/--help &lt;span class="c1"># 命令使用 -h/--help 参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date -h
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date --help
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Usage: date &lt;span class="o">[&lt;/span>OPTION&lt;span class="o">]&lt;/span>... &lt;span class="o">[&lt;/span>+FORMAT&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; or: date &lt;span class="o">[&lt;/span>-u&lt;span class="p">|&lt;/span>--utc&lt;span class="p">|&lt;/span>--universal&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>MMDDhhmm&lt;span class="o">[[&lt;/span>CC&lt;span class="o">]&lt;/span>YY&lt;span class="o">][&lt;/span>.ss&lt;span class="o">]]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Display the current &lt;span class="nb">time&lt;/span> in the given FORMAT, or &lt;span class="nb">set&lt;/span> the system date.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="文件与路径">文件与路径&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">pwd&lt;/span> &lt;span class="c1"># 查看当前目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /root/Desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls &lt;span class="c1"># 查看当前目录下的文件及文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; source.sh target.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> &amp;lt;path&amp;gt; &lt;span class="c1"># 切换到 path 目录(无返回值), path 不存在则报错&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ~/Desktop/Zip$ &lt;span class="c1"># 命令行 $ 左边即为当前目录&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ cp &amp;lt;source&amp;gt; &amp;lt;destination&amp;gt; &lt;span class="c1"># 文件复制&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv &amp;lt;source&amp;gt; &amp;lt;destination&amp;gt; &lt;span class="c1"># 文件移动或重命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rm &amp;lt;file&amp;gt; &lt;span class="c1"># 删除文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mkdir &amp;lt;path&amp;gt; &lt;span class="c1"># 创建文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ touch &amp;lt;file&amp;gt; &lt;span class="c1"># 创建文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat &amp;lt;file&amp;gt; &lt;span class="c1"># 查看文件内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ touch learn.log &lt;span class="c1"># 创建文件 learn.log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mkdir seeds &lt;span class="c1"># 创建文件夹 seeds &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cp learn.log seeds/ &lt;span class="c1"># learn.log 复制到 seeds 文件夹下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rm learn.log &lt;span class="c1"># 删除当前目录下的 learn.log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mv seeds/learn.log study.log &lt;span class="c1"># 将 seeds 下的 learn.log 移动到当前目录并重命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ rm -r seeds &lt;span class="c1"># 删除 seeds 文件夹及文件夹下的所有文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;learn.log&amp;#39;&lt;/span> -&amp;gt; create
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;seed/&amp;#39;&lt;/span> -&amp;gt; create
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;learn.log&amp;#39;&lt;/span> -&amp;gt; &lt;span class="s1">&amp;#39;seed/learn.log&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;learn.log&amp;#39;&lt;/span> -&amp;gt; delete
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;seeds/learn.log&amp;#39;&lt;/span> -&amp;gt; &lt;span class="s1">&amp;#39;study.log&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="s1">&amp;#39;seed/&amp;#39;&lt;/span> -&amp;gt; delete
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="查看执行过命令">查看执行过命令&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">history&lt;/span> &lt;span class="c1"># 查看执行的命令历史&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">1&lt;/span> ls
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">2&lt;/span> date
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ !! &lt;span class="c1"># 执行上一条命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ !&amp;lt;&lt;span class="nb">command&lt;/span> key&amp;gt; + enter &lt;span class="c1"># 通过命令关键字和 enter 执行上一个包含关键字的命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ control + r + &amp;lt;&lt;span class="nb">command&lt;/span> key&amp;gt; &lt;span class="c1"># 快捷键进入历史列表, 通过关键字查找, enter 执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">(&lt;/span>reverse-i-search&lt;span class="o">)&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="nb">echo&lt;/span> &lt;span class="s1">$&amp;#39;: echo $PWD # `echo $&amp;#39;&lt;/span> 是输入关键字, : 后为匹配的命令, 方向键选择命令但不执行
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="全局变量">全局变量&lt;/h2>
+&lt;p>全局变量是在整个操作系统中都可用的变量，其值可以在任何地方被访问和修改&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$HOME&lt;/span> &lt;span class="c1"># 当前用户名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$PATH&lt;/span> &lt;span class="c1"># 执行命令时所搜寻的路径列表, 以 : 分隔(环境变量设置路径)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /usr/local/sbin:/usr/local/bin:/usr/bin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$SHELL&lt;/span> &lt;span class="c1"># 当前使用的 shell &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /bin/zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$PWD&lt;/span> &lt;span class="c1"># 当前绝对路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /root/Desktop/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$RANDOM&lt;/span> &lt;span class="c1"># 生成随机数字&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">2166&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改 shell 启动文件(每次打开命令行均会执行)以永久设置环境变量, 使用 export 添加环境变量&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &amp;lt;variable name&amp;gt;&lt;span class="o">=&lt;/span>&amp;lt;value&amp;gt; &lt;span class="c1"># 使用 export 临时修改环境变量, 执行的命令窗口关闭即失效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$PATH&lt;/span>:/home/facsert &lt;span class="c1"># 将 /home/facsert 临时加入环境目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">LEARN&lt;/span>&lt;span class="o">=&lt;/span>TRUE &lt;span class="c1"># 自定义新的环境变量, 脚本间可以通过自定义环境变量通信&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">PATH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$PATH&lt;/span>:/home/facsert &lt;span class="c1"># 将命令写入 shell 启动文件(每次启动 shell 均会执行文件上命令)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.bashrc &lt;span class="c1"># 重新加载 shell 启动文件(~/.bashrc, ~/.zshrc )&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>bash 执行脚本: 新建子 shell 执行脚本, 脚本中的 export 的变量只在子 shell 生效, 脚本结束变量失效
+source 执行脚本: 脚本中的 export 变量加载入当前终端, 脚本结束仍然生效, 当前终端关闭后失效&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export linux=&amp;#34;bash&amp;#34;&amp;#39;&lt;/span> &amp;gt; bash.sh &lt;span class="c1"># 生成脚本 bash.sh &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="s1">&amp;#39;export linux=&amp;#34;source&amp;#34;&amp;#39;&lt;/span> &amp;gt; source.sh &lt;span class="c1"># 生成脚本 source.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ bash bash.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;linux: &lt;/span>&lt;span class="nv">$linux&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 使用 bash 添加 linux 变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; linux: &lt;span class="c1"># 脚本结束, 变量失效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> source.sh &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;linux: &lt;/span>&lt;span class="nv">$linux&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 使用 source 执行脚本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; linux: &lt;span class="nb">source&lt;/span> shell &lt;span class="c1"># 脚本结束, 变量仍然生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="系统相关">系统相关&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ shutdown -h now &lt;span class="c1"># 关机&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ shutdown -r now &lt;span class="c1"># 重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date &lt;span class="c1"># 系统时间&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:34:10 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ unmae -a &lt;span class="c1"># 查看系统内核信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; inux facser 5.15.79.1-microsoft-standard-WSL2 &lt;span class="c1">#1 SMP Wed Nov 23 01:01:46 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ps -ef &lt;span class="c1"># 查看当前正在运行的所有进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; UID PID PPID C STIME TTY TIME CMD
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root &lt;span class="m">1399&lt;/span> &lt;span class="m">71&lt;/span> &lt;span class="m">0&lt;/span> 19:08 pts/4 00:00:00 /bin/zsh -i
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; root &lt;span class="m">9481&lt;/span> &lt;span class="m">490&lt;/span> &lt;span class="m">0&lt;/span> 20:24 pts/4 00:00:00 bash -x a.sh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">kill&lt;/span> &amp;lt;pid&amp;gt; &lt;span class="c1"># 根据 pid 关掉指定进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">kill&lt;/span> &lt;span class="m">9481&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">[&lt;/span>1&lt;span class="o">]&lt;/span> + &lt;span class="m">9481&lt;/span> terminated bash -x a.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="用户">用户&lt;/h2>
+&lt;h3 id="启用-root-用户">启用 root 用户&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sudo passwd root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Enter new UNIX password: &lt;span class="c1"># 设置 root 用户密码(输入时密码不可见)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Retype new UNIX password: &lt;span class="c1"># 重复输入 root 密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; passwd: password updated successfully &lt;span class="c1"># 设置成功&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> facser@master:~/Desktop$ su root &lt;span class="c1"># 切换 root 用户 (用户名@hostname:当前路径)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> root@master:~/Desktop# &lt;span class="nb">exit&lt;/span> &lt;span class="c1"># 退出 root, 普通用户 $ 开头, root 用户 # 开头&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ su &amp;lt;user&amp;gt; &lt;span class="c1"># 切换用户&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="创建用户">创建用户&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ useradd -m &amp;lt;username&amp;gt; &lt;span class="c1"># 创建用户, 并在 /home 生成用户目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ useradd -l &amp;lt;oldName&amp;gt; &amp;lt;newName&amp;gt; &lt;span class="c1"># 更换用户名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ passwd &amp;lt;username&amp;gt; &lt;span class="c1"># 用户添加密码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; New password: &lt;span class="c1"># 输入密码, 密码不显示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Retype new password: &lt;span class="c1"># 重复输入密码, 密码不显示&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ userdel -r &amp;lt;username&amp;gt; &lt;span class="c1"># 删除用户&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; no crontab &lt;span class="k">for&lt;/span> facsert
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>sudo 免密码&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ sudo vi /etc/sudoers &lt;span class="c1"># 编辑配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; %sudo &lt;span class="nv">ALL&lt;/span>&lt;span class="o">=(&lt;/span>ALL:ALL&lt;span class="o">)&lt;/span> ALL &lt;span class="c1"># 找到这一栏, 建议注释掉复制一行修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; %sudo &lt;span class="nv">ALL&lt;/span>&lt;span class="o">=(&lt;/span>ALL:ALL&lt;span class="o">)&lt;/span> NOPASSWD:ALL &lt;span class="c1"># 修改后, 强制保存退出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &amp;lt;username&amp;gt; &lt;span class="nv">ALL&lt;/span>&lt;span class="o">=(&lt;/span>ALL&lt;span class="o">)&lt;/span> NOPASSWD:ALL
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: 该文件必须强制写入, 不能修改文件权限, 否则报错&lt;/p>
+&lt;h2 id="通配符号">通配符号&lt;/h2>
+&lt;h3 id="-任意单个字符">&lt;code>？&lt;/code> 任意单个字符&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ touch ab a bc abc &lt;span class="c1"># 生成 ab a ba abc 4 个文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls ?b &lt;span class="c1"># ? 可以指代任意单个字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls b?
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; bc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="-任意多个字符">&lt;code>*&lt;/code> 任意多个字符&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ touch ab a bc abc &lt;span class="c1"># 生成 ab a ba abc 4 个文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls * &lt;span class="c1"># * 可以指代任意多个字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; a ab abc bc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls a*
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; a ab abc
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="-任意多级目录">&lt;code>**&lt;/code> 任意多级目录&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ cat /etc/**/word &lt;span class="c1"># /etc/ 文件夹下所有 word 文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls learn/**/*.md &lt;span class="c1"># 显示 learn 目录下所有 markdown 文件 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; a.md b.md c.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="-匹配范围">&lt;code>[]&lt;/code> 匹配范围&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ touch aa ab ac aab &lt;span class="c1"># 生成 ab a ba abc 4 个文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ls a&lt;span class="o">[&lt;/span>ab&lt;span class="o">]&lt;/span> &lt;span class="c1"># 匹配 [] 内任意一个字符&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; aa ab
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="特殊符号">特殊符号&lt;/h2>
+&lt;h3 id="输出重定向">输出重定向&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">输出重定向&lt;/th>
+&lt;th style="text-align:center">输出重定向追加写入&lt;/th>
+&lt;th style="text-align:center">输入重定向&lt;/th>
+&lt;th style="text-align:center">读取标准输入直至分界符号&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>&amp;gt;&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>&amp;gt;&amp;gt;&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>&amp;lt;&lt;/code>&lt;/td>
+&lt;td style="text-align:center">&lt;code>&amp;lt;&amp;lt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ &amp;lt;command&amp;gt; &amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 将命令返回值覆盖写入文件(原文件清空后写入)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date &amp;gt; file.log &lt;span class="c1"># 将 date 命令返回值写入 file.log 文件, 命令行不显示结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:39:56 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &amp;lt;command&amp;gt; &amp;gt;&amp;gt; &amp;lt;file&amp;gt; &lt;span class="c1"># 将输出追加写入文件(原文件内容保留)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date &amp;gt;&amp;gt; file.log &lt;span class="c1"># 将 date 命令返回值追加写入 file.log 内容结尾, 命令行不显示结果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:39:56 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:40:51 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &amp;lt;command&amp;gt; &amp;lt; &amp;lt;file&amp;gt; &lt;span class="c1"># 将文件内容重定向为标准输入&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat &amp;lt; file.log &lt;span class="c1"># 读取 file.log 并打印&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:39:56 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Sat Feb &lt;span class="m">25&lt;/span> 20:40:51 CST &lt;span class="m">2023&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ touch &lt;span class="k">$(&lt;/span>&amp;lt; fileName.log&lt;span class="k">)&lt;/span> &lt;span class="c1"># 根据文件内的文件列表生成文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ cat &lt;span class="s">&amp;lt;&amp;lt; EOF # 实现多行输入, 分界符号 EOF&lt;/span> 可自定义
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; EOF
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>&amp;amp;1&lt;/code>: 标准输出, 命令行输出, 能直接重定向至文件&lt;br>
+&lt;code>&amp;amp;2&lt;/code>: 标准错误, 命令执行错误输出, 需要将错误重定向至标准输出再指向文件&lt;br>
+&lt;code>/dev/null&lt;/code>: 空, 指代垃圾桶或回收站&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ mian &lt;span class="c1"># 错误命令,显示错误输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Command &lt;span class="s1">&amp;#39;mian&amp;#39;&lt;/span> not found
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ data 2&amp;gt;/dev/null &lt;span class="c1"># 错误命令, 错误输出重定向至回收站, 不显示错误 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date 2&amp;gt;/dev/null &lt;span class="c1"># 正确命令, 标准输出重定向至回收站, 不显示返回值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ data &lt;span class="m">2&lt;/span> &amp;gt; date.log &lt;span class="c1"># 命令行显示错误, 文件不显示, 错误输出无法直接重定向文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ data &amp;gt; date.log 2&amp;gt;&lt;span class="p">&amp;amp;&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="c1"># 命令行不显示错误, 文件内显示, 错误输出重定向至文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="单词缩写">单词缩写&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">缩写&lt;/th>
+&lt;th style="text-align:left">全称&lt;/th>
+&lt;th style="text-align:left">翻译&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">a&lt;/td>
+&lt;td style="text-align:left">&lt;code>all&lt;/code>&lt;/td>
+&lt;td style="text-align:left">全部&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">b&lt;/td>
+&lt;td style="text-align:left">&lt;code>backup&lt;/code>&lt;/td>
+&lt;td style="text-align:left">备份&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">c&lt;/td>
+&lt;td style="text-align:left">&lt;code>count&lt;/code>&lt;/td>
+&lt;td style="text-align:left">计数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">d&lt;/td>
+&lt;td style="text-align:left">&lt;code>directory&lt;/code>&lt;/td>
+&lt;td style="text-align:left">文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">f&lt;/td>
+&lt;td style="text-align:left">&lt;code>force&lt;/code>&lt;/td>
+&lt;td style="text-align:left">强制&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">h&lt;/td>
+&lt;td style="text-align:left">&lt;code>help&lt;/code>&lt;/td>
+&lt;td style="text-align:left">帮助&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">i&lt;/td>
+&lt;td style="text-align:left">&lt;code>interactive&lt;/code>&lt;/td>
+&lt;td style="text-align:left">交互的&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">l&lt;/td>
+&lt;td style="text-align:left">&lt;code>long&lt;/code>&lt;/td>
+&lt;td style="text-align:left">长格式的&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">r / R&lt;/td>
+&lt;td style="text-align:left">&lt;code>recursive&lt;/code>&lt;/td>
+&lt;td style="text-align:left">递归&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">s / S&lt;/td>
+&lt;td style="text-align:left">&lt;code>sort/size&lt;/code>&lt;/td>
+&lt;td style="text-align:left">排序/大小&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">t&lt;/td>
+&lt;td style="text-align:left">&lt;code>time&lt;/code>&lt;/td>
+&lt;td style="text-align:left">时间&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">u&lt;/td>
+&lt;td style="text-align:left">&lt;code>user&lt;/code>&lt;/td>
+&lt;td style="text-align:left">用户&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">v&lt;/td>
+&lt;td style="text-align:left">&lt;code>version / verbose&lt;/code>&lt;/td>
+&lt;td style="text-align:left">版本/详细的&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="符号">符号&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">符号&lt;/th>
+&lt;th style="text-align:left">含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>&amp;gt;&lt;/code>&lt;/td>
+&lt;td style="text-align:left">输出重定向, 覆盖&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>&amp;gt;&amp;gt;&lt;/code>&lt;/td>
+&lt;td style="text-align:left">输出重定向, 追加&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>&amp;amp;&lt;/code>&lt;/td>
+&lt;td style="text-align:left">程序放入后台执行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>#&lt;/code>&lt;/td>
+&lt;td style="text-align:left">注释&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>&amp;amp;&amp;amp;&lt;/code>&lt;/td>
+&lt;td style="text-align:left">且, 左边成功才执行右边&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="正则表达式">正则表达式&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">符号&lt;/th>
+&lt;th style="text-align:left">模式&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>^&lt;/code>&lt;/td>
+&lt;td style="text-align:left">锚定行首&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>$&lt;/code>&lt;/td>
+&lt;td style="text-align:left">锚定行尾&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>()&lt;/code>&lt;/td>
+&lt;td style="text-align:left">捆绑成一个整体&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>.&lt;/code>&lt;/td>
+&lt;td style="text-align:left">任意一个字符&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>?&lt;/code>&lt;/td>
+&lt;td style="text-align:left">前面字符或模式 0 或 1 次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>{m}&lt;/code>&lt;/td>
+&lt;td style="text-align:left">前面字符或模式 m 次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>{m, n}&lt;/code>&lt;/td>
+&lt;td style="text-align:left">前面字符或模式次数在 m n 之间&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>+&lt;/code>&lt;/td>
+&lt;td style="text-align:left">前面字符或模式 1 次或多次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>*&lt;/code>&lt;/td>
+&lt;td style="text-align:left">前面字符或模式任意次&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>[]&lt;/code>&lt;/td>
+&lt;td style="text-align:left">括号范围内均可&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>[^]&lt;/code>&lt;/td>
+&lt;td style="text-align:left">括号范围之外均可&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

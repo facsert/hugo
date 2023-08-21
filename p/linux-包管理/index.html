@@ -1,0 +1,193 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="包管理工具 yum ellowdogUpdater,Modified: centos redhat 包管理器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ yum &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt; # RedHat Centos 包管理工具 $ yum install &amp;lt;pack&amp;gt; # 下载安装包 $ yum update &amp;lt;pack&amp;gt; # 更新已安装的包 $ yum remove &amp;lt;pack&amp;gt; # 卸载已"><title>Linux 包管理</title><link rel=canonical href=https://facsert.github.io/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Linux 包管理"><meta property="og:description" content="包管理工具 yum ellowdogUpdater,Modified: centos redhat 包管理器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ yum &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt; # RedHat Centos 包管理工具 $ yum install &amp;lt;pack&amp;gt; # 下载安装包 $ yum update &amp;lt;pack&amp;gt; # 更新已安装的包 $ yum remove &amp;lt;pack&amp;gt; # 卸载已"><meta property="og:url" content="https://facsert.github.io/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Linux"><meta property="article:published_time" content="2022-08-19T15:02:16+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Linux 包管理"><meta name=twitter:description content="包管理工具 yum ellowdogUpdater,Modified: centos redhat 包管理器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ yum &amp;lt;opt&amp;gt; &amp;lt;pack&amp;gt; # RedHat Centos 包管理工具 $ yum install &amp;lt;pack&amp;gt; # 下载安装包 $ yum update &amp;lt;pack&amp;gt; # 更新已安装的包 $ yum remove &amp;lt;pack&amp;gt; # 卸载已"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#包管理工具>包管理工具</a><ol><li><a href=#yumhttpslinuxaliangacomcyumhtml><a href=https://linux.alianga.com/c/yum.html>yum</a></a></li><li><a href=#rpmhttpslinuxaliangacomcrpmhtml><a href=https://linux.alianga.com/c/rpm.html>rpm</a></a></li><li><a href=#apt-gethttpslinuxaliangacomcapt-gethtml><a href=https://linux.alianga.com/c/apt-get.html>apt-get</a></a></li><li><a href=#dpkghttpslinuxaliangacomcdpkghtml><a href=https://linux.alianga.com/c/dpkg.html>dpkg</a></a></li></ol></li><li><a href=#压缩-解压>压缩 解压</a><ol><li><a href=#tarhttpslinuxaliangacomctarhtml><a href=https://linux.alianga.com/c/tar.html>tar</a></a></li><li><a href=#ziphttpslinuxaliangacomcziphtml><a href=https://linux.alianga.com/c/zip.html>zip</a></a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/linux-%E6%95%99%E7%A8%8B/>Linux 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/>Linux 包管理</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-08-19</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h2 id=包管理工具>包管理工具</h2><h3 id=yumhttpslinuxaliangacomcyumhtml><a class=link href=https://linux.alianga.com/c/yum.html target=_blank rel=noopener>yum</a></h3><p>ellowdogUpdater,Modified: centos redhat 包管理器</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ yum &lt;opt&gt; &lt;pack&gt;                              <span class=c1># RedHat Centos 包管理工具</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ yum install &lt;pack&gt;                            <span class=c1># 下载安装包</span>
+</span></span><span class=line><span class=cl> $ yum update &lt;pack&gt;                             <span class=c1># 更新已安装的包    </span>
+</span></span><span class=line><span class=cl> $ yum remove &lt;pack&gt;                             <span class=c1># 卸载已安装的包</span>
+</span></span><span class=line><span class=cl> $ yum search &lt;pack&gt;                             <span class=c1># 检查软件包的信息</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ yum list                                      <span class=c1># 列出所有已安装的包</span>
+</span></span><span class=line><span class=cl> $ yum list installed &lt;pack&gt;                     <span class=c1># 检查包是否安装</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ yum list <span class=p>|</span> grep zsh
+</span></span><span class=line><span class=cl> &gt; Repodata is over <span class=m>2</span> weeks old. Install yum-cron? Or run: yum makecache fast
+</span></span><span class=line><span class=cl> &gt; zsh.x86_64                                 5.0.2-34.el7_8.2            base     
+</span></span><span class=line><span class=cl> &gt; zsh-html.x86_64                            5.0.2-34.el7_8.2            base   
+</span></span><span class=line><span class=cl> 
+</span></span></code></pre></td></tr></table></div></div><p>注: yum 配置文件 <code>/etc/yum.repos.d/</code>
+只下载安装包而不安装
+command: <code>yum reinstall --downloadonly --downloaddir=&lt;path> &lt;package name></code></p><h3 id=rpmhttpslinuxaliangacomcrpmhtml><a class=link href=https://linux.alianga.com/c/rpm.html target=_blank rel=noopener>rpm</a></h3><p>RedHat Package Manager</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ rpm &lt;opt&gt; &lt;pack&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ rpm -i &lt;pack&gt;                                 <span class=c1># 安装 rpm 包</span>
+</span></span><span class=line><span class=cl>       -v                                        <span class=c1># 显示安装信息</span>
+</span></span><span class=line><span class=cl>       -h                                        <span class=c1># 安装包时列出标记</span>
+</span></span><span class=line><span class=cl>       -e                                        <span class=c1># 卸载 rpm 包</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ rpm -ivh &lt;pack&gt;                                <span class=c1># 安装 rpm 包, 显示安装过程</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=apt-gethttpslinuxaliangacomcapt-gethtml><a class=link href=https://linux.alianga.com/c/apt-get.html target=_blank rel=noopener>apt-get</a></h3><p>Advanced Package Tool get: ubuntu debian 的包管理器</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ apt &lt;opt&gt; &lt;pack&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ apt-get install &lt;pack&gt;                        <span class=c1># 下载并安装软件包</span>
+</span></span><span class=line><span class=cl> $ apt-get remove &lt;pack&gt;                         <span class=c1># 卸载已安装的软件包</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ apt-get upgrade                               <span class=c1># 更新所有已安装的软件包</span>
+</span></span><span class=line><span class=cl> $ apt-get update                                <span class=c1># 更新软件包列表</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ apt install &lt;pack&gt;                            <span class=c1># apt 集成 apt-get 功能</span>
+</span></span><span class=line><span class=cl> $ apt download &lt;pack&gt;                           <span class=c1># 仅下载包, 不安装   </span>
+</span></span><span class=line><span class=cl> $ apt search &lt;pack&gt;                             <span class=c1># 查找 包</span>
+</span></span><span class=line><span class=cl> $ apt remove &lt;pack&gt;                             <span class=c1># 卸载已安装的包  </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ apt list --installed <span class=p>|</span> grep zsh               <span class=c1># 列出已安装的包</span>
+</span></span><span class=line><span class=cl> &gt; zsh-common/oldstable,oldstable,now 5.7.1-1+deb10u1 all <span class=o>[</span>installed,automatic<span class=o>]</span>
+</span></span><span class=line><span class=cl> &gt; zsh/oldstable,oldstable,now 5.7.1-1+deb10u1 amd64 <span class=o>[</span>installed<span class=o>]</span>
+</span></span></code></pre></td></tr></table></div></div><p>注: OS 默认下载源文件 <code>/etc/apt/source.list</code>
+只下载包而不安装, (下载的包会存放在 <code>/var/cache/apt/archives</code>)
+command: <code>apt install -d &lt;package name></code></p><h3 id=dpkghttpslinuxaliangacomcdpkghtml><a class=link href=https://linux.alianga.com/c/dpkg.html target=_blank rel=noopener>dpkg</a></h3><p>Debian package: 离线包安装</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ dpkg &lt;opt&gt; &lt;pack&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ dpkg -i &lt;pack&gt;                                <span class=c1># 安装 deb 安装包</span>
+</span></span><span class=line><span class=cl> $ dpkg -r &lt;pack&gt;                                <span class=c1># 卸载 deb 包</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ dpkg -l                                       <span class=c1># 列出所有安装的包</span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>Desired</span><span class=o>=</span>Unknown/Install/Remove/Purge/Hold
+</span></span><span class=line><span class=cl> &gt; <span class=p>|</span> <span class=nv>Status</span><span class=o>=</span>Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+</span></span><span class=line><span class=cl> &gt; <span class=p>|</span>/ Err?<span class=o>=(</span>none<span class=o>)</span>/Reinst-required <span class=o>(</span>Status,Err: <span class=nv>uppercase</span><span class=o>=</span>bad<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt; <span class=o>||</span>/ Name                     Version                    Architecture Description
+</span></span><span class=line><span class=cl> &gt; +++-<span class=o>=========================================</span>-<span class=o>==========================================</span>-<span class=o>============</span>-<span class=o>===========</span>
+</span></span><span class=line><span class=cl> &gt; ii  acl                      2.2.53-4                   amd64        access control list - utilities
+</span></span><span class=line><span class=cl> &gt; ii  adduser                  3.118                      all          add and remove users and groups
+</span></span><span class=line><span class=cl> &gt; ii  adwaita-icon-theme       3.30.1-1                   all          default icon theme of GNOME
+</span></span><span class=line><span class=cl> &gt; ii  alien                    8.95                       all          convert and install rpm and other packages
+</span></span><span class=line><span class=cl> &gt; ii  apache2                  2.4.38-3+deb10u4           amd64        Apache HTTP Server
+</span></span></code></pre></td></tr></table></div></div><h2 id=压缩-解压>压缩 解压</h2><h3 id=tarhttpslinuxaliangacomctarhtml><a class=link href=https://linux.alianga.com/c/tar.html target=_blank rel=noopener>tar</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ tar &lt;opt&gt; &lt;pack&gt;                         
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ tar -zxvf &lt;package name&gt; -C &lt;path&gt;             <span class=c1># 解压 tar.gz 压缩包到 &lt;path&gt; 路径</span>
+</span></span><span class=line><span class=cl> &gt; tar -zxvf package.tar.gz -C /root/             <span class=c1># 将 package.tar.gz 解压到 /root/ 目录下</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ tar -zcvf &lt;package name&gt; &lt;file<span class=p>|</span>dir&gt;           <span class=c1># 将文件或目录压缩</span>
+</span></span><span class=line><span class=cl> &gt; tar -zcvf learn.tar.gz learn/                 <span class=c1># 将当前目录下的 learn 文件夹压缩成 learn.tar.gz</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ tar -ztvf &lt;tar.gz&gt;                            <span class=c1># 列出压缩包的文件</span>
+</span></span><span class=line><span class=cl> &gt; drwxr-xr-x root/root         <span class=m>0</span> 2023-04-03 03:24 test/
+</span></span><span class=line><span class=cl> &gt; -rw-r--r-- root/root         <span class=m>0</span> 2023-04-03 03:24 test/3rd
+</span></span><span class=line><span class=cl> &gt; -rw-r--r-- root/root         <span class=m>0</span> 2023-04-03 03:24 test/2nd
+</span></span><span class=line><span class=cl> &gt; -rw-r--r-- root/root         <span class=m>0</span> 2023-04-03 03:24 test/1st
+</span></span></code></pre></td></tr></table></div></div><div class=table-wrapper><table><thead><tr><th style=text-align:center>parameter</th><th style=text-align:left>meaning</th></tr></thead><tbody><tr><td style=text-align:center><code>-c, --create</code></td><td style=text-align:left>创建一个新归档</td></tr><tr><td style=text-align:center><code>-f, --file=ARCHIVE</code></td><td style=text-align:left>使用归档文件或 ARCHIVE 设备</td></tr><tr><td style=text-align:center><code>-t, --list</code></td><td style=text-align:left>列出归档内容</td></tr><tr><td style=text-align:center><code>-v, --verbose</code></td><td style=text-align:left>详细地列出处理的文件</td></tr><tr><td style=text-align:center><code>-x, --extract, --get</code></td><td style=text-align:left>从归档中解出文件</td></tr><tr><td style=text-align:center><code>-z, --gzip, --gunzip, --ungzip</code></td><td style=text-align:left>通过 gzip 过滤归档</td></tr></tbody></table></div><h3 id=ziphttpslinuxaliangacomcziphtml><a class=link href=https://linux.alianga.com/c/zip.html target=_blank rel=noopener>zip</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ zip &lt;opt&gt; &lt;pack&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ zip &lt;package name&gt; &lt;file&gt;                     <span class=c1># 压缩文件成 zip 包</span>
+</span></span><span class=line><span class=cl> $ zip -r &lt;package name&gt; &lt;path&gt;                  <span class=c1># 压缩文件夹成 zip 包</span>
+</span></span><span class=line><span class=cl> &gt; zip -r learn.zip learn/                       <span class=c1># 将当前目录下的 learn 文件夹压缩成 learn.zip</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ unzip &lt;package name&gt;                          <span class=c1># 解压 zip 压缩包</span>
+</span></span><span class=line><span class=cl> $ unzip -v &lt;zip&gt;                                <span class=c1># 查看 zip 压缩文件内容</span>
+</span></span><span class=line><span class=cl> &gt; Archive:  test.zip
+</span></span><span class=line><span class=cl> &gt;  Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
+</span></span><span class=line><span class=cl> &gt; --------  ------  ------- ---- ---------- ----- --------  ----
+</span></span><span class=line><span class=cl> &gt;       <span class=m>0</span>  Stored        <span class=m>0</span>   0% 2023-04-03 03:24 <span class=m>00000000</span>  test/
+</span></span><span class=line><span class=cl> &gt;       <span class=m>0</span>  Stored        <span class=m>0</span>   0% 2023-04-03 03:24 <span class=m>00000000</span>  test/3rd
+</span></span><span class=line><span class=cl> &gt;       <span class=m>0</span>  Stored        <span class=m>0</span>   0% 2023-04-03 03:24 <span class=m>00000000</span>  test/2nd
+</span></span><span class=line><span class=cl> &gt;       <span class=m>0</span>  Stored        <span class=m>0</span>   0% 2023-04-03 03:24 <span class=m>00000000</span>  test/1st
+</span></span><span class=line><span class=cl> &gt; --------          -------  ---                            -------
+</span></span><span class=line><span class=cl> &gt;      <span class=m>0</span>                <span class=m>0</span>   0%                            <span class=m>4</span> files
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/linux-%E9%85%8D%E7%BD%AE/><div class=article-details><h2 class=article-title>Linux 配置</h2></div></a></article><article><a href=/p/linux-%E7%B3%BB%E7%BB%9F/><div class=article-details><h2 class=article-title>Linux 系统</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E6%9C%AC/><div class=article-details><h2 class=article-title>Linux 文本</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E4%BB%B6/><div class=article-details><h2 class=article-title>Linux 文件</h2></div></a></article><article><a href=/p/linux-%E5%9F%BA%E7%A1%80/><div class=article-details><h2 class=article-title>Linux 基础</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

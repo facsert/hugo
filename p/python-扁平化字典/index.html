@@ -1,0 +1,490 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="引申 字典是 python 非常常用的数据类型, 字典存取效率高且存取方便 一个字典可以存储大量数据, 为了便于区分还可以层层分级, 多层嵌套 1 2 3 4 5 6 7 8 9 10 11"><title>Python 扁平化字典</title><link rel=canonical href=https://facsert.github.io/p/python-%E6%89%81%E5%B9%B3%E5%8C%96%E5%AD%97%E5%85%B8/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Python 扁平化字典"><meta property="og:description" content="引申 字典是 python 非常常用的数据类型, 字典存取效率高且存取方便 一个字典可以存储大量数据, 为了便于区分还可以层层分级, 多层嵌套 1 2 3 4 5 6 7 8 9 10 11"><meta property="og:url" content="https://facsert.github.io/p/python-%E6%89%81%E5%B9%B3%E5%8C%96%E5%AD%97%E5%85%B8/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Python"><meta property="article:published_time" content="2022-07-24T19:05:13+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Python 扁平化字典"><meta name=twitter:description content="引申 字典是 python 非常常用的数据类型, 字典存取效率高且存取方便 一个字典可以存储大量数据, 为了便于区分还可以层层分级, 多层嵌套 1 2 3 4 5 6 7 8 9 10 11"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#引申>引申</a></li><li><a href=#字典扁平化>字典扁平化</a></li><li><a href=#字典存取>字典存取</a><ol><li><a href=#写入>写入</a></li><li><a href=#取出>取出</a></li></ol></li><li><a href=#实现>实现</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/python-%E6%8A%80%E5%B7%A7/>Python 技巧</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/python-%E6%89%81%E5%B9%B3%E5%8C%96%E5%AD%97%E5%85%B8/>Python 扁平化字典</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-07-24</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><h2 id=引申>引申</h2><p>字典是 python 非常常用的数据类型, 字典存取效率高且存取方便<br>一个字典可以存储大量数据, 为了便于区分还可以层层分级, 多层嵌套</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=n>student</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;petter&#34;</span> <span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;age&#34;</span><span class=p>:</span> <span class=mi>16</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;hobby&#34;</span><span class=p>:</span> <span class=s2>&#34;swim&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;lily&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;age&#34;</span><span class=p>:</span> <span class=mi>15</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;hobby&#34;</span><span class=p>:</span> <span class=s2>&#34;sing&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>student</span><span class=p>[</span><span class=s2>&#34;pttter&#34;</span><span class=p>]</span>                                <span class=c1># 字典取值</span>
+</span></span><span class=line><span class=cl><span class=n>student</span><span class=p>[</span><span class=s2>&#34;steven&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;age&#34;</span><span class=p>:</span> <span class=mi>18</span><span class=p>}</span>                  <span class=c1># 字典添加 key value</span>
+</span></span><span class=line><span class=cl><span class=n>student</span><span class=p>[</span><span class=s2>&#34;pttter&#34;</span><span class=p>][</span><span class=s2>&#34;age&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>17</span>                    <span class=c1># 字典多层数据赋值 (petter 必须存在)</span>
+</span></span></code></pre></td></tr></table></div></div><p>对于多层字典存取比较麻烦<br>插入值多层的数据的时候需要考虑上层是否存在</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=n>student</span><span class=p>[</span><span class=s2>&#34;pttter&#34;</span><span class=p>][</span><span class=s2>&#34;hobby&#34;</span><span class=p>]</span>                       <span class=c1># 取值时要确保上一层 petter 必须存在</span>
+</span></span><span class=line><span class=cl><span class=n>student</span><span class=p>[</span><span class=s2>&#34;Bob&#34;</span><span class=p>][</span><span class=s2>&#34;age&#34;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>18</span>                       <span class=c1># KeyError 报错, 需先定义上一层 Bob</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=ne>KeyError</span><span class=p>:</span> <span class=s1>&#39;bob&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><p>能否简化深层字典的存取方式<br>插入值的时候能否忽略层级问题, 自动生成多级数据</p><h2 id=字典扁平化>字典扁平化</h2><p>如何简单快捷的进行快速存取深层字典呢?<br>能否将字典简化成单层结构, 字典内就是 key 和 value</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>flat_dict</span><span class=p>(</span><span class=n>dic</span><span class=p>,</span> <span class=n>parent_key</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=n>result</span><span class=o>=</span><span class=p>{}):</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>    Description: 原生字典多层 key 通过分隔符连接写入 flat 字典
+</span></span></span><span class=line><span class=cl><span class=s1>    Param dic dict: 原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>    Param parent_key dict: 父字典的 key 
+</span></span></span><span class=line><span class=cl><span class=s1>    Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>    Attention: 任一层的字典 key value 都要保存
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>dic</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>        <span class=n>new_key</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>parent_key</span><span class=si>}</span><span class=s2>.</span><span class=si>{</span><span class=n>key</span><span class=si>}</span><span class=s2>&#34;</span> <span class=k>if</span> <span class=n>parent_key</span> <span class=k>else</span> <span class=n>key</span>
+</span></span><span class=line><span class=cl>        <span class=n>result</span><span class=p>[</span><span class=n>new_key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>                  <span class=c1># 每深入一层, 就将 key 通过 . 并入</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>           <span class=n>flat_dict</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>new_key</span><span class=p>,</span> <span class=n>result</span><span class=p>)</span>     <span class=c1># 对 value 时字典类型的值进行递归</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>flat</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl><span class=n>flat_dict</span><span class=p>(</span><span class=n>student</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=n>flat</span><span class=p>)</span>                     <span class=c1># 将扁平化键值对保存到 flat 中</span>
+</span></span><span class=line><span class=cl><span class=o>&gt;</span> <span class=p>{</span>                                              
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;petter&#39;</span><span class=p>:</span> <span class=p>{</span><span class=s1>&#39;age&#39;</span><span class=p>:</span> <span class=mi>16</span><span class=p>,</span> <span class=s1>&#39;hobby&#39;</span><span class=p>:</span> <span class=s1>&#39;swim&#39;</span><span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;petter.age&#39;</span><span class=p>:</span> <span class=mi>16</span><span class=p>,</span>                            
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;petter.hobby&#39;</span><span class=p>:</span> <span class=s1>&#39;swim&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;lily&#39;</span><span class=p>:</span> <span class=p>{</span><span class=s1>&#39;age&#39;</span><span class=p>:</span> <span class=mi>15</span><span class=p>,</span> <span class=s1>&#39;hobby&#39;</span><span class=p>:</span> <span class=s1>&#39;sing&#39;</span><span class=p>},</span> 
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;lily.age&#39;</span><span class=p>:</span> <span class=mi>15</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;lily.hobby&#39;</span><span class=p>:</span> <span class=s1>&#39;sing&#39;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>flat</span><span class=p>[</span><span class=s1>&#39;lily.age&#39;</span><span class=p>]</span>                                 <span class=c1># 15 可以通过多层 key 取值</span>
+</span></span></code></pre></td></tr></table></div></div><p>为了保证任意层 key 都能取值, 所有层字典都需要扁平化, 因此增加了字典容量</p><h2 id=字典存取>字典存取</h2><p>能将字典扁平化后, 考虑如何存取<br>魔改魔术方法 <code>setitem</code> 和 <code>getitem</code> 通过 [] 存取数据</p><p>通过继承原始字典, 保留原生字典的属性和方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>class</span> <span class=nc>FlatDict</span><span class=p>(</span><span class=nb>dict</span><span class=p>):</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 初始化属性, flat(扁平化字典) separator(分隔符)
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 对象存一个原生字典和扁平化字典
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=n>update</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat</span> <span class=o>=</span> <span class=p>{}</span>                           <span class=c1># 新增属性 flat 保存扁平化字典</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>separator</span> <span class=o>=</span> <span class=s1>&#39;.&#39;</span>                     <span class=c1># 定义 key 连接符号</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__setitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>pass</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__getitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=k>pass</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=写入>写入</h3><div class=table-wrapper><table><thead><tr><th style=text-align:left>不带连接符号的 key</th><th style=text-align:left>带连接符号的 key</th></tr></thead><tbody><tr><td style=text-align:left>使用字典原有赋值方法</td><td style=text-align:left>解析 key 生成字典写入字典再扁平化</td></tr></tbody></table></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__setitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 字典 [] 方式设置值
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param value Any: 父字典的 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>separator</span> <span class=ow>in</span> <span class=n>key</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>update_dict</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__setitem__</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>update_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 解析 key, 将多层 key 逐层解析写入原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 字典 key, 多层 key 包含分隔符 
+</span></span></span><span class=line><span class=cl><span class=s1>        Param value Any: 字典 value
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=n>dic</span> <span class=o>=</span> <span class=bp>self</span>
+</span></span><span class=line><span class=cl>        <span class=n>keys</span> <span class=o>=</span> <span class=n>key</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>separator</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>keys</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>            <span class=n>dic</span><span class=o>.</span><span class=n>setdefault</span><span class=p>(</span><span class=n>k</span><span class=p>,</span> <span class=p>{})</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>dic</span><span class=p>[</span><span class=n>k</span><span class=p>],</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=n>dic</span><span class=o>.</span><span class=n>update</span><span class=p>({</span><span class=n>k</span><span class=p>:</span> <span class=p>{}})</span>
+</span></span><span class=line><span class=cl>            <span class=n>dic</span> <span class=o>=</span> <span class=n>dic</span><span class=p>[</span><span class=n>k</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>dic</span><span class=p>[</span><span class=n>keys</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]]</span> <span class=o>=</span> <span class=n>value</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=取出>取出</h3><p>先尝试从从本体取出, 失败后从扁平化字典取值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__getitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 字典 [] 获取值
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 字典 key, 允许使用多层 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return Any: 字典 key 对应的 value 
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__getitem__</span><span class=p>(</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>KeyError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>flat</span><span class=p>[</span><span class=n>key</span><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=实现>实现</h2><p><code>__str__</code> 能直接格式化打印结果
+添加自定义分隔符</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>json</span> <span class=kn>import</span> <span class=n>dumps</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>FlatDict</span><span class=p>(</span><span class=nb>dict</span><span class=p>):</span> 
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;扁平化字典&#34;&#34;&#34;</span>   
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 初始化属性, flat(扁平化字典) separator(分隔符)
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 对象存一个原生字典和扁平化字典
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=n>update</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>separator</span> <span class=o>=</span> <span class=s1>&#39;.&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>update_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 解析 key, 将多层 key 逐层解析写入原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 字典 key, 多层 key 包含分隔符 
+</span></span></span><span class=line><span class=cl><span class=s1>        Param value Any: 字典 value
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=n>dic</span> <span class=o>=</span> <span class=bp>self</span>
+</span></span><span class=line><span class=cl>        <span class=n>keys</span> <span class=o>=</span> <span class=n>key</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>separator</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>keys</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>            <span class=n>dic</span><span class=o>.</span><span class=n>setdefault</span><span class=p>(</span><span class=n>k</span><span class=p>,</span> <span class=p>{})</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>dic</span><span class=p>[</span><span class=n>k</span><span class=p>],</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=n>dic</span><span class=o>.</span><span class=n>update</span><span class=p>({</span><span class=n>k</span><span class=p>:</span> <span class=p>{}})</span>
+</span></span><span class=line><span class=cl>            <span class=n>dic</span> <span class=o>=</span> <span class=n>dic</span><span class=p>[</span><span class=n>k</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>dic</span><span class=p>[</span><span class=n>keys</span><span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>]]</span> <span class=o>=</span> <span class=n>value</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>flat_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>dic</span><span class=p>,</span> <span class=n>parent_key</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 原生字典多层 key 通过分隔符连接写入 flat 字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param dic dict: 原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param parent_key dict: 父字典的 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 任一层的字典 key value 都要保存
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>dic</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>            <span class=n>new_key</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>parent_key</span><span class=si>}{</span><span class=bp>self</span><span class=o>.</span><span class=n>separator</span><span class=si>}{</span><span class=n>key</span><span class=si>}</span><span class=s2>&#34;</span> <span class=k>if</span> <span class=n>parent_key</span> <span class=k>else</span> <span class=n>key</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>flat</span><span class=p>[</span><span class=n>new_key</span><span class=p>]</span> <span class=o>=</span> <span class=n>value</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=nb>dict</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>                <span class=bp>self</span><span class=o>.</span><span class=n>flat_dict</span><span class=p>(</span><span class=n>value</span><span class=p>,</span> <span class=n>new_key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__setitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 字典 [] 方式设置值
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Param value Any: 父字典的 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>separator</span> <span class=ow>in</span> <span class=n>key</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>update_dict</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__setitem__</span><span class=p>(</span><span class=n>key</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__getitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 字典 [] 获取值
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 字典 key, 允许使用多层 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return Any: 字典 key 对应的 value 
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__getitem__</span><span class=p>(</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>except</span> <span class=ne>KeyError</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>flat</span><span class=p>[</span><span class=n>key</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__delitem__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>key</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 字典删除 key-value
+</span></span></span><span class=line><span class=cl><span class=s1>        Param key str: 字典 key, 不允许使用多层 key 
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 只允许使用原生字典的 key
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>    
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__delitem__</span><span class=p>(</span><span class=n>key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__len__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 获取原生字典长度
+</span></span></span><span class=line><span class=cl><span class=s1>        Return int: 字典长度 
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=fm>__len__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: 更新字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Return: None 
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 用法与原生字典一致
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=nb>super</span><span class=p>()</span><span class=o>.</span><span class=n>update</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>flat_dict</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        Description: json 格式原生字典
+</span></span></span><span class=line><span class=cl><span class=s1>        Return srt: 字典字符串
+</span></span></span><span class=line><span class=cl><span class=s1>        Attention: 
+</span></span></span><span class=line><span class=cl><span class=s1>        &#39;&#39;&#39;</span>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>dumps</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>indent</span><span class=o>=</span><span class=mi>4</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=n>flat</span> <span class=o>=</span> <span class=n>FlatDict</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>flat</span><span class=o>.</span><span class=n>update</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;a&#39;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;b&#39;</span><span class=p>:</span> <span class=p>{</span> <span class=s1>&#39;c&#39;</span><span class=p>:</span> <span class=mi>1</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;e&#39;</span><span class=p>:</span><span class=mi>3</span><span class=p>,</span>    
+</span></span><span class=line><span class=cl><span class=p>})</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>flat</span><span class=p>[</span><span class=s1>&#39;a.b&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=n>flat</span><span class=p>[</span><span class=s1>&#39;a.c.d&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>flat</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span><span class=s1>&#39;c&#39;</span><span class=p>:</span> <span class=mi>1</span><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;a&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;b&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;c&#34;</span><span class=p>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;c&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;d&#34;</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;e&#34;</span><span class=p>:</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/python/>Python</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/python-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3/><div class=article-details><h2 class=article-title>Python 类型注解</h2></div></a></article><article><a href=/p/python-openpyxl/><div class=article-details><h2 class=article-title>Python openpyxl</h2></div></a></article><article><a href=/p/python-eval-exec/><div class=article-details><h2 class=article-title>Python eval exec</h2></div></a></article><article><a href=/p/python-%E7%B1%BB/><div class=article-details><h2 class=article-title>Python 类</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

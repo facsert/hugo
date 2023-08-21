@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Facsert</title><link>https://facsert.github.io/tags/docker/</link><description>Recent content in Docker on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 23 Dec 2022 20:37:13 +0000</lastBuildDate><atom:link href="https://facsert.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 容器</title><link>https://facsert.github.io/p/docker-%E5%AE%B9%E5%99%A8/</link><pubDate>Fri, 23 Dec 2022 20:37:13 +0000</pubDate><guid>https://facsert.github.io/p/docker-%E5%AE%B9%E5%99%A8/</guid><description>&lt;h2 id="容器列表">容器列表&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker ps &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> &lt;span class="c1"># 显示容器列表及相关信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker ps
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker ps -a, --all &lt;span class="c1"># 显示所有容器, 包括未运行的&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker ps -s, --size &lt;span class="c1"># 显示正在运行的容器, 显示容器大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker ps -q, --quite &lt;span class="c1"># 仅显示容器 ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7eab1cd126af 43761bd5b76d &lt;span class="s2">&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span> &lt;span class="m">43&lt;/span> hours ago Up &lt;span class="m">43&lt;/span> hours 27017/tcp person 0B &lt;span class="o">(&lt;/span>virtual 700MB&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ee0c15a3a0ee mongo &lt;span class="s2">&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span> &lt;span class="m">44&lt;/span> hours ago Up &lt;span class="m">44&lt;/span> hours 0.0.0.0:8589-&amp;gt;27017/tcp demo 0B &lt;span class="o">(&lt;/span>virtual 700MB&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">&lt;code>CONTAINER ID&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>IMAGE&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>COMMAND&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>CREATED&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>STATUS&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>PORTS&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>NAMES&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>SIZE&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">容器 ID&lt;/td>
+&lt;td style="text-align:left">生成容器的镜像&lt;/td>
+&lt;td style="text-align:left">启动容器时运行的命令&lt;/td>
+&lt;td style="text-align:left">容器创建时间&lt;/td>
+&lt;td style="text-align:left">容器状态&lt;/td>
+&lt;td style="text-align:left">机器端口-&amp;gt;容器端口&lt;/td>
+&lt;td style="text-align:left">容器名称&lt;/td>
+&lt;td style="text-align:left">容器大小&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker stop &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 关闭容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker start &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 启动容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">kill&lt;/span> &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 杀死容器进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker restart &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 重启容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker rm -f &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 强制删除容器(运行中的容器也会删除) &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker logs &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 显示指定容器 log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker top &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 列出指定容器进程&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker port &amp;lt;CONTAINER ID &lt;span class="p">|&lt;/span> NAMES&amp;gt; &lt;span class="c1"># 显示容器的端口映射&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">exec&lt;/span> &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> CONTAINER COMMAND &lt;span class="o">[&lt;/span>ARG...&lt;span class="o">]&lt;/span> &lt;span class="c1"># 进入容器执行命令(容器在运行状态才可进入)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">exec&lt;/span> -it mongo-slave1 bash &lt;span class="c1"># 以交互式进入 mongo-slave1 容器,执行 bash, 并留在容器中(exit 退出容器)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">exec&lt;/span> mongo-slave1 mongosh --version &lt;span class="c1"># 进入 mongo-slave1 容器查看 mongosh 版本并退出&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 1.6.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="创建容器">创建容器&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">Usage: docker run &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> IMAGE &lt;span class="o">[&lt;/span>COMMAND&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>ARG...&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Options:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -d, --detach &lt;span class="c1"># 后台运行容器，并输出容器ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -e, --env list &lt;span class="c1"># 设置环境变量，该变量可以在容器内使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -h, --hostname string &lt;span class="c1"># 指定容器的hostname&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -i, --interactive &lt;span class="c1"># 以交互模式运行容器，通常与-t同时使用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -l, --label list &lt;span class="c1"># 给容器添加标签&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --name &amp;lt;name&amp;gt; &lt;span class="c1"># 设置容器名称，否则会自动命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --network string &lt;span class="c1"># 将容器加入指定网络&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -p, --publish list &lt;span class="c1"># 设置容器映射端口 &amp;lt;server port&amp;gt;:&amp;lt;docker port&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -P,--publish-all &lt;span class="c1"># 将容器设置的所有exposed端口进行随机映射&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --restart &amp;lt;restart option&amp;gt; &lt;span class="c1"># 容器重启策略，默认为不重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> on-failure&lt;span class="o">[&lt;/span>:max-retries&lt;span class="o">]&lt;/span>： &lt;span class="c1"># 在容器非正常退出时重启，可以设置重启次数。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> unless-stopped： &lt;span class="c1"># 总是重启，除非使用stop停止容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> always： &lt;span class="c1"># 总是重启&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --rm &lt;span class="c1"># 容器退出时则自动删除容器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -t, --tty &lt;span class="c1"># 分配一个伪终端&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -u, --user &amp;lt;username&amp;gt; &lt;span class="c1"># 运行用户或者UID&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -v, --volume list &lt;span class="c1"># 容器目录映射到主机目录 &amp;lt;server path&amp;gt;:&amp;lt;docker path&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -w, --workdir &amp;lt;work path&amp;gt; &lt;span class="c1"># 容器的工作目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --privileged &lt;span class="c1"># 给容器特权&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker run -it --rm ubuntu bash &lt;span class="c1"># 以 ubuntu 镜像创建容器(自动命名), 创建后执行 bash, 退出后自动删除容器 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker run -itd -p 8589:27017 --name demo mongo &lt;span class="c1"># 以 mongo 镜像创建 demo 容器, 后台运行, 机器 8589 端口映射到容器 27017 端口&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker run -it --rm -v /root/docker:/root debian bash &lt;span class="c1"># debian 镜像创建容器, 容器 /root 目录映射到主机 /root/docker 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ docker ps
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ee0c15a3a0ee mongo &lt;span class="s2">&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span> &lt;span class="m">13&lt;/span> seconds ago Up &lt;span class="m">11&lt;/span> seconds 0.0.0.0:8589-&amp;gt;27017/tcp demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Docker 镜像</title><link>https://facsert.github.io/p/docker-%E9%95%9C%E5%83%8F/</link><pubDate>Fri, 23 Dec 2022 19:35:13 +0000</pubDate><guid>https://facsert.github.io/p/docker-%E9%95%9C%E5%83%8F/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2>
+&lt;p>镜像是容器的模板, 所有容器都通过镜像创建的&lt;br>
+一个镜像可以生成任意数量的容器&lt;br>
+可以使用官方镜像或者自定义镜像&lt;/p>
+&lt;h2 id="镜像列表">镜像列表&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker images &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>REPOSITORY&lt;span class="o">[&lt;/span>:TAG&lt;span class="o">]]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Options:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -a, --all Show all images &lt;span class="o">(&lt;/span>default hides intermediate images&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --digests Show digests
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -f, --filter filter Filter output based on conditions provided
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --format string Pretty-print images using a Go template
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --no-trunc Do not truncate output
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -q, --quiet Only show numeric IDs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mongo latest 0850fead9327 &lt;span class="m">12&lt;/span> days ago 700MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; pipreqs 1.0 d4633ae3a8af &lt;span class="m">2&lt;/span> months ago 1.08GB
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">&lt;code>REPOSITORY&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>TAG&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>IMAGE ID&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>CREATED&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>SIZE&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">镜像仓库源&lt;/td>
+&lt;td style="text-align:left">镜像 tag&lt;/td>
+&lt;td style="text-align:left">镜像 ID&lt;/td>
+&lt;td style="text-align:left">镜像创建时间&lt;/td>
+&lt;td style="text-align:left">镜像大小&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="拉取镜像">拉取镜像&lt;/h2>
+&lt;ul>
+&lt;li>官方镜像&lt;/li>
+&lt;li>私有镜像&lt;/li>
+&lt;/ul>
+&lt;p>拉取镜像前可以使用 docker search 查看官方及第三方镜像列表&lt;br>
+未指定链接默认从官方镜像拉取&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker pull &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> NAME&lt;span class="o">[&lt;/span>:TAG&lt;span class="p">|&lt;/span>@DIGEST&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Options:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -a, --all-tags Download all tagged images in the repository
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --disable-content-trust Skip image verification &lt;span class="o">(&lt;/span>default &lt;span class="nb">true&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker pull ubuntu:20.04
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>从私有仓库拉取镜像前需要先登录, 然后指定仓库中的镜像拉取&lt;br>
+在私有仓库中未找到镜像会到官方镜像仓库拉取&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker login &lt;span class="o">[&lt;/span>person registry&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; docker login registry.facser:8081
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Username &lt;span class="o">(&lt;/span>facser&lt;span class="o">)&lt;/span>: facser
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Password:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Login Succeeded
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker pull registry.facser:8081/ubuntu:20.04
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="删除镜像">删除镜像&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker rmi &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> IMAGE &lt;span class="o">[&lt;/span>IMAGE...&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Options:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -f, --force Force removal of the image
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --no-prune Do not delete untagged parents
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mongo latest 0850fead9327 &lt;span class="m">12&lt;/span> days ago 700MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; pipreqs 1.0 d4633ae3a8af &lt;span class="m">2&lt;/span> months ago 1.08GB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker rmi 0850fead9327
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其它操作">其它操作&lt;/h2>
+&lt;ul>
+&lt;li>查找镜像&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker search &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> &lt;span class="o">[&lt;/span>IMAGE NAME&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker search ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; NAME DESCRIPTION STARS OFFICIAL AUTOMATED
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ubuntu Ubuntu is a Debian-based Linux operating sys… &lt;span class="m">15368&lt;/span> &lt;span class="o">[&lt;/span>OK&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; websphere-liberty WebSphere Liberty multi-architecture images … &lt;span class="m">290&lt;/span> &lt;span class="o">[&lt;/span>OK&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">&lt;code>NAME&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>DESCRIPTION&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>STARS&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>OFFICIAL&lt;/code>&lt;/th>
+&lt;th style="text-align:left">&lt;code>AUTOMATED&lt;/code>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">镜像名称&lt;/td>
+&lt;td style="text-align:left">镜像名称&lt;/td>
+&lt;td style="text-align:left">点赞数&lt;/td>
+&lt;td style="text-align:left">是否官方&lt;/td>
+&lt;td style="text-align:left">是否自动构建&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>保存镜像&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker save &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> IMAGE &lt;span class="o">[&lt;/span>IMAGE...&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker save 0850fead9327 &amp;gt; mongo.tar.gz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ll
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; -rw-r--r-- &lt;span class="m">1&lt;/span> root root 23K Mar &lt;span class="m">7&lt;/span> 21:10 mongo.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>镜像历史&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">history&lt;/span> &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> IMAGE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">history&lt;/span> 0850fead9327
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; IMAGE CREATED CREATED BY SIZE COMMENT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 0850fead9327 &lt;span class="m">12&lt;/span> days ago /bin/sh -c &lt;span class="c1">#(nop) CMD [&amp;#34;mongod&amp;#34;] 0B &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>修改镜像 tag&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker tag SOURCE_IMAGE&lt;span class="o">[&lt;/span>:TAG&lt;span class="o">]&lt;/span> TARGET_IMAGE&lt;span class="o">[&lt;/span>:TAG&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">❯ docker images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mongo-base v1 43761bd5b76d &lt;span class="m">41&lt;/span> hours ago 00MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mongo-base v2 43761bd5b76d &lt;span class="m">41&lt;/span> hours ago 700MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ docker tag mongo-base:v2 mongo-person:1.0.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">❯ docker images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mongo-base v1 43761bd5b76d &lt;span class="m">41&lt;/span> hours ago 700MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mongo-person 1.0.0 43761bd5b76d &lt;span class="m">41&lt;/span> hours ago 700MB
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="自定义镜像">自定义镜像&lt;/h2>
+&lt;h3 id="docker-build">docker build&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> docker build &lt;span class="o">[&lt;/span>OPTIONS&lt;span class="o">]&lt;/span> PATH &lt;span class="p">|&lt;/span> URL &lt;span class="p">|&lt;/span> -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> Options:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --file, -f &lt;span class="c1"># 指定要使用的Dockerfile路径；&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --tag, -t &lt;span class="c1"># 镜像的名字及标签(name:tag 或 name, 允许多个) &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> --no-cache &lt;span class="c1"># 不使用缓存&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker build -t nginx-base:v1 . &lt;span class="c1"># &amp;#34;.&amp;#34; 查找当前目录下的 Dockerfile 构建镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker build -t nginx-base:v1 -f /root/Dockerfile &lt;span class="c1"># 指定 Dockerfile 构建镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nginx-base v1 43761bd5b76d &lt;span class="m">41&lt;/span> hours ago 700MB
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="dockerfile">Dockerfile&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">FROM ubuntu &lt;span class="c1"># 以 ubuntu 镜像为基础, 可添加 tag, ubuntu:20.04&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ENV &lt;span class="nv">path&lt;/span>&lt;span class="o">=&lt;/span>/usr/local/ &lt;span class="c1"># 设置全局变量, 可添加多个，或 ENV 多次设置, 可以使用已设置的变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ARG &lt;span class="nv">USERNAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;facser&amp;#34;&lt;/span> &lt;span class="c1"># 设置 build 执行参数, 通过 --build-arg &amp;lt;key&amp;gt;=value 来修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">LABEL &lt;span class="nv">version&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1.0.0&amp;#34;&lt;/span> &lt;span class="nv">description&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;ubuntu image by &lt;/span>&lt;span class="nv">$USERNAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 添加镜像元数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ADD nginx-1.8.0.tar.gz &lt;span class="nv">$path&lt;/span> &lt;span class="c1"># 将系统下文件复制到镜像中目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ADD epel-release-latest-7.noarch.rpm &lt;span class="nv">$path&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WORKDIR &lt;span class="nv">$path&lt;/span> &lt;span class="c1"># 设定镜像中工作目录, 并转到改目录, 类似 cd 命令, 可以多次设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN rpm -ivh /usr/local/epel-release-latest-7.noarch.rpm &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\ &lt;/span> &lt;span class="c1"># 执行 shell 命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> yum install -y wget lftp gcc gcc-c++ make openssl-devel pcre-devel pcre &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\ &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> yum clean all &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="nv">$path&lt;/span>/nginx-1.8.0 &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> ./configure --prefix&lt;span class="o">=&lt;/span>/usr/local/nginx --user&lt;span class="o">=&lt;/span>www --group&lt;span class="o">=&lt;/span>www --with-http_ssl_module --with-pcre &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> make &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> make install &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;daemon off;&amp;#34;&lt;/span> &amp;gt;&amp;gt; /etc/nginx.conf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CMD /usr/sbin/nginx &lt;span class="c1"># 生成容器后执行的命令, 会被 docker run 生成容器时初始命令覆盖&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">FROM IMAGE&lt;span class="o">[&lt;/span>:TAG&lt;span class="o">]&lt;/span> &lt;span class="c1"># 第一行必须是 FROM, 选择基础镜像, 可以设置多个&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">FROM ubuntu:20.04
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">FROM centos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ARG &amp;lt;name&amp;gt;&lt;span class="o">[=&lt;/span>&amp;lt;default value&amp;gt;&lt;span class="o">]&lt;/span> &lt;span class="c1"># 设置构建镜像的外部参数, 修改参数需要使用 --build-arg&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ENV &amp;lt;key&amp;gt; &amp;lt;value&amp;gt; &lt;span class="c1"># 设置 Dockerfile 内全局变量&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ARG &lt;span class="nv">USERNAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;facser&amp;#34;&lt;/span> &lt;span class="c1"># Dockerfile 设置默认参数 &amp;#34;facser&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ docker build --build-arg &lt;span class="nv">USERNAME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;kertory&amp;#34;&lt;/span> -t demo:v1 &lt;span class="c1"># build 镜像时通过 --build-arg 修改 USERNAME 的值&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ENV FILENAME &lt;span class="s2">&amp;#34;record.log&amp;#34;&lt;/span> &lt;span class="c1"># 设置 Dockerfile 内全局变量, 一般全大写, 用法与 shell 一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ENV &lt;span class="nv">TITLE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;title in &lt;/span>&lt;span class="nv">$FILENAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># &amp;#34;title in record.log&amp;#34;, 使用 = 可以设置多个变量&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">COPY &amp;lt;src&amp;gt; &amp;lt;dest&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ADD &amp;lt;src&amp;gt; &amp;lt;dest&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">COPY client.log /root/docker.log &lt;span class="c1"># 将容器外的文件复制到镜像指定目录下&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ADD /root/client.log /root/docker.log &lt;span class="c1"># 使用绝对路径, 效果一致&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">WORKDIR &amp;lt;path&amp;gt; &lt;span class="c1"># 设置镜像内的工作目录, 类似 cd 效果&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WORKDIR /root &lt;span class="c1"># 进入 /root 并设为工作目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WORKDIR /home &lt;span class="c1"># 将工作目录转到 /home&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WORKDIR facser &lt;span class="c1"># 将工作目录转到 /home/facser&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WORKDIR Desktop &lt;span class="c1"># 将工作目录转到 /home/facser/Desktop&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">RUN &amp;lt;command&amp;gt; &lt;span class="c1"># 通过 sh 执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;executable&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;param1&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;param2&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="c1"># 指定 shell 执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN date &lt;span class="c1"># 通过 sh 执行 date 命令 (命令执行失败即停止)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;/bin/sh&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;-c&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;date&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="c1"># 和上命令完全一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;/bin/bash&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;-c&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;date&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="c1"># 通过 bash 执行 date 命令 (命令执行失败继续执行)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line first&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="c1"># 执行 3 个 RUN 指令, 创建 3 个镜像层 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line second&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="c1"># 层数越多占用空间更大&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line third&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="c1"># 创建失败时, 从失败的上一层 RUN 继续, 重新创建速度更快&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">RUN &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line first&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\ &lt;/span> &lt;span class="c1"># 一个 RUN 指令创建 1 个镜像层&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line second&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="o">&amp;amp;&amp;amp;&lt;/span>&lt;span class="se">\ &lt;/span> &lt;span class="c1"># 只有一层镜像, 占用更小&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;line third&amp;#34;&lt;/span> &amp;gt;&amp;gt; /root/run.log &lt;span class="c1"># 每次创建都需要从头开始执行&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">CMD &amp;lt;command&amp;gt; &lt;span class="c1"># 以次文件构建的镜像, 创建容器后, 通过 sh 执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CMD &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;executable&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;param1&amp;#34;&lt;/span>, &lt;span class="s2">&amp;#34;param2&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="c1"># 以次文件构建的镜像, 创建容器后, 指定 shell 执行命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">CMD /bin/bash &lt;span class="c1"># 会被 docker run 创建容器时指定的命令覆盖&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker run -it --name nginx-demo nginx-base &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;create mongo container&amp;#34;&lt;/span> &lt;span class="c1"># echo 命令覆盖 /bin/bash 指令&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: 创建容器时, 若执行的命令在一定时间内能完成, 则容器在执行完命令就会关闭&lt;/p>
+&lt;ul>
+&lt;li>echo &amp;ldquo;hello docker&amp;rdquo;, 创建容器在执行完 echo 命令后便关闭改容器&lt;/li>
+&lt;li>/bin/bash, 该命令未收到 exit 退出前会一直执行, 该容器会保持运行状态&lt;/li>
+&lt;/ul></description></item><item><title>Docker 网络</title><link>https://facsert.github.io/p/docker-%E7%BD%91%E7%BB%9C/</link><pubDate>Fri, 23 Dec 2022 19:31:13 +0000</pubDate><guid>https://facsert.github.io/p/docker-%E7%BD%91%E7%BB%9C/</guid><description>&lt;h2 id="介绍">介绍&lt;/h2></description></item><item><title>Docker 基础</title><link>https://facsert.github.io/p/docker-%E5%9F%BA%E7%A1%80/</link><pubDate>Mon, 10 Oct 2022 19:31:13 +0000</pubDate><guid>https://facsert.github.io/p/docker-%E5%9F%BA%E7%A1%80/</guid><description>&lt;h2 id="安装">安装&lt;/h2>
+&lt;p>Docker 安装&lt;br>
+下载官方一键安装脚本安装&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ curl -fsSL https://get.docker.com -o get-docker.sh &lt;span class="c1"># 下载官方一键安装脚本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sudo sh get-docker.sh &lt;span class="c1"># 执行安装脚本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker --version &lt;span class="c1"># 检查 docker 安装版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Docker version 24.0.5, build ced0996
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sudo apt-get purge docker-ce &lt;span class="se">\ &lt;/span> &lt;span class="c1"># 卸载 docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> docker-ce-cli &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> containerd.io &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> docker-buildx-plugin &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> docker-compose-plugin &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> docker-ce-rootless-extras
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sudo rm -rf /var/lib/docker &lt;span class="c1"># 删除 docker 相关文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sudo rm -rf /var/lib/containerd
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置">配置&lt;/h2>
+&lt;p>编辑 &lt;code>/etc/docker/daemon.json&lt;/code>(不存在则创建一个), 选择需要修改的配置写入文件&lt;br>
+&lt;a class="link" href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon" target="_blank" rel="noopener"
+>官方参数说明&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;insecure-registries&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;192.168.2.2:8080&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>, &lt;span class="c1"># 私有镜像仓库, 第三方镜像源 &amp;#34;&amp;lt;IP&amp;gt;:&amp;lt;PORT&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;dns&amp;#34;&lt;/span>: &lt;span class="o">[]&lt;/span>, &lt;span class="c1"># 设定容器DNS的地址，在容器的 /etc/resolv.conf文件中可查看&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;exec-opts&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;native.cgroupdriver=systemd&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>, &lt;span class="c1"># 运行时执行选项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;registry-mirrors&amp;#34;&lt;/span>: &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;https://ucjisdvf.mirror.aliyuncs.com&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>, &lt;span class="c1"># 更换官方镜像仓库地址为国内镜像地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;log-level&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;info&amp;#34;&lt;/span>, &lt;span class="c1"># 显示日志等级 (debug|info|warn|error|fatal, 默认为 info)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;log-driver&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;json-file&amp;#34;&lt;/span>, &lt;span class="c1"># log 驱动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;log-opts&amp;#34;&lt;/span>: &lt;span class="o">{&lt;/span> &lt;span class="c1"># 容器默认日志驱动程序选项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;max-size&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;100m&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;max-file&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;3&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;data-root&amp;#34;&lt;/span>: &lt;span class="s2">&amp;#34;/var/lib/docker&amp;#34;&lt;/span> &lt;span class="c1"># docker 运行及日志保存位置 (默认 /var/lib/docker)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>更换 Docker 镜像源&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;registry-mirrors&amp;#34;&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://registry.docker-cn.com&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;http://hub-mirror.c.163.com&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://docker.mirrors.ustc.edu.cn&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://cr.console.aliyun.com&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;https://mirror.ccs.tencentyun.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>修改配置文件后需要重启 docker 服务生效&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ systemctl daemon-reload &lt;span class="c1"># 重新加载 docker 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl restart docker &lt;span class="c1"># 重新启动 docker&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ systemctl status docker
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; Activate: activate&lt;span class="o">(&lt;/span>running&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ $ systemctl &lt;span class="nb">enable&lt;/span> docker &lt;span class="c1"># 设置为开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="docker-基本参数">Docker 基本参数&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker --help
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 管理命令:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container 管理容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image 管理镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> network 管理网络
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 命令：
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> attach 介入到一个正在运行的容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> build 根据 Dockerfile 构建一个镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> commit 根据容器的更改创建一个新的镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> cp 在本地文件系统与容器中复制 文件/文件夹
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> create 创建一个新容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">exec&lt;/span> 在容器中执行一条命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> images 列出镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">kill&lt;/span> 杀死一个或多个正在运行的容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> logs 取得容器的日志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> pause 暂停一个或多个容器的所有进程
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ps 列出所有容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> pull 拉取一个镜像或仓库到 registry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> push 推送一个镜像或仓库到 registry
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rename 重命名一个容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart 重新启动一个或多个容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rm 删除一个或多个容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> rmi 删除一个或多个镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> run 在一个新的容器中执行一条命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> search 在 Docker Hub 中搜索镜像
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> start 启动一个或多个已经停止运行的容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> stats 显示一个容器的实时资源占用
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> stop 停止一个或多个正在运行的容器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> tag 为镜像创建一个新的标签
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> top 显示一个容器内的所有进程
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> unpause 恢复一个或多个容器内所有被暂停的进程
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

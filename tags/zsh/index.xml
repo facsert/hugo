@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zsh on Facsert</title><link>https://facsert.github.io/tags/zsh/</link><description>Recent content in Zsh on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Aug 2022 21:46:19 +0000</lastBuildDate><atom:link href="https://facsert.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml"/><item><title>Zsh</title><link>https://facsert.github.io/p/zsh/</link><pubDate>Wed, 31 Aug 2022 21:46:19 +0000</pubDate><guid>https://facsert.github.io/p/zsh/</guid><description>&lt;p>最近使用 mac 的时候发现, mac 默认的 shell 是 zsh, 顺手查了一下 bash 和 zsh 区别&lt;/p>
+&lt;h2 id="zsh-介绍">zsh 介绍&lt;/h2>
+&lt;p>zsh能基本完美兼容bash的命令，并且使用起来更加优雅&lt;/p>
+&lt;ul>
+&lt;li>命令提示&lt;/li>
+&lt;li>智能补全&lt;/li>
+&lt;li>快速跳转&lt;/li>
+&lt;li>热键绑定&lt;/li>
+&lt;li>框架主题&lt;/li>
+&lt;/ul>
+&lt;h3 id="命令提示">命令提示&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">command&lt;/span> &amp;lt;Tab&amp;gt; &lt;span class="c1"># 输入命令, 按下 Tab 会显示可执行参数&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ date -&amp;lt;Tab&amp;gt; &lt;span class="c1"># 使用 Tab 查看提示 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; --date -d -- output date specified by string
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; --help -- output &lt;span class="nb">help&lt;/span> and &lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; --file -f -- output dates specified in file
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="智能补全">智能补全&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> /h/f/D &amp;lt;Tab&amp;gt; &lt;span class="c1"># 路径缩写补全&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nb">cd&lt;/span> /home/facser/Desktop/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> /home/facser/ &amp;lt;Tab&amp;gt; &amp;lt;Tab&amp;gt; &lt;span class="c1"># 连续两次 Tab 进入选择模式&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="快速跳转">快速跳转&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ d &lt;span class="c1"># 执行 d 命令, 列出之前进入的目录, 数字选择&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">0&lt;/span> ~/Desktop
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">1&lt;/span> ~/Desktop/test
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">2&lt;/span> ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="m">3&lt;/span> ~root
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">cd&lt;/span> - &amp;lt;Tab&amp;gt; &lt;span class="c1"># 同上, 列出之前目录, 通过数字选择&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">alias&lt;/span> &lt;span class="c1"># 列出所有快捷命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> .. &lt;span class="o">=&lt;/span>&amp;gt; ... &lt;span class="c1"># 常用的命令热键&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> - &lt;span class="o">=&lt;/span>&amp;gt; -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git &lt;span class="nv">status&lt;/span> &lt;span class="o">=&lt;/span>&amp;gt; gst
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git log --stat &lt;span class="o">=&lt;/span>&amp;gt; glg
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git add --all &lt;span class="o">=&lt;/span>&amp;gt; gaa
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git commit -a -s &lt;span class="o">=&lt;/span>&amp;gt; gcas
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git push origin &lt;span class="o">{&lt;/span>curr_branch&lt;span class="o">}&lt;/span> &lt;span class="o">=&lt;/span>&amp;gt; ggpush
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git pull origin &lt;span class="o">{&lt;/span>curr_branch&lt;span class="o">}&lt;/span> &lt;span class="o">=&lt;/span>&amp;gt; ggpull
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="框架主题">框架主题&lt;/h3>
+&lt;p>安装 oh-my-zsh 更换主题, 添加插件&lt;/p>
+&lt;h2 id="zsh-安装与配置">zsh 安装与配置&lt;/h2>
+&lt;h3 id="下载安装">下载安装&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ sudo apt install zsh &lt;span class="c1"># Ubuntu 直接下载安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yum install zsh &lt;span class="c1"># Centos Redhat yum 安装版本低无法添加 oh-my-zsh&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="启动与环境">启动与环境&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ zsh &lt;span class="c1"># 使用 zsh 命令启动 zsh&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$SHELL&lt;/span> &lt;span class="c1"># 查看当前 shell&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ which zsh &lt;span class="c1"># 查看 zsh 执行文件位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ chsh -s /bin/zsh &lt;span class="c1"># /bin/zsh 需要和 zsh 执行文件位置一致&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ~/.zshrc &lt;span class="c1"># 启动 zsh 时执行的配置文件 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> ~/.zshrc &lt;span class="c1"># 配置立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: .zshrc 可删除, 启动 zsh 未发现 .zshrc 文件会提示重新配置 zsh&lt;/p>
+&lt;h3 id="配置-oh-my-zsh">配置 .oh-my-zsh&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ sh -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ sh -c &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: .oh-my-zsh 默认安装在 ~/.oh-my-zsh, 主题夹为 ~/.oh-my-zsh/themes&lt;/p>
+&lt;h3 id="zsh-配置主题">zsh 配置主题&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ vi ~/.zshrc &lt;span class="c1"># 修改 zsh 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;主题&amp;gt;&amp;#34;&lt;/span> &lt;span class="c1"># 更换 .oh-my-zsh 主题&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nb">export&lt;/span> &lt;span class="nv">ZSH&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;lt;.oh-my-zsh位置&amp;gt;&amp;#34;&lt;/span> &lt;span class="c1"># 定义 .oh-my-zsh 位置 &lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: .oh-my-zsh 的位置是可变的, 只要在 .zshrc 配置中指定即可&lt;/p>
+&lt;h3 id="powerlevel10k">powerlevel10k&lt;/h3>
+&lt;p>.oh-my-zsh 有很多主题可更换, powerlevel10k 是另外一款爆火的主题&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl"> $ git clone --depth&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span> https://gitee.com/romkatv/powerlevel10k.git &lt;span class="si">${&lt;/span>&lt;span class="nv">ZSH_CUSTOM&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="p">/.oh-my-zsh/custom&lt;/span>&lt;span class="si">}&lt;/span>/themes/powerlevel10k
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ vi ~/.zshrc &lt;span class="c1"># 修改 zsh 主题&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">ZSH_THEME&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;powerlevel10k/powerlevel10k&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ &lt;span class="nb">source&lt;/span> ~/.zshrc &lt;span class="c1"># 配置立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ p10k configure &lt;span class="c1"># 重新设置主题配置&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>注: 配置生效后, 自动进入配置选项, 逐一选择即可&lt;/p>
+&lt;h3 id="zsh-syntax-highlighting">zsh-syntax-highlighting&lt;/h3>
+&lt;p>错误语法高亮, 正确命令绿色, 错误命令红色&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git &lt;span class="si">${&lt;/span>&lt;span class="nv">ZSH_CUSTOM&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="p">~/.oh-my-zsh/custom&lt;/span>&lt;span class="si">}&lt;/span>/plugins/zsh-syntax-highlighting
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ vi ~/.bashrc &lt;span class="c1"># 编辑 zsh 配置文件, plugins 添加插件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">plugins&lt;/span>&lt;span class="o">=(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh-syntax-highlighting
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> ~/.zshrc &lt;span class="c1"># 配置立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="zsh-autosuggestions">zsh-autosuggestions&lt;/h3>
+&lt;p>补全历史命令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ git clone https://github.com/zsh-users/zsh-autosuggestions &lt;span class="si">${&lt;/span>&lt;span class="nv">ZSH_CUSTOM&lt;/span>&lt;span class="k">:-&lt;/span>&lt;span class="p">~/.oh-my-zsh/custom&lt;/span>&lt;span class="si">}&lt;/span>/plugins/zsh-autosuggestions
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ vi ~/.bashrc &lt;span class="c1"># 编辑 zsh 配置文件, plugins 添加插件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">plugins&lt;/span>&lt;span class="o">=(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; zsh-autosuggestions
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> ~/.zshrc &lt;span class="c1"># 配置立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="z">z&lt;/h3>
+&lt;p>仅输入文件即可跳转到曾经进入的文件目录(oh-my-zsh自带,无需下载)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi ~/.bashrc &lt;span class="c1"># 编辑 zsh 配置文件, plugins 添加插件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">plugins&lt;/span>&lt;span class="o">=(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ &lt;span class="nb">source&lt;/span> ~/.zshrc &lt;span class="c1"># 配置立即生效&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ~/Desktop/zsh/a/b/c &lt;span class="c1"># 进入过 c 文件目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ ... &lt;span class="c1"># 随意进入其他路径&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ z c &lt;span class="c1"># z 命令加文件夹名即可回去&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="extract">extract&lt;/h3>
+&lt;p>一键解压 tar, gz, zip, rar 包(oh-my-zsh自带,无需下载)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ vi ~/.bashrc &lt;span class="c1"># 编辑 zsh 配置文件, plugins 添加插件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="nv">plugins&lt;/span>&lt;span class="o">=(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; extract
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ x package.tar.gz &lt;span class="c1"># x 命令加压缩包即可解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ x package.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

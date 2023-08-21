@@ -1,0 +1,392 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="文本搜索 读取文本内容搜索或刷选符合条件的内容 grep global search regular expression and print out the line 文本搜索和筛选 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ grep &amp;lt;patten&amp;gt; &amp;lt;file&amp;gt; # 从文件中筛选出符合模式"><title>Linux 文本</title><link rel=canonical href=https://facsert.github.io/p/linux-%E6%96%87%E6%9C%AC/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Linux 文本"><meta property="og:description" content="文本搜索 读取文本内容搜索或刷选符合条件的内容 grep global search regular expression and print out the line 文本搜索和筛选 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ grep &amp;lt;patten&amp;gt; &amp;lt;file&amp;gt; # 从文件中筛选出符合模式"><meta property="og:url" content="https://facsert.github.io/p/linux-%E6%96%87%E6%9C%AC/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Linux"><meta property="article:published_time" content="2022-07-19T15:02:16+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Linux 文本"><meta name=twitter:description content="文本搜索 读取文本内容搜索或刷选符合条件的内容 grep global search regular expression and print out the line 文本搜索和筛选 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 $ grep &amp;lt;patten&amp;gt; &amp;lt;file&amp;gt; # 从文件中筛选出符合模式"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#文本搜索>文本搜索</a><ol><li><a href=#grephttpslinuxaliangacomcgrephtml><a href=https://linux.alianga.com/c/grep.html>grep</a></a></li><li><a href=#wchttpslinuxaliangacomcwchtml><a href=https://linux.alianga.com/c/wc.html>wc</a></a></li></ol></li><li><a href=#文本编辑>文本编辑</a><ol><li><a href=#xargshttpslinuxaliangacomcxargshtml><a href=https://linux.alianga.com/c/xargs.html>xargs</a></a></li><li><a href=#sorthttpslinuxaliangacomcsorthtml><a href=https://linux.alianga.com/c/sort.html>sort</a></a></li><li><a href=#trhttpslinuxaliangacomctrhtml><a href=https://linux.alianga.com/c/tr.html>tr</a></a></li><li><a href=#sedhttpslinuxaliangacomcsedhtml><a href=https://linux.alianga.com/c/sed.html>sed</a></a></li><li><a href=#awkhttpslinuxaliangacomcawkhtml><a href=https://linux.alianga.com/c/awk.html>awk</a></a></li></ol></li><li><a href=#正则表达式>正则表达式</a><ol><li><a href=#正则表达式示例>正则表达式示例</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/linux-%E6%95%99%E7%A8%8B/>Linux 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux-%E6%96%87%E6%9C%AC/>Linux 文本</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-07-19</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>6 minute read</time></div></footer></div></header><section class=article-content><h2 id=文本搜索>文本搜索</h2><p>读取文本内容搜索或刷选符合条件的内容</p><h3 id=grephttpslinuxaliangacomcgrephtml><a class=link href=https://linux.alianga.com/c/grep.html target=_blank rel=noopener>grep</a></h3><blockquote><p>global search regular expression and print out the line</p></blockquote><p>文本搜索和筛选</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ grep &lt;patten&gt; &lt;file&gt;                          <span class=c1># 从文件中筛选出符合模式的行, 可搜索多个文件</span>
+</span></span><span class=line><span class=cl> $ egrep &lt;regex&gt; &lt;file&gt;                          <span class=c1># 与 grep -E 类似</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ grep <span class=s2>&#34;3r&#34;</span> host.txt                            <span class=c1># grep 会显示所有包含 “3r” 的行</span>
+</span></span><span class=line><span class=cl> &gt; 3rd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> grep <span class=s2>&#34;3r&#34;</span>                      <span class=c1># 与上述命令效果一致</span>
+</span></span><span class=line><span class=cl> &gt; 3rd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ grep -nE <span class=s2>&#34;[0-9]th&#34;</span> host.txt                   <span class=c1># 通过正则表达式匹配, 并显示行</span>
+</span></span><span class=line><span class=cl> &gt; 4:4th
+</span></span><span class=line><span class=cl> &gt; 5:5th
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> egrep -i <span class=s2>&#34;[0-9]TH&#34;</span> <span class=p>|</span> grep -v <span class=m>5</span> <span class=c1># 多次管道筛选行, egrep 与 grep -E 一致</span>
+</span></span><span class=line><span class=cl> &gt; 4th                                           <span class=c1># 通过正则忽略大小写筛选, 去除包含 5 的行 </span>
+</span></span></code></pre></td></tr></table></div></div><div class=table-wrapper><table><thead><tr><th style=text-align:center>parameter</th><th style=text-align:left>meaning</th></tr></thead><tbody><tr><td style=text-align:center><code>c</code></td><td style=text-align:left><code>--count</code> 只显示匹配行的数量</td></tr><tr><td style=text-align:center><code>E</code></td><td style=text-align:left><code>--extend-regexp</code> 使用正则匹配</td></tr><tr><td style=text-align:center><code>i</code></td><td style=text-align:left><code>--ignore-case</code> 忽略大小写</td></tr><tr><td style=text-align:center><code>o</code></td><td style=text-align:left><code>--only-matching</code> 只显示匹配到内容, 同行其它内容不显示</td></tr><tr><td style=text-align:center><code>n</code></td><td style=text-align:left><code>--line-number</code> 同时显示行数</td></tr><tr><td style=text-align:center><code>v</code></td><td style=text-align:left><code>--revert-match</code> 反转查找, 显示不匹配的所有行</td></tr><tr><td style=text-align:center><code>w</code></td><td style=text-align:left><code>--word-regexp</code> 单词全匹配, 存在该单词的行, 不包含子字符串</td></tr><tr><td style=text-align:center><code>x</code></td><td style=text-align:left><code>--line-regexp</code> 行全匹配, 必须与行完全一致</td></tr></tbody></table></div><h3 id=wchttpslinuxaliangacomcwchtml><a class=link href=https://linux.alianga.com/c/wc.html target=_blank rel=noopener>wc</a></h3><p>Word count 文字计数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ wc -c                                         <span class=c1># --bytes char 统计字符数量</span>
+</span></span><span class=line><span class=cl> $ wc -w                                         <span class=c1># --words 统计单词数量</span>
+</span></span><span class=line><span class=cl> $ wc -l                                         <span class=c1># --lines 统计行的数量</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> wc -l                          <span class=c1># wc 是以行尾是否有换行符号判断为一行</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>4</span> host.txt                                    <span class=c1># 实际有 5 行, 第 5 行结尾没有换行符号</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=文本编辑>文本编辑</h2><h3 id=xargshttpslinuxaliangacomcxargshtml><a class=link href=https://linux.alianga.com/c/xargs.html target=_blank rel=noopener>xargs</a></h3><p>extended arguments: 文本格式转换与扩充</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ &lt;command&gt; <span class=p>|</span> xargs &lt;options&gt; &lt;command&gt;         <span class=c1># 处理左边命令的输出, 并作为右边命令的输入执行</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;end&#34;</span> <span class=p>|</span> xargs <span class=nb>echo</span> <span class=s2>&#34;start&#34;</span>               <span class=c1># 将 &#34;end&#34; 传递给右边 echo 命令</span>
+</span></span><span class=line><span class=cl> &gt; start end                                     <span class=c1># 与 echo &#34;start&#34; &#34;end&#34; 一致</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> xargs -n <span class=m>3</span>                     <span class=c1># 读取文本内容, 修改格式, 每行 3 个字符串  </span>
+</span></span><span class=line><span class=cl> &gt; 1st 2nd 3rd                                   <span class=c1># xargs 右边不填命令, 默认使用 echo  </span>
+</span></span><span class=line><span class=cl> &gt; 4th 5th
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;1-2-3-4&#34;</span> <span class=p>|</span> xagrs -d <span class=s1>&#39;-&#39;</span> -n <span class=m>2</span>            <span class=c1># 以 &#39;-&#39; 分割字符串, 分隔符号可以是单个字符,单个数字或单个字母 </span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>1</span> <span class=m>2</span>                                           <span class=c1># 每行显示两个字符串</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>3</span> <span class=m>4</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;1 2 3&#34;</span><span class=p>|</span> xargs -n <span class=m>1</span> <span class=p>|</span> xargs -i <span class=nb>echo</span> <span class=s2>&#34;line {} end&#34;</span>              
+</span></span><span class=line><span class=cl> &gt; line <span class=m>1</span> end                                    <span class=c1># xargs -n 1, 每行一个字符串, 将 1 行分割为 3 行</span>
+</span></span><span class=line><span class=cl> &gt; line <span class=m>2</span> end                                    <span class=c1># -i 使用 {} 变量替换, 每一行内容替换掉 {} 执行</span>
+</span></span><span class=line><span class=cl> &gt; line <span class=m>3</span> end
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> xargs -I num sh -c <span class=s1>&#39;echo num start; echo num end&#39;</span> 
+</span></span><span class=line><span class=cl> &gt; 1st start                                     <span class=c1># -I 设置变量 num(可自定义), 供后续多条命令执行 </span>
+</span></span><span class=line><span class=cl> &gt; 1st end                                       <span class=c1># 执行两次 echo 命令, num 替换为 cat 的输出</span>
+</span></span><span class=line><span class=cl> &gt; 2nd start
+</span></span><span class=line><span class=cl> &gt; 2nd end
+</span></span></code></pre></td></tr></table></div></div><h3 id=sorthttpslinuxaliangacomcsorthtml><a class=link href=https://linux.alianga.com/c/sort.html target=_blank rel=noopener>sort</a></h3><p>文本行排序</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sort &lt;file&gt;                                   <span class=c1># 按每行第首字符的 ACSII 码值顺序排序, 相同则往后一个一个比较</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sort host.txt                                 <span class=c1># 按每行字符 ACSII 逐个排序</span>
+</span></span><span class=line><span class=cl> &gt; 128-1st-1                                     <span class=c1># 每行开头分别是 1 2 3, 按顺序排序</span>
+</span></span><span class=line><span class=cl> &gt; 255-3rd-2
+</span></span><span class=line><span class=cl> &gt; 32-2nd-0
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ sort -n host.txt                              <span class=c1># 根据数值比较, 若是字母开头, 按单个字符的 ACSII 数值比较</span>
+</span></span><span class=line><span class=cl> &gt; 32-2nd-0                                      <span class=c1># 每行开头数值是 32 128 255, 根据大小排序</span>
+</span></span><span class=line><span class=cl> &gt; 128-1st-1                                     <span class=c1># 若开头是字符, 按单个字符 ACSII 数值排序</span>
+</span></span><span class=line><span class=cl> &gt; 255-3rd-2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sort -t <span class=s2>&#34;-&#34;</span> -k <span class=m>4</span> -n host.txt                   <span class=c1># 以 &#39;-&#39; 为分割符号, 取第 4 列按数值排序</span>
+</span></span><span class=line><span class=cl> &gt; c-32-2nd-0                                    <span class=c1># -t &#34;-&#34; 以 - 符号分隔行</span>
+</span></span><span class=line><span class=cl> &gt; b-128-1st-1                                   <span class=c1># -k 取第 4 列</span>
+</span></span><span class=line><span class=cl> &gt; a-255-3rd-2                                   <span class=c1># -n 根据数值排序</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sort -r &lt;file&gt;                                <span class=c1># --reverse 反向排序</span>
+</span></span><span class=line><span class=cl> $ sort -u &lt;file&gt;                                <span class=c1># --unique 不显示重复的行</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=trhttpslinuxaliangacomctrhtml><a class=link href=https://linux.alianga.com/c/tr.html target=_blank rel=noopener>tr</a></h3><p>transform 文本替换 压缩 删除</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ tr &lt;option&gt; &lt;parameter&gt;                       <span class=c1># 文本替换, 删除, 合并相邻重复</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> tr <span class=s1>&#39;a-z&#39;</span> <span class=s1>&#39;A-Z&#39;</span> <span class=p>|</span> tr <span class=s2>&#34;-&#34;</span> <span class=s2>&#34;=&#34;</span>    <span class=c1># 小写全替换为大写, - 替换为 = </span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>1ST</span><span class=o>=</span><span class=m>1</span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>2ND</span><span class=o>=</span><span class=m>0</span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>3RD</span><span class=o>=</span><span class=m>2</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;aaccbbcc&#34;</span> <span class=p>|</span> tr -s <span class=s1>&#39;ac&#39;</span>                  <span class=c1># -s 压缩多个连续 a 或多个连续 c 为 1 个</span>
+</span></span><span class=line><span class=cl> &gt; acbbc                                         <span class=c1># 仅限于单个字符重复, 且相邻重复才会生效</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> $ cat host.txt <span class=p>|</span> xargs <span class=p>|</span> tr -d <span class=s1>&#39;0-9&#39;</span>            <span class=c1># 删除文件内所有数字 </span>
+</span></span><span class=line><span class=cl> &gt; st- nd- rd-                                   <span class=c1># -d 后的内容逐一删除, 即删除 0 1 2 3 4 5 6 7 8 9</span>
+</span></span></code></pre></td></tr></table></div></div><p>注: tr 替换或删除时把字符集看做<strong>多个字符</strong>进行操作
+如 tr -d &lsquo;abc&rsquo; 表示删除文本中所有 a b c 字符</p><h3 id=sedhttpslinuxaliangacomcsedhtml><a class=link href=https://linux.alianga.com/c/sed.html target=_blank rel=noopener>sed</a></h3><p>stream editor 流式编辑</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sed &lt;option&gt; &lt;range&gt; &lt;model&gt; &lt;file&gt;
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> &gt; option: 参数
+</span></span><span class=line><span class=cl> &gt;   -i: sed 的修改结果写入文件
+</span></span><span class=line><span class=cl> &gt;   -n: 输出结果, 与 p 合用只打印修改的行
+</span></span><span class=line><span class=cl> &gt;   -e: 串联多个 sed 指令
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> &gt; range: 行号或者正则筛选范围 
+</span></span><span class=line><span class=cl> &gt;   行号: <span class=s1>&#39;3&#39;</span> 第三行<span class=p>;</span> <span class=s1>&#39;2,5&#39;</span> 2到5行<span class=p>;</span> <span class=s1>&#39;1~2&#39;</span> 奇数行<span class=p>;</span> <span class=s1>&#39;2~2&#39;</span> 偶数行<span class=p>;</span> 
+</span></span><span class=line><span class=cl> &gt;   正则: <span class=s1>&#39;/[0-9]/&#39;</span> 含有数字的行<span class=p>;</span>  <span class=s1>&#39;/1st/,/3rd/&#39;</span> 1st 行和 3rd 之间所有行
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> &gt; model: 操作模式
+</span></span><span class=line><span class=cl> &gt;   p: 打印模式
+</span></span><span class=line><span class=cl> &gt;   d: 删除模式
+</span></span><span class=line><span class=cl> &gt;   s: 替换模式
+</span></span><span class=line><span class=cl> &gt;   &lt;n&gt;g: 与 s 替换模式合用, 标明替换次数 
+</span></span><span class=line><span class=cl> &gt;   a<span class=se>\:</span> 行尾追加
+</span></span><span class=line><span class=cl> &gt;   i<span class=se>\:</span> 行首插入
+</span></span></code></pre></td></tr></table></div></div><ul><li>select 筛选</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sed &lt;option&gt; &lt;line index&gt; file                <span class=c1># 根据行序号筛选行</span>
+</span></span><span class=line><span class=cl> $ sed &lt;option&gt; &lt;regex&gt; file                     <span class=c1># 根据关键字筛选行</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed -n <span class=s1>&#39;2,$p&#39;</span> host.txt                        <span class=c1># 截取第二行到最后一行 $ 代表最后一行</span>
+</span></span><span class=line><span class=cl> &gt; 2nd-0                                         <span class=c1># 使用 -n 参数和 p 打印符合需求的行</span>
+</span></span><span class=line><span class=cl> &gt; 3rd-2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed -n <span class=s1>&#39;/[a-z]d/p&#39;</span> host.txt                   <span class=c1># 筛选包含 字母+d 的 行</span>
+</span></span><span class=line><span class=cl> &gt; 2nd-0
+</span></span><span class=line><span class=cl> &gt; 3rd-2
+</span></span></code></pre></td></tr></table></div></div><ul><li>delete 删除</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sed &lt;option&gt; &lt;line index&gt; d file                <span class=c1># 根据行序号筛选行</span>
+</span></span><span class=line><span class=cl> $ sed &lt;option&gt; &lt;regex&gt; d file                     <span class=c1># 根据关键字筛选行 </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed <span class=s1>&#39;$d&#39;</span> host.txt                               <span class=c1># 删除最后一行 </span>
+</span></span><span class=line><span class=cl> &gt; 1st-1                                           <span class=c1># 显示删除后剩余的行, 文件保持不变</span>
+</span></span><span class=line><span class=cl> &gt; 2nd-0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed -i <span class=s1>&#39;/0$/d&#39;</span> host.txt                         <span class=c1># 删除以 0 为结尾的行</span>
+</span></span><span class=line><span class=cl> &gt; 1st-1                                           <span class=c1># -i 显示删除后剩余的行, 并将修改写入文件</span>
+</span></span><span class=line><span class=cl> &gt; 3rd-2
+</span></span></code></pre></td></tr></table></div></div><ul><li>replace 替换</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sed &lt;option&gt; <span class=s1>&#39;s/&lt;before&gt;/&lt;after&gt;/&lt;n&gt;g&#39;</span> &lt;file&gt; <span class=c1># 逐行替换, s 替换模式; &lt;n&gt;g 替换 n 次, n 不填则全替换  </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;hi hi ha&#34;</span> <span class=p>|</span> sed <span class=s1>&#39;s/hi/ha/g&#39;</span>             <span class=c1># 将 hi 替换为 ha, n 未填, 全替换</span>
+</span></span><span class=line><span class=cl> &gt; ha ha ha
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;hi hi ha&#34;</span> <span class=p>|</span> sed <span class=s1>&#39;s:hi:ha:&#39;</span>              <span class=c1># 将 hi 替换为 ha, 没有 g, 只替换一次</span>
+</span></span><span class=line><span class=cl> &gt; ha hi ha                                      <span class=c1># 定界符除了 / 也可以用 : , 或 | </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed -i <span class=s1>&#39;s/-[0-3]/=end/1g&#39;</span> host.txt <span class=o>&amp;&amp;</span> cat host.txt  
+</span></span><span class=line><span class=cl> &gt; <span class=nv>1st</span><span class=o>=</span>end                                       <span class=c1># -i, 不显示结果, 将修改写入文件</span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>2nd</span><span class=o>=</span>end                                       <span class=c1># 支持正则表达式, 将 -1 -2 -3 都替换为 =end</span>
+</span></span><span class=line><span class=cl> &gt; <span class=nv>3rd</span><span class=o>=</span>end                                       <span class=c1># 结尾没有 g, 只替换一次</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed -n <span class=s1>&#39;s/nd\|rd/th/gp&#39;</span> host.txt              <span class=c1># -n 和 p 合用打印匹配的行</span>
+</span></span><span class=line><span class=cl> &gt; 2th-0                                         <span class=c1># 将 nd 或 rd 替换为 th</span>
+</span></span><span class=line><span class=cl> &gt; 3th-2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed <span class=s1>&#39;s/.d/(&amp; or th)/g&#39;</span> host.txt               <span class=c1># 使用 &amp; 做变量替换</span>
+</span></span><span class=line><span class=cl> &gt; 1st-1
+</span></span><span class=line><span class=cl> &gt; 2<span class=o>(</span>nd or th<span class=o>)</span>-0
+</span></span><span class=line><span class=cl> &gt; 3<span class=o>(</span>rd or th<span class=o>)</span>-2
+</span></span></code></pre></td></tr></table></div></div><ul><li>add insert 追加 插入</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sed &lt;option&gt; &lt;regex&gt; &lt;a<span class=se>\ </span>i<span class=se>\&gt;</span> &lt;string&gt; &lt;file&gt;  <span class=c1>#</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed <span class=s1>&#39;/1st/a\first line&#39;</span> host.txt              <span class=c1># 在包含 1st 的行结尾添加 first line </span>
+</span></span><span class=line><span class=cl> &gt; 1st-1                                         <span class=c1># 行结尾是换行符, 追加内容在换行符后, 即下一行</span>
+</span></span><span class=line><span class=cl> &gt; first line                                    
+</span></span><span class=line><span class=cl> &gt; 2nd-0
+</span></span><span class=line><span class=cl> &gt; 3rd-2
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sed <span class=s1>&#39;/1st/1\first line&#39;</span> host.txt              <span class=c1># 在包含 1st 的行开头添加 first line </span>
+</span></span><span class=line><span class=cl> &gt; first line                                  
+</span></span><span class=line><span class=cl> &gt; 1st-1                                                             
+</span></span><span class=line><span class=cl> &gt; 2nd-0
+</span></span><span class=line><span class=cl> &gt; 3rd-2
+</span></span></code></pre></td></tr></table></div></div><h3 id=awkhttpslinuxaliangacomcawkhtml><a class=link href=https://linux.alianga.com/c/awk.html target=_blank rel=noopener>awk</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ awk <span class=s1>&#39;BEGIN{ commands } pattern{ commands } END{ commands }&#39;</span> &lt;file&gt;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> &gt; BEGIN<span class=o>{</span> commands <span class=o>}</span>: 操作文本前执行, 选填, 一般用于初始化变量
+</span></span><span class=line><span class=cl> &gt; pattern<span class=o>{</span> commands <span class=o>}</span>: 行操作, 循环体, 对每行执行
+</span></span><span class=line><span class=cl> &gt; END<span class=o>{</span> commands <span class=o>}</span>: 每次执行完行操作后执行, 选填, 一般用于打印行操作结果
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ awk <span class=s1>&#39;BEGIN{i=0} {i++} END{print i}&#39;</span> host.txt  <span class=c1># 打印文本行</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>3</span>                                             <span class=c1># 初始化 i, 每遍历一行, i + 1, 最后打印 i </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ awk <span class=s1>&#39;{print $1, $NF, &#34;index:&#34;NR}&#39;</span> host.txt    <span class=c1># 以空格为分隔,打印第 1 列, 最后一列及行序号</span>
+</span></span><span class=line><span class=cl> &gt; 1st first index:1                             <span class=c1># $0 表示整行, $&lt;n&gt; 表示第n列, 未指定分隔符号默认空格为分隔</span>
+</span></span><span class=line><span class=cl> &gt; 2nd second index:2                            <span class=c1># $NF 表示最后一列 $(NF-&lt;N&gt;) 倒数第 n 列</span>
+</span></span><span class=line><span class=cl> &gt; 3rd third index:3                             <span class=c1># NR 表示行序号, 不需要 $ </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ <span class=nv>num</span><span class=o>=</span>2<span class=p>;</span> awk -F <span class=s1>&#39;=&#39;</span> -v <span class=nv>col</span><span class=o>=</span><span class=nv>$num</span>  <span class=s1>&#39;{print  &#34;line: &#34;NR &#34; column &#34; col&#34;: &#34;  $col}&#39;</span> host.txt     
+</span></span><span class=line><span class=cl> &gt; line: <span class=m>1</span> column 2: <span class=m>1</span>                           <span class=c1># -F &#34;=&#34; 以 = 为分隔符号, 与 &#39;BEGIN{ FS = &#34;=&#34; }&#39; 效果一致</span>
+</span></span><span class=line><span class=cl> &gt; line: <span class=m>2</span> column 2: <span class=m>0</span>                           <span class=c1># -v col=$num 从外部添加变量赋值给 col</span>
+</span></span><span class=line><span class=cl> &gt; line: <span class=m>3</span> column 2: <span class=m>2</span>                           <span class=c1># &#34;&#34; 内容打印, 变量自动替换, $&lt;n&gt; 取第 n 列</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> /dev/sda1  234G  191G   31G  87%   /
+</span></span><span class=line><span class=cl> <span class=p>|</span>-------<span class=p>|</span>  <span class=p>|</span>--<span class=p>|</span>  <span class=p>|</span>--<span class=p>|</span>   <span class=p>|</span>--<span class=p>|</span> <span class=p>|</span>-<span class=p>|</span> <span class=p>|</span>--------<span class=p>|</span> 
+</span></span><span class=line><span class=cl>    <span class=nv>$1</span>       <span class=nv>$2</span>    <span class=nv>$3</span>     <span class=nv>$4</span>   <span class=nv>$5</span>  <span class=nv>$6</span> <span class=o>(</span><span class=nv>$NF</span><span class=o>)</span>   NR: line index
+</span></span><span class=line><span class=cl> <span class=p>|</span>-----------------------------------------<span class=p>|</span>
+</span></span><span class=line><span class=cl>                    <span class=nv>$0</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>select 筛选</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ awk &lt;pattern&gt; <span class=o>{</span> <span class=nb>command</span> <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ awk <span class=s1>&#39;NR%2==1, $3 ~ /ir/ {print $0}&#39;</span> host.txt  <span class=c1># 通过表达式筛选符合条件的行</span>
+</span></span><span class=line><span class=cl> &gt; 1st <span class=m>1</span> first                                   <span class=c1># NR%2 == 1, 行序号为 2 的倍数余 1 , 即奇数行</span>
+</span></span><span class=line><span class=cl> &gt; 3rd <span class=m>2</span> third                                   <span class=c1># $3 ~ /ir/ 即第 3 列包含 ir 字符串</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ awk <span class=s1>&#39;$1 !~ /nd/, /^[1-3]/ {print}&#39;</span> host.txt   <span class=c1># 使用正则筛选行</span>
+</span></span><span class=line><span class=cl> &gt; 1st <span class=m>1</span> first                                   <span class=c1># $1 !~ /nd/ 第 1 列不包含 nd 字符串</span>
+</span></span><span class=line><span class=cl> &gt; 3rd <span class=m>2</span> third                                   <span class=c1># ^[1-3] 以数字 1 2 3 为行开头 </span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ awk <span class=s1>&#39;/sec/, /3rd/ {print}&#39;</span> host.txt           <span class=c1># 通过子字符串截取两子字符之间所有的行</span>
+</span></span><span class=line><span class=cl> &gt; 2nd <span class=m>0</span> second                                  <span class=c1># sec 在第 2 行</span>
+</span></span><span class=line><span class=cl> &gt; 3rd <span class=m>2</span> third                                   <span class=c1># 3rd 在第 3 行</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=正则表达式>正则表达式</h2><div class=table-wrapper><table><thead><tr><th style=text-align:center>char</th><th style=text-align:left>meaning</th></tr></thead><tbody><tr><td style=text-align:center><code>^</code></td><td style=text-align:left>匹配输入字符串的开始位置, ^start 以字符串 start 开头</td></tr><tr><td style=text-align:center><code>$</code></td><td style=text-align:left>匹配输入字符串的结束位置, $end 以字符串 end 开头</td></tr><tr><td style=text-align:center><code>.</code></td><td style=text-align:left>匹配除"\n"之外的任何单个字符, .</td></tr><tr><td style=text-align:center><code>[]</code></td><td style=text-align:left>匹配所包含的任意<strong>一个</strong>字符, [fac] 匹配 f a c 中任意单个字符, [a-z] 任意单个小写字母 [0-9] 任意单个数字</td></tr><tr><td style=text-align:center><code>[^]</code></td><td style=text-align:left>负值字符范围。匹配任何不在指定范围内的任意字符, [^fac] 匹配不包含 f a c 中任意单个字符</td></tr><tr><td style=text-align:center><code>|</code></td><td style=text-align:left>或匹配, 符号两边均可 [0-9]|[a-z] 匹配任意单个数字或小写字母</td></tr><tr><td style=text-align:center><code>？</code></td><td style=text-align:left>匹配前面的子表达式零次或一次, [0-9]? 匹配 0 个或 1 个数字</td></tr><tr><td style=text-align:center><code>+</code></td><td style=text-align:left>匹配前面的子表达式一次或多次, [A-Z]+ 匹配 1 个或多个大写字母</td></tr><tr><td style=text-align:center><code>*</code></td><td style=text-align:left>匹配前面的子表达式零次或多次, .*.txt 匹配任意单个字符出现0次或多次, 即表示任意以 .txt 结尾</td></tr><tr><td style=text-align:center><code>{m}</code></td><td style=text-align:left>n是一个非负整数。匹配确定的n次。{3} 固定匹配 3 次</td></tr><tr><td style=text-align:center><code>{m,n}</code></td><td style=text-align:left>m和n均为非负整数，其中n&lt;=m。{1，3} 最少 1 次最多 3 次, {2,} 最少两次, {,4} 最多 4 次</td></tr><tr><td style=text-align:center><code>()</code></td><td style=text-align:left>匹配pattern并获取这一匹配, 将括号内匹配看成一个整体 （[0-9]=)* &ldquo;数字=&rdquo; 的格式出现任意次</td></tr></tbody></table></div><h3 id=正则表达式示例>正则表达式示例</h3><ul><li>匹配 IPV4</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>echo</span> <span class=s2>&#34;127.0.0.1 \n255.255.1 \n0.0.0.0 &#34;</span> <span class=p>|</span> egrep -o <span class=s2>&#34;([0-9]{1,3}\.){3}[0-9]{1,3}&#34;</span> 
+</span></span><span class=line><span class=cl> &gt; 127.0.0.1                                     <span class=c1># -o 仅显示匹配内容, [0-9]{1,3} 任意数字出现 1 到 3 次 </span>
+</span></span><span class=line><span class=cl> &gt; 0.0.0.0                                       <span class=c1># ([0-9]{1,3}\.){3}  匹配格式 3 次, . 经过转义仅表示 . 字符</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/><div class=article-details><h2 class=article-title>Linux 包管理</h2></div></a></article><article><a href=/p/linux-%E9%85%8D%E7%BD%AE/><div class=article-details><h2 class=article-title>Linux 配置</h2></div></a></article><article><a href=/p/linux-%E7%B3%BB%E7%BB%9F/><div class=article-details><h2 class=article-title>Linux 系统</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E4%BB%B6/><div class=article-details><h2 class=article-title>Linux 文件</h2></div></a></article><article><a href=/p/linux-%E5%9F%BA%E7%A1%80/><div class=article-details><h2 class=article-title>Linux 基础</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

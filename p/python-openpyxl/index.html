@@ -1,0 +1,243 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="python excel 模块 安装 1 $ pip install openpyxl 创建读取 创建表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 from openpyxl import Workbook wb = Workbook() # 创建一个工作表 sheet = wb.active # 激活第一个 sheet sheet[&amp;#39;A1&amp;#39;] = &amp;#39;hellow world&amp;#39; # sheet A1 赋值"><title>Python openpyxl</title><link rel=canonical href=https://facsert.github.io/p/python-openpyxl/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Python openpyxl"><meta property="og:description" content="python excel 模块 安装 1 $ pip install openpyxl 创建读取 创建表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 from openpyxl import Workbook wb = Workbook() # 创建一个工作表 sheet = wb.active # 激活第一个 sheet sheet[&amp;#39;A1&amp;#39;] = &amp;#39;hellow world&amp;#39; # sheet A1 赋值"><meta property="og:url" content="https://facsert.github.io/p/python-openpyxl/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Python"><meta property="article:published_time" content="2022-09-05T20:12:37+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Python openpyxl"><meta name=twitter:description content="python excel 模块 安装 1 $ pip install openpyxl 创建读取 创建表 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 from openpyxl import Workbook wb = Workbook() # 创建一个工作表 sheet = wb.active # 激活第一个 sheet sheet[&amp;#39;A1&amp;#39;] = &amp;#39;hellow world&amp;#39; # sheet A1 赋值"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#安装>安装</a></li><li><a href=#创建读取>创建读取</a><ol><li><a href=#创建表>创建表</a></li><li><a href=#读取表>读取表</a></li></ol></li><li><a href=#读写>读写</a><ol><li><a href=#赋值和读取>赋值和读取</a></li><li><a href=#多行遍历>多行遍历</a></li></ol></li><li><a href=#样式>样式</a><ol><li><a href=#字体>字体</a></li><li><a href=#填充颜色>填充颜色</a></li><li><a href=#边框>边框</a></li><li><a href=#对齐>对齐</a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/python-%E6%8A%80%E5%B7%A7/>Python 技巧</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/python-openpyxl/>Python openpyxl</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-09-05</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>3 minute read</time></div></footer></div></header><section class=article-content><p>python excel 模块</p><h2 id=安装>安装</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ pip install openpyxl
+</span></span></code></pre></td></tr></table></div></div><h2 id=创建读取>创建读取</h2><h3 id=创建表>创建表</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl</span> <span class=kn>import</span> <span class=n>Workbook</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>wb</span> <span class=o>=</span> <span class=n>Workbook</span><span class=p>()</span>                                 <span class=c1># 创建一个工作表</span>
+</span></span><span class=line><span class=cl> <span class=n>sheet</span> <span class=o>=</span> <span class=n>wb</span><span class=o>.</span><span class=n>active</span>                               <span class=c1># 激活第一个 sheet</span>
+</span></span><span class=line><span class=cl> <span class=n>sheet</span><span class=p>[</span><span class=s1>&#39;A1&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;hellow world&#39;</span>                    <span class=c1># sheet A1 赋值</span>
+</span></span><span class=line><span class=cl> <span class=n>wb</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>)</span>                            <span class=c1># 保存 excel 文件为 test.xlsx</span>
+</span></span><span class=line><span class=cl> <span class=n>wb</span><span class=o>.</span><span class=n>close</span><span class=p>()</span>                                      <span class=c1># 关闭工作表</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> <span class=n>wb</span><span class=o>.</span><span class=n>create_sheet</span><span class=p>(</span><span class=n>name</span><span class=p>:</span><span class=nb>str</span> <span class=p>[,</span> <span class=n>index</span><span class=p>:</span><span class=nb>int</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>])</span>    <span class=c1># 自定义 sheet 名称和位置 </span>
+</span></span><span class=line><span class=cl> <span class=n>wb</span><span class=o>.</span><span class=n>create_sheet</span><span class=p>(</span><span class=s1>&#39;first_sheet&#39;</span><span class=p>,</span> <span class=mi>0</span><span class=p>)</span>               <span class=c1># 在 0 插入 名为 first_sheet 的表</span>
+</span></span><span class=line><span class=cl> <span class=n>sheet</span><span class=o>.</span><span class=n>title</span>                                     <span class=c1># 获取sheet 的名称, 也可以重新赋值</span>
+</span></span><span class=line><span class=cl> <span class=o>&gt;</span> <span class=n>first_sheet</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=n>sheet</span> <span class=ow>in</span> <span class=n>wb</span><span class=p>:</span>                                <span class=c1># 遍历工作表, 打印所有表名称</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>sheet</span><span class=o>.</span><span class=n>title</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>wb</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>sheet</span><span class=p>)</span>                                <span class=c1># 删除 sheet, 参数是 sheet 对象</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=读取表>读取表</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl</span> <span class=kn>import</span> <span class=n>load_workbook</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>wb</span> <span class=o>=</span> <span class=n>load_workbook</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>)</span>                 <span class=c1># 打开一个已存在的 excel 文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>sheet_names</span> <span class=o>=</span> <span class=n>wb</span><span class=o>.</span><span class=n>sheetnames</span>                     <span class=c1># 获取所有表名组成的列表</span>
+</span></span><span class=line><span class=cl> <span class=o>&gt;</span> <span class=p>[</span><span class=s1>&#39;first&#39;</span><span class=p>,</span> <span class=s1>&#39;second&#39;</span><span class=p>,</span> <span class=s1>&#39;third&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>sheet</span> <span class=o>=</span> <span class=n>wb</span><span class=p>[</span><span class=s1>&#39;first&#39;</span><span class=p>]</span>                          
+</span></span><span class=line><span class=cl> <span class=n>sheet</span><span class=p>[</span><span class=s1>&#39;A1&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl> <span class=o>&gt;</span> <span class=s1>&#39;hellow world&#39;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=读写>读写</h2><h3 id=赋值和读取>赋值和读取</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=n>sheet</span><span class=p>[</span><span class=s1>&#39;A1&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;hellow world&#39;</span>                    <span class=c1># A1 赋值 hellow world</span>
+</span></span><span class=line><span class=cl> <span class=n>sheet</span><span class=p>[</span><span class=s1>&#39;A1&#39;</span><span class=p>]</span><span class=o>.</span><span class=n>value</span>                               <span class=c1># 读取 A1 方格的值</span>
+</span></span><span class=line><span class=cl> <span class=o>&gt;</span> <span class=s1>&#39;hellow world&#39;</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>grid</span> <span class=o>=</span> <span class=n>sheet</span><span class=o>.</span><span class=n>cell</span><span class=p>(</span><span class=n>row</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>column</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>value</span><span class=o>=</span><span class=s1>&#39;ok&#39;</span><span class=p>)</span>  <span class=c1># 第一列第一行赋值 ok, 返回一个 cell 对象</span>
+</span></span><span class=line><span class=cl> <span class=n>sheel</span><span class=o>.</span><span class=n>cell</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>value</span>                          <span class=c1># 读取第一行第一列方格的值</span>
+</span></span><span class=line><span class=cl> <span class=o>&gt;</span> <span class=s1>&#39;ok&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>row_one</span> <span class=o>=</span>  <span class=n>sheet</span><span class=p>[</span><span class=s1>&#39;A1&#39;</span><span class=p>:</span> <span class=s1>&#39;F1&#39;</span><span class=p>]</span>                    <span class=c1># 获取多数方格, 返回 cell 对象的元组</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=多行遍历>多行遍历</h3><ul><li>sheet.iter_rows() 每次返回一整行组成的元组</li><li>sheet.iter_cols() 每次返回一整列组成的元组</li></ul><div class=table-wrapper><table><thead><tr><th style=text-align:center>参数</th><th style=text-align:center>含义</th></tr></thead><tbody><tr><td style=text-align:center><code>min_row</code></td><td style=text-align:center>起始行, default:None</td></tr><tr><td style=text-align:center><code>max_row</code></td><td style=text-align:center>结束行, default:None</td></tr><tr><td style=text-align:center><code>min_col</code></td><td style=text-align:center>起始列, default:None</td></tr><tr><td style=text-align:center><code>max_col</code></td><td style=text-align:center>结束列, default:None</td></tr><tr><td style=text-align:center><code>values_only</code></td><td style=text-align:center>True:只返回值, False: 返回 cell 对象</td></tr></tbody></table></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=n>row</span> <span class=ow>in</span> <span class=n>sheet</span><span class=o>.</span><span class=n>iter_rows</span><span class=p>(</span>                     
+</span></span><span class=line><span class=cl>    <span class=n>min_row</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>max_col</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span> <span class=n>max_row</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span>            <span class=c1># 遍历第 1 至第 2 行, 取 3 列 </span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>cell</span> <span class=ow>in</span> <span class=n>row</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>cell</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>A1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>B1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>C1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>A2</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>B2</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl> <span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>C2</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=n>col</span> <span class=ow>in</span> <span class=n>sheet</span><span class=o>.</span><span class=n>iter_cols</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>min_row</span><span class=o>=</span><span class=mi>1</span><span class=p>,</span> <span class=n>max_col</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span> <span class=n>max_row</span><span class=o>=</span><span class=mi>2</span><span class=p>):</span>            <span class=c1># 遍历第 1 至第 2 行, 取 3 列 </span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>cell</span> <span class=ow>in</span> <span class=n>col</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>cell</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>A1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>A2</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>B1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>B2</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>C1</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=o>&lt;</span><span class=n>Cell</span> <span class=n>Sheet1</span><span class=o>.</span><span class=n>C2</span><span class=o>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=样式>样式</h2><h3 id=字体>字体</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl.styles</span> <span class=kn>import</span> <span class=n>Font</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>cell</span><span class=o>.</span><span class=n>font</span> <span class=o>=</span> <span class=n>Font</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>   <span class=n>name</span><span class=o>=</span><span class=s2>&#34;微软雅黑&#34;</span><span class=p>,</span>                                  <span class=c1># 字体</span>
+</span></span><span class=line><span class=cl>   <span class=n>size</span><span class=o>=</span><span class=mi>15</span><span class=p>,</span>                                         <span class=c1># 字体大小</span>
+</span></span><span class=line><span class=cl>   <span class=n>color</span><span class=o>=</span><span class=s2>&#34;0000FF&#34;</span><span class=p>,</span>                                  <span class=c1># 字体颜色，用16进制rgb表示</span>
+</span></span><span class=line><span class=cl>   <span class=n>bold</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span>                                       <span class=c1># 是否加粗，True/False</span>
+</span></span><span class=line><span class=cl>   <span class=n>italic</span><span class=o>=</span><span class=kc>True</span><span class=p>,</span>                                     <span class=c1># 是否斜体，True/False</span>
+</span></span><span class=line><span class=cl>   <span class=n>strike</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span>                                     <span class=c1># 是否使用删除线，True/False</span>
+</span></span><span class=line><span class=cl>   <span class=n>underline</span><span class=o>=</span><span class=kc>None</span><span class=p>,</span>                                  <span class=c1># 下划线, 可选&#39;singleAccounting&#39;, &#39;double&#39;, &#39;single&#39;, &#39;doubleAccounting&#39;</span>
+</span></span><span class=line><span class=cl> <span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=填充颜色>填充颜色</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl.styles</span> <span class=kn>import</span> <span class=n>PatternFill</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>cell</span><span class=o>.</span><span class=n>fill</span> <span class=o>=</span> <span class=n>PatternFill</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>patternType</span><span class=o>=</span><span class=s2>&#34;solid&#34;</span><span class=p>,</span>                         <span class=c1># 填充类型</span>
+</span></span><span class=line><span class=cl>    <span class=n>fgColor</span><span class=o>=</span><span class=s2>&#34;F562a4&#34;</span><span class=p>,</span>                            <span class=c1># 前景色，16进制rgb</span>
+</span></span><span class=line><span class=cl>    <span class=n>bgColor</span><span class=o>=</span><span class=s2>&#34;0000ff&#34;</span><span class=p>,</span>                            <span class=c1># 背景色，16进制rgb</span>
+</span></span><span class=line><span class=cl> <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>patternType</span><span class=p>:</span>                                    <span class=c1># patternType 可选值</span>
+</span></span><span class=line><span class=cl>     <span class=n>none</span><span class=err>、</span><span class=n>solid</span><span class=err>、</span><span class=n>darkGray</span><span class=err>、</span><span class=n>mediumGray</span><span class=err>、</span><span class=n>lightGray</span><span class=err>、</span>
+</span></span><span class=line><span class=cl>     <span class=n>lightDown</span><span class=err>、</span><span class=n>lightGray</span><span class=err>、</span><span class=n>lightGrid</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=边框>边框</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl.styles</span> <span class=kn>import</span> <span class=n>Border</span><span class=p>,</span> <span class=n>Side</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>side</span> <span class=o>=</span> <span class=n>Side</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>   <span class=n>style</span><span class=o>=</span><span class=s2>&#34;medium&#34;</span><span class=p>,</span>                               <span class=c1># 边框样式</span>
+</span></span><span class=line><span class=cl>   <span class=n>color</span><span class=o>=</span><span class=s2>&#34;ff66dd&#34;</span><span class=p>,</span>                               <span class=c1># 边框颜色，16进制rgb表示</span>
+</span></span><span class=line><span class=cl> <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>style</span><span class=p>:</span>                                          <span class=c1># style 可选值</span>
+</span></span><span class=line><span class=cl>     <span class=n>dashDot</span><span class=err>、</span><span class=n>dashDotDot</span><span class=err>、</span><span class=n>dashed</span><span class=err>、</span><span class=n>dotted</span><span class=err>、</span><span class=n>double</span><span class=err>、</span>
+</span></span><span class=line><span class=cl>     <span class=n>hair</span><span class=err>、</span><span class=n>medium</span><span class=err>、</span><span class=n>mediumDashDot</span><span class=err>、</span><span class=n>mediumDashDotDot</span><span class=err>、</span>
+</span></span><span class=line><span class=cl>     <span class=n>mediumDashed</span><span class=err>、</span><span class=n>slantDashDot</span><span class=err>、</span><span class=n>thick</span><span class=err>、</span><span class=n>thin</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>cell</span><span class=o>.</span><span class=n>border</span> <span class=o>=</span> <span class=n>Border</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>top</span><span class=o>=</span><span class=n>side</span><span class=p>,</span>                                    <span class=c1># 上边框使用定义的 side</span>
+</span></span><span class=line><span class=cl>    <span class=n>bottom</span><span class=o>=</span><span class=n>side</span><span class=p>,</span>                                 <span class=c1># 下边框使用定义的 side</span>
+</span></span><span class=line><span class=cl>    <span class=n>left</span><span class=o>=</span><span class=n>side</span><span class=p>,</span>                                   <span class=c1># 左边框使用定义的 side</span>
+</span></span><span class=line><span class=cl>    <span class=n>right</span><span class=o>=</span><span class=n>side</span><span class=p>,</span>                                  <span class=c1># 右边框使用定义的 side</span>
+</span></span><span class=line><span class=cl>    <span class=n>diagonal</span><span class=o>=</span><span class=n>side</span>                                <span class=c1># 对角线使用定义的 side</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=对齐>对齐</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl> <span class=kn>from</span> <span class=nn>openpyxl.styles</span> <span class=kn>import</span> <span class=n>Alignment</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=n>cell</span><span class=o>.</span><span class=n>alignment</span> <span class=o>=</span> <span class=n>Alignment</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>horizontal</span><span class=o>=</span><span class=s1>&#39;left&#39;</span><span class=p>,</span>                           <span class=c1># 水平对齐，可选general、left、center、right、fill、justify、centerContinuous、distributed</span>
+</span></span><span class=line><span class=cl>    <span class=n>vertical</span><span class=o>=</span><span class=s1>&#39;top&#39;</span><span class=p>,</span>                              <span class=c1># 垂直对齐， 可选top、center、bottom、justify、distributed</span>
+</span></span><span class=line><span class=cl>    <span class=n>text_rotation</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span>                             <span class=c1># 字体旋转，0~180整数</span>
+</span></span><span class=line><span class=cl>    <span class=n>wrap_text</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span>                             <span class=c1># 是否自动换行</span>
+</span></span><span class=line><span class=cl>    <span class=n>shrink_to_fit</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span>                         <span class=c1># 是否缩小字体填充</span>
+</span></span><span class=line><span class=cl>    <span class=n>indent</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span>                                    <span class=c1># 缩进值</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/python/>Python</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/python-%E7%B1%BB%E5%9E%8B%E6%B3%A8%E8%A7%A3/><div class=article-details><h2 class=article-title>Python 类型注解</h2></div></a></article><article><a href=/p/python-eval-exec/><div class=article-details><h2 class=article-title>Python eval exec</h2></div></a></article><article><a href=/p/python-%E6%89%81%E5%B9%B3%E5%8C%96%E5%AD%97%E5%85%B8/><div class=article-details><h2 class=article-title>Python 扁平化字典</h2></div></a></article><article><a href=/p/python-%E7%B1%BB/><div class=article-details><h2 class=article-title>Python 类</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

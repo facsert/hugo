@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mongo 教程 on Facsert</title><link>https://facsert.github.io/categories/mongo-%E6%95%99%E7%A8%8B/</link><description>Recent content in Mongo 教程 on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 14 Feb 2023 15:02:16 +0000</lastBuildDate><atom:link href="https://facsert.github.io/categories/mongo-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Mongo 基础</title><link>https://facsert.github.io/p/mongo-%E5%9F%BA%E7%A1%80/</link><pubDate>Tue, 14 Feb 2023 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/mongo-%E5%9F%BA%E7%A1%80/</guid><description>&lt;h2 id="示例">示例&lt;/h2>
+&lt;p>通过 docker 运行 mongo 数据库&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker pull mongo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker images
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; REPOSITORY TAG IMAGE ID CREATED SIZE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; mongo latest 32c5c1d795d9 &lt;span class="m">2&lt;/span> weeks ago 644MB
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker run -d --restart&lt;span class="o">=&lt;/span>always -p 27017:27017 --name mongodb -v /root/Desktop/Mongo:/data/db mongo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ docker ps
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; b4da33977293 mongo &lt;span class="s2">&amp;#34;docker-entrypoint.s…&amp;#34;&lt;/span> &lt;span class="m">6&lt;/span> seconds ago Up &lt;span class="m">5&lt;/span> seconds 0.0.0.0:27017-&amp;gt;27017/tcp, :::27017-&amp;gt;27017/tcp mongodb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>以 mongo 为镜像, 创建容器 mongodb&lt;/li>
+&lt;li>容器内 /data/db 目录挂载到系统 /root/Desktop/Mongo 目录下&lt;/li>
+&lt;li>系统端口 27017 与容器内 27017 端口映射&lt;/li>
+&lt;/ul>
+&lt;h2 id="mongo-容器">mongo 容器&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ docker &lt;span class="nb">exec&lt;/span> -it mongodb bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ mongosh &lt;span class="c1"># 进入 mongo shell, 早期版本使用 mongo 命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="mongo">mongo&lt;/h2>
+&lt;p>数据库
+集合
+文档&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">test&lt;/span> &lt;span class="c1"># 数据库名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> student &lt;span class="c1"># 集合名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;id1&amp;gt;: &lt;span class="o">{&lt;/span>&lt;span class="s1">&amp;#39;_id&amp;#39;&lt;/span>: &amp;lt;id1&amp;gt;, &lt;span class="s1">&amp;#39;name&amp;#39;&lt;/span>: &lt;span class="s1">&amp;#39;John&amp;#39;&lt;/span>&lt;span class="o">}&lt;/span> &lt;span class="c1"># 文档，类似行, 一个文档包含一个 json 数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;id2&amp;gt;: &lt;span class="o">{&lt;/span>&lt;span class="s1">&amp;#39;_id&amp;#39;&lt;/span>: &amp;lt;id2&amp;gt;, &lt;span class="s1">&amp;#39;name&amp;#39;&lt;/span>: &lt;span class="s1">&amp;#39;peter&amp;#39;&lt;/span>&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> teacher &lt;span class="c1"># 集合名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;id1&amp;gt;: &lt;span class="o">{&lt;/span>&lt;span class="s1">&amp;#39;_id&amp;#39;&lt;/span>: &amp;lt;id1&amp;gt;, &lt;span class="s1">&amp;#39;name&amp;#39;&lt;/span>: &lt;span class="s1">&amp;#39;John&amp;#39;&lt;/span>&lt;span class="o">}&lt;/span> &lt;span class="c1"># 文档，类似行, 一个文档包含一个 json 数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;lt;id2&amp;gt;: &lt;span class="o">{&lt;/span>&lt;span class="s1">&amp;#39;_id&amp;#39;&lt;/span>: &amp;lt;id2&amp;gt;, &lt;span class="s1">&amp;#39;name&amp;#39;&lt;/span>: &lt;span class="s1">&amp;#39;peter&amp;#39;&lt;/span>&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="数据库">数据库&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">show&lt;/span> &lt;span class="nx">dbs&lt;/span> &lt;span class="c1">// 显示所有数据库
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">admin&lt;/span> &lt;span class="mf">40.00&lt;/span> &lt;span class="nx">KiB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">config&lt;/span> &lt;span class="mf">108.00&lt;/span> &lt;span class="nx">KiB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">local&lt;/span> &lt;span class="mf">40.00&lt;/span> &lt;span class="nx">KiB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">test&lt;/span> &lt;span class="mf">40.00&lt;/span> &lt;span class="nx">KiB&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">use&lt;/span> &lt;span class="nx">redis&lt;/span> &lt;span class="c1">// 创建或切换数据库
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">switched&lt;/span> &lt;span class="nx">to&lt;/span> &lt;span class="nx">db&lt;/span> &lt;span class="nx">redis&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span> &lt;span class="c1">// 显示当前数据库名称
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">redis&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">stats&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 数据库 test 的信息
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">db&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;redis&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">collections&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">views&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">objects&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">avgObjSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">dataSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">storageSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">indexes&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">indexSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">totalSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">scaleFactor&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fsUsedSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fsTotalSize&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ok&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">dropDatabase&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 删除数据库 redis
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">ok&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">dropped&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s1">&amp;#39;redis&amp;#39;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="集合">集合&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">show&lt;/span> &lt;span class="nx">collections&lt;/span> &lt;span class="c1">// 查看数据库内的所有集合
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createCollection&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">option&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 创建集合, 并配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">createCollection&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;log&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">capped&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">size&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="mi">5242880&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">max&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="mi">5000&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">drop&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="c1">// 删除 log 集合
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">option&lt;/th>
+&lt;th style="text-align:center">type&lt;/th>
+&lt;th style="text-align:left">description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>capped&lt;/code>&lt;/td>
+&lt;td style="text-align:center">Boolean&lt;/td>
+&lt;td style="text-align:left">true: 集合启用 size 限制, 超过部分自动覆盖最早的条目。启动该选项同时也需指定 size 数值&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>size&lt;/code>&lt;/td>
+&lt;td style="text-align:center">number&lt;/td>
+&lt;td style="text-align:left">设定集合最大可使用字节数。capped 为 true 时设置&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>max&lt;/code>&lt;/td>
+&lt;td style="text-align:center">number&lt;/td>
+&lt;td style="text-align:left">设置集合能容纳的最大文档数量。Size限制优先于数量限制。文档数量未到 max, size 到达限制时也会触发文档覆盖&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="文档">文档&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl"> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">collection&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">insert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="c1">// 指定集合插入 json 数据
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="nx">db&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">collection&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">insert&lt;/span>&lt;span class="p">([&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;lt;&lt;/span>&lt;span class="nx">json&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="p">])&lt;/span> &lt;span class="c1">// 单次插入多个 json 数据, 与多次插入单个 json 一致
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

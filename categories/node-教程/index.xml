@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node 教程 on Facsert</title><link>https://facsert.github.io/categories/node-%E6%95%99%E7%A8%8B/</link><description>Recent content in Node 教程 on Facsert</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 18 Jul 2022 15:02:16 +0000</lastBuildDate><atom:link href="https://facsert.github.io/categories/node-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>Node 配置</title><link>https://facsert.github.io/p/node-%E9%85%8D%E7%BD%AE/</link><pubDate>Mon, 18 Jul 2022 15:02:16 +0000</pubDate><guid>https://facsert.github.io/p/node-%E9%85%8D%E7%BD%AE/</guid><description>&lt;h2 id="download-and-update">Download and Update&lt;/h2>
+&lt;p>&lt;a class="link" href="https://nodejs.org/en" target="_blank" rel="noopener"
+>nodejs 官网&lt;/a>&lt;/p>
+&lt;p>nodejs 通过 n 模块更新或切换版本&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ node -v &lt;span class="c1"># node 版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; v18.15.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm cache clean -f &lt;span class="c1"># 清除nodejs的cache：&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install -g n &lt;span class="c1"># 使用npm全局安装n模块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm view node versions &lt;span class="c1"># node所有版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ n latest &lt;span class="c1"># 升级到最新版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ n stable &lt;span class="c1"># 升级到最新稳定版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ n 18.15.0 &lt;span class="c1"># 升级到 18.15.0 版本, 某个具体版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm -v &lt;span class="c1"># npm 版本, node 的包管理器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; 9.5.0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install npm@latest -g &lt;span class="c1"># npm 升级到最新版&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install npm@xx -g &lt;span class="c1"># npm 升级到指定版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm version &lt;span class="c1"># 查看当前 npm 版本详情&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm view npm version &lt;span class="c1"># 查看 npm 最新版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm view npm versions &lt;span class="c1"># 查看 npm 所有版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm list &lt;span class="c1"># 已安装插件清单&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="npm-配置">npm 配置&lt;/h3>
+&lt;p>npm 可用更换默认模块安装位置和缓存位置
+npm 可更换下载源为国内源&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ npm config &lt;span class="nb">set&lt;/span> prefix &amp;lt;path&amp;gt; &lt;span class="c1"># 更换全局模块安装位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm get prefix &lt;span class="c1"># 查看 npm 安装全局模块的位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /usr/local
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm config &lt;span class="nb">set&lt;/span> cache &amp;lt;path&amp;gt; &lt;span class="c1"># 更换 npm 缓存位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm get cache &lt;span class="c1"># 查看 npm 缓存存放的位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; /Users/facsert/.npm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install nrm -g &lt;span class="c1"># 使用资源切换工具 nrm 切换下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ nrm ls &lt;span class="c1"># 列出可用的下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ nrm use taobao &lt;span class="c1"># 使用 taobao 源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm config get registry &lt;span class="c1"># 查看当前 npm 下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; https://registry.npmjs.org/ &lt;span class="c1"># 官方 npm 下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm config &lt;span class="nb">set&lt;/span> registry &amp;lt;source&amp;gt; &lt;span class="c1"># 命令切换 npm 下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>npm 全局安装, 存放在全局模块位置, 所有项目生效
+npm 本地安装, 在当前目录 node_modules 文件夹下, 仅目录下项目生效&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ npm init &lt;span class="c1"># 初始化项目, 生产 package.json 记录安装的模块及版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install vue --save &lt;span class="c1"># 更新 package.json 中 vue 版本的版本信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install &lt;span class="c1"># 目录下存在 package.json 会自动根据文件下载依赖包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm list &lt;span class="c1"># 查看当前项目安装的模块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm list -g &lt;span class="c1"># 查看全局安装的模块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> /usr/local/lib
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── corepack@0.17.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── n@9.0.1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ├── npm@9.6.2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └── yarn@1.22.19
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install &amp;lt;package&amp;gt; &lt;span class="c1"># 本地安装模块 &lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm install &amp;lt;package&amp;gt; -g &lt;span class="c1"># 全局安装模块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm uninstall &amp;lt;package&amp;gt; &lt;span class="c1"># 卸载本地安装的模块&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ npm uninstall &amp;lt;package&amp;gt; -g &lt;span class="c1"># 卸载全局安装的模块&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="yarn-配置">yarn 配置&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ npm install yarn -g &lt;span class="c1"># npm 全局安装 yarn&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn config &lt;span class="nb">set&lt;/span> global-folder &amp;lt;path&amp;gt; &lt;span class="c1"># 设置全局安装目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn config &lt;span class="nb">set&lt;/span> cache-folder &amp;lt;path&amp;gt; &lt;span class="c1"># 设置全局缓存目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn global add yrm &lt;span class="c1"># 安装 yrm 以切换下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yrm ls &lt;span class="c1"># 列出所有下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yrm use taobao &lt;span class="c1"># 使用 taobao 源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn config get registry &lt;span class="c1"># 查看当前 yarn 下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; https://registry.yarnpkg.com &lt;span class="c1"># yarn 官方默认源&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn config &lt;span class="nb">set&lt;/span> registry &amp;lt;source&amp;gt; &lt;span class="c1"># 命令更换 yarn 下载源&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>yarn 的使用与 npm 类似&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl"> $ yarn init &lt;span class="c1"># yarn 初始化项目, 生成 package.json&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn install &lt;span class="c1"># 目录下有 package.json 自动下载文件内的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn global add &amp;lt;package&amp;gt; &lt;span class="c1"># 全局安装工具包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn add &amp;lt;package&amp;gt; &lt;span class="c1"># 本地安装包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn global remove &amp;lt;package&amp;gt; &lt;span class="c1"># 卸载全局包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn remove &amp;lt;package&amp;gt; &lt;span class="c1"># 卸载项目下的包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn upgrade &amp;lt;package&amp;gt; &lt;span class="c1"># 更新某个包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn list &lt;span class="c1"># 显示本地安装的所有包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn global list &lt;span class="c1"># 显示全局安装的所有包&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; yarn global v1.22.19
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;gt; - yrm
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> $ yarn info &amp;lt;package&amp;gt; &lt;span class="c1"># 查看包的信息&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

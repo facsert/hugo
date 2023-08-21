@@ -1,0 +1,352 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Golang 基本类型有 整形 浮点型 布尔类型 字符串 类型转换 整形 类型 范围 int8 -128 - 127 uint8 / byte 0 - 255 int16 -32768 - 32767 uint16 0 - 65535 int32 / rune -2147483648 ~ 2147483647 uint32 0 ~ 4294967295 int64 -9223372036854775808 ~ 9223372036854775807 uint64 0 ~ 18446744073709551615 int 32 位系统 i"><title>Go 基本类型</title><link rel=canonical href=https://facsert.github.io/p/go-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Go 基本类型"><meta property="og:description" content="Golang 基本类型有 整形 浮点型 布尔类型 字符串 类型转换 整形 类型 范围 int8 -128 - 127 uint8 / byte 0 - 255 int16 -32768 - 32767 uint16 0 - 65535 int32 / rune -2147483648 ~ 2147483647 uint32 0 ~ 4294967295 int64 -9223372036854775808 ~ 9223372036854775807 uint64 0 ~ 18446744073709551615 int 32 位系统 i"><meta property="og:url" content="https://facsert.github.io/p/go-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Go"><meta property="article:published_time" content="2023-03-06T19:21:13+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Go 基本类型"><meta name=twitter:description content="Golang 基本类型有 整形 浮点型 布尔类型 字符串 类型转换 整形 类型 范围 int8 -128 - 127 uint8 / byte 0 - 255 int16 -32768 - 32767 uint16 0 - 65535 int32 / rune -2147483648 ~ 2147483647 uint32 0 ~ 4294967295 int64 -9223372036854775808 ~ 9223372036854775807 uint64 0 ~ 18446744073709551615 int 32 位系统 i"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#整形>整形</a><ol><li><a href=#整形类型转换>整形类型转换</a></li><li><a href=#进制赋值>进制赋值</a></li><li><a href=#类型最大值和最小值>类型最大值和最小值</a></li></ol></li><li><a href=#浮点型>浮点型</a></li><li><a href=#布尔类型>布尔类型</a></li><li><a href=#字符串类型>字符串类型</a><ol><li><a href=#字符>字符</a></li><li><a href=#字符串>字符串</a></li><li><a href=#字符串操作>字符串操作</a></li></ol></li><li><a href=#类型转换>类型转换</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/go-%E6%95%99%E7%A8%8B/ style=background-color:#2a9d8f;color:#fff>Go 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/go-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/>Go 基本类型</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2023-03-06</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>5 minute read</time></div></footer></div></header><section class=article-content><p>Golang 基本类型有</p><ul><li><a class=link href=#%e6%95%b4%e5%bd%a2>整形</a></li><li><a class=link href=#%e6%b5%ae%e7%82%b9%e5%9e%8b>浮点型</a></li><li><a class=link href=#%e5%b8%83%e5%b0%94%e7%b1%bb%e5%9e%8b>布尔类型</a></li><li><a class=link href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%b1%bb%e5%9e%8b>字符串</a></li><li><a class=link href=#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2>类型转换</a></li></ul><h2 id=整形>整形</h2><div class=table-wrapper><table><thead><tr><th style=text-align:left>类型</th><th style=text-align:left>范围</th></tr></thead><tbody><tr><td style=text-align:left><code>int8</code></td><td style=text-align:left>-128 - 127</td></tr><tr><td style=text-align:left><code>uint8</code> / <code>byte</code></td><td style=text-align:left>0 - 255</td></tr><tr><td style=text-align:left><code>int16</code></td><td style=text-align:left>-32768 - 32767</td></tr><tr><td style=text-align:left><code>uint16</code></td><td style=text-align:left>0 - 65535</td></tr><tr><td style=text-align:left><code>int32</code> / <code>rune</code></td><td style=text-align:left>-2147483648 ~ 2147483647</td></tr><tr><td style=text-align:left><code>uint32</code></td><td style=text-align:left>0 ~ 4294967295</td></tr><tr><td style=text-align:left><code>int64</code></td><td style=text-align:left>-9223372036854775808 ~ 9223372036854775807</td></tr><tr><td style=text-align:left><code>uint64</code></td><td style=text-align:left>0 ~ 18446744073709551615</td></tr><tr><td style=text-align:left><code>int</code></td><td style=text-align:left>32 位系统 int32， 64 位系统 int64</td></tr><tr><td style=text-align:left><code>uint</code></td><td style=text-align:left>32 位系统 uint32， 64 位系统 uint64</td></tr></tbody></table></div><h3 id=整形类型转换>整形类型转换</h3><p>不同整形之间不可以进行运算, 需要转换为同一类型运算<br>数字可以与任何整形运算, 运算结果类型不变</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num8</span> <span class=kt>int8</span> <span class=p>=</span> <span class=mi>8</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num16</span> <span class=kt>int16</span> <span class=p>=</span> <span class=mi>16</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;type: %T\n&#34;</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;num8 add: %d \n&#34;</span><span class=p>,</span><span class=nx>num8</span> <span class=o>+</span> <span class=mi>3</span><span class=p>)</span>               <span class=c1>// 数字可直接与 int8 类型数据运算
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;num16 add: %d \n&#34;</span><span class=p>,</span><span class=nx>num16</span> <span class=o>+</span> <span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=kd>type</span><span class=p>:</span> <span class=kt>int</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>num8</span> <span class=nx>add</span><span class=p>:</span><span class=mi>11</span> <span class=kd>type</span><span class=p>:</span><span class=kt>int8</span>                          <span class=c1>// 结果任然为 int8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>num8</span> <span class=nx>add</span><span class=p>:</span><span class=mi>19</span> <span class=kd>type</span><span class=p>:</span><span class=kt>int16</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;num16 add num8: %d \n&#34;</span><span class=p>,</span><span class=nx>num16</span> <span class=o>+</span> <span class=nx>num16</span><span class=p>)</span>   <span class=c1>// int8 与 int16 不能直接运算
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=p>.</span><span class=o>/</span><span class=nx>main</span><span class=p>.</span><span class=k>go</span><span class=p>:</span><span class=mi>42</span><span class=p>:</span><span class=mi>34</span><span class=p>:</span> <span class=nx>invalid</span> <span class=nx>operation</span><span class=p>:</span> <span class=nx>num16</span> <span class=o>+</span> <span class=nf>num8</span> <span class=p>(</span><span class=nx>mismatched</span> <span class=nx>types</span> <span class=kt>int16</span> <span class=nx>and</span> <span class=kt>int8</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>数字类型数据之间可以通过 <code>&lt;type>()</code> 方式进行类型之间的转换</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num</span> <span class=kt>int</span> <span class=p>=</span> <span class=mi>8</span>                                  <span class=c1>// int   num = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>num8</span> <span class=o>:=</span> <span class=nb>int8</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                                <span class=c1>// int8  num8 = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>num16</span> <span class=o>:=</span> <span class=nb>int16</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                              <span class=c1>// int16 num16 = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>num32</span> <span class=o>:=</span> <span class=nb>int32</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                              <span class=c1>// int32 num32 = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>num64</span> <span class=o>:=</span> <span class=nb>int64</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                              <span class=c1>// int64 num64 = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>numFloat32</span> <span class=o>:=</span> <span class=nb>float32</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                       <span class=c1>// float32 numFloat32 = 8
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>numFloat64</span> <span class=o>:=</span> <span class=nb>float64</span><span class=p>(</span><span class=nx>num</span><span class=p>)</span>                       <span class=c1>// float64 numFloat64 = 8
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=进制赋值>进制赋值</h3><p>二进制 八进制 十六进制可以通过前缀赋值
+二进制 八进制 十六进制可以通过不同占位符打印</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>binary</span> <span class=o>:=</span> <span class=mb>0b11</span>                                   <span class=c1>// int binary      = 3   2 进制赋值 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>octal</span> <span class=o>:=</span> <span class=mi>0</span><span class=nx>o11</span>                                    <span class=c1>// int octal       = 9   8 进制赋值 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>hexadecimal</span> <span class=o>:=</span> <span class=mh>0x11</span>                              <span class=c1>// int hexadecimal = 17  16 进制赋值 
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>ten</span> <span class=kt>int</span> <span class=p>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d \n&#34;</span><span class=p>,</span> <span class=nx>ten</span><span class=p>)</span>                         <span class=c1>// 10
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%b \n&#34;</span><span class=p>,</span> <span class=nx>ten</span><span class=p>)</span>                         <span class=c1>// 1010 占位符%b表示二进制
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>eight</span> <span class=kt>int</span> <span class=p>=</span> <span class=mo>077</span>                              <span class=c1>// 八进制  以0开头
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%o \n&#34;</span><span class=p>,</span> <span class=nx>eight</span><span class=p>)</span>                       <span class=c1>// 77 占位符%o表示八进制
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>sixteen</span> <span class=kt>int</span> <span class=p>=</span> <span class=mh>0xff</span>                           <span class=c1>// 十六进制  以0x开头
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%x \n&#34;</span><span class=p>,</span> <span class=nx>sixteen</span><span class=p>)</span>                     <span class=c1>// ff 占位符%x表示十六进制
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%X \n&#34;</span><span class=p>,</span> <span class=nx>sixteen</span><span class=p>)</span>                     <span class=c1>// FF 占位符%X表示十六进制
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=类型最大值和最小值>类型最大值和最小值</h3><p>数字类型最大值和最小值, 值在 math 包定义</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>math</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>intSize</span> <span class=p>=</span> <span class=mi>32</span> <span class=o>&lt;&lt;</span> <span class=p>(^</span><span class=nb>uint</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span> <span class=o>&gt;&gt;</span> <span class=mi>63</span><span class=p>)</span> <span class=c1>// 32 or 64
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>MaxInt</span>    <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=p>(</span><span class=nx>intSize</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MinInt</span>    <span class=p>=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=p>(</span><span class=nx>intSize</span> <span class=o>-</span> <span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxInt8</span>   <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>7</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MinInt8</span>   <span class=p>=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>7</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxInt16</span>  <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>15</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MinInt16</span>  <span class=p>=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>15</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxInt32</span>  <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>31</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MinInt32</span>  <span class=p>=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>31</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxInt64</span>  <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>63</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MinInt64</span>  <span class=p>=</span> <span class=o>-</span><span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=mi>63</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxUint</span>   <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=nx>intSize</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxUint8</span>  <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>8</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxUint16</span> <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>16</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxUint32</span> <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>32</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nx>MaxUint64</span> <span class=p>=</span> <span class=mi>1</span><span class=o>&lt;&lt;</span><span class=mi>64</span> <span class=o>-</span> <span class=mi>1</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=浮点型>浮点型</h2><p>浮点型类型: float32 float64</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=kt>float32</span> <span class=p>=</span> <span class=mf>2.17</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>pi</span> <span class=kt>float64</span> <span class=p>=</span> <span class=mf>3.1415926535</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;e: %f \n&#34;</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>                            <span class=c1>// e: 2.170000 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;pi: %f \n&#34;</span><span class=p>,</span> <span class=nx>pi</span><span class=p>)</span>                          <span class=c1>// pi: 3.141593 
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=布尔类型>布尔类型</h2><p>布尔值: true false<br>布尔值不能进行数字运算<br>布尔类型的值默认值是 false</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>yes</span><span class=p>,</span> <span class=nx>no</span> <span class=o>:=</span> <span class=kc>true</span><span class=p>,</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl><span class=nx>yes</span> <span class=o>==</span> <span class=nx>no</span>                                        <span class=c1>// false 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>yes</span> <span class=o>||</span> <span class=nx>no</span>                                        <span class=c1>// true 逻辑或
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>yes</span> <span class=o>&amp;&amp;</span> <span class=nx>no</span>                                        <span class=c1>// false 逻辑且
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>love</span><span class=p>,</span> <span class=nx>happy</span> <span class=o>:=</span> <span class=kc>true</span><span class=p>,</span> <span class=kc>false</span>                       <span class=c1>// 布尔运算的哲学
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>!</span><span class=nx>love</span>                                            <span class=c1>// false  not love is false
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>love</span> <span class=o>==</span> <span class=nx>happy</span>                                    <span class=c1>// false  love equal to happy is false 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>love</span> <span class=o>!=</span> <span class=nx>happy</span>                                    <span class=c1>// true   love not equal to happy is true
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>happy</span> <span class=o>&amp;&amp;</span> <span class=nx>love</span>                                    <span class=c1>// false  love and happy is not true
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>happy</span> <span class=o>||</span> <span class=nx>love</span>                                    <span class=c1>// true   love or happy is true 
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=字符串类型>字符串类型</h2><h3 id=字符>字符</h3><p>byte(uint8) ACSII 表中的一个字符, 底层是一个 0-255 数字(数字与 ACSII 表字符绑定)<br>rune(int32) Unicode 编码中的一个字符(包含世界大部分语言字符), Unicode 表包含 ACSII 表</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>a</span> <span class=kt>byte</span> <span class=p>=</span> <span class=sc>&#39;D&#39;</span>                                  <span class=c1>// &#39;D&#39; 在 ACSII 中第 68 位
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>c</span> <span class=kt>byte</span> <span class=p>=</span> <span class=mi>68</span>                                   <span class=c1>// ACSII 中 68 为 &#39;D&#39;, 两种赋值等价
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>a</span> <span class=kt>rune</span> <span class=p>=</span> <span class=sc>&#39;中&#39;</span>                                 <span class=c1>// &#39;中&#39; 在 Unicode 中第 20013 位
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>var</span> <span class=nx>c</span> <span class=kt>rune</span> <span class=p>=</span> <span class=mi>20013</span>                                <span class=c1>// Unicode 中 20013 为 &#39;中&#39;, 两种赋值等价
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;a equal c: %v\n&#34;</span><span class=p>,</span> <span class=nx>a</span> <span class=o>==</span> <span class=nx>c</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>a</span> <span class=nx>equal</span> <span class=nx>c</span><span class=p>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;acsii length: %d\n&#34;</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=s>&#34;str&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;unicode length: %d\n&#34;</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=s>&#34;中文&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>acsii</span> <span class=nx>length</span><span class=p>:</span> <span class=mi>3</span>                                <span class=c1>// 单个 acsii 字符长度为 1
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>unicode</span> <span class=nx>length</span><span class=p>:</span> <span class=mi>6</span>                              <span class=c1>// 单个 unicode 字符长度为 3, 遍历 unicode 不能用索引
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=字符串>字符串</h3><p>Golang 字符串本质是单个字符的集合, 单个字符的本质是数字, 通过不同规范和字符对应(ACSII 和 Unicode)<br>单个 acsii 和 unicode 字符长度不同, 使用 range 遍历</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>acsii</span><span class=p>,</span> <span class=nx>unicode</span> <span class=kt>string</span> <span class=p>=</span> <span class=s>&#34;str&#34;</span><span class=p>,</span> <span class=s>&#34;中文&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>index</span><span class=p>,</span> <span class=nx>char</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>acsii</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>   <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T %T, value: %v, value: %c\n&#34;</span><span class=p>,</span> <span class=nx>char</span><span class=p>,</span> <span class=nx>acsii</span><span class=p>[</span><span class=nx>index</span><span class=p>],</span> <span class=nx>char</span><span class=p>,</span> <span class=nx>char</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>115</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>s</span>              <span class=c1>// range 取出的单个字符是 rune 类型
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>116</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>t</span>          
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>114</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>r</span>          
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>20013</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>中</span>           <span class=c1>// 使用 range 遍历 unicode 字符串
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>25991</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>文</span>       
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>i</span><span class=o>:=</span><span class=mi>0</span><span class=p>;</span> <span class=nx>i</span><span class=p>&lt;</span><span class=nb>len</span><span class=p>(</span><span class=nx>unicode</span><span class=p>);</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>   <span class=nx>char</span> <span class=o>:=</span> <span class=nx>unicode</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>   <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T, value: %v, value: %c\n&#34;</span><span class=p>,</span> <span class=nx>char</span><span class=p>,</span> <span class=nx>char</span><span class=p>,</span> <span class=nx>char</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>228</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>ä</span>              <span class=c1>// 通过 index 索引取出的字符是 byte 类型
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>184</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=err>¸</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>173</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=err>­</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>230</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>æ</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>150</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>135</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> 
+</span></span></code></pre></td></tr></table></div></div><p>字符串可以与单个字符组成的切片相互转化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>slice</span><span class=p>,</span> <span class=nx>list</span> <span class=o>:=</span> <span class=p>[]</span><span class=nb>byte</span><span class=p>(</span><span class=s>&#34;str&#34;</span><span class=p>),</span> <span class=p>[]</span><span class=nb>rune</span><span class=p>(</span><span class=s>&#34;中文&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T, value: %v\n&#34;</span><span class=p>,</span> <span class=nx>slice</span><span class=p>,</span> <span class=nx>slice</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=p>[]</span><span class=kt>uint8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=p>[]</span><span class=kt>byte</span><span class=p>{</span><span class=mh>0x73</span><span class=p>,</span> <span class=mh>0x74</span><span class=p>,</span> <span class=mh>0x72</span><span class=p>}</span> <span class=c1>// 字符串转 byte
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=p>[]</span><span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=p>[]</span><span class=kt>int32</span><span class=p>{</span><span class=mi>20013</span><span class=p>,</span> <span class=mi>25991</span><span class=p>}</span>    <span class=c1>// 字符串转 rune
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>strByte</span> <span class=kt>byte</span> <span class=p>=</span> <span class=sc>&#39;D&#39;</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>strRune</span> <span class=kt>rune</span> <span class=p>=</span> <span class=sc>&#39;文&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T, value: %v\n&#34;</span><span class=p>,</span> <span class=nb>string</span><span class=p>(</span><span class=nx>strByte</span><span class=p>),</span> <span class=nb>string</span><span class=p>(</span><span class=nx>strByte</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T, value: %v\n&#34;</span><span class=p>,</span> <span class=nb>string</span><span class=p>(</span><span class=nx>strRune</span><span class=p>),</span> <span class=nb>string</span><span class=p>(</span><span class=nx>strRune</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>D</span>                          <span class=c1>// byte 转 string
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>string</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>文</span>                         <span class=c1>// rune 转 string
+</span></span></span></code></pre></td></tr></table></div></div><p>unicode 数值范围内任意数字可以转化为对应的字符<br>负数不在 unicode 数值范围内, 负数转化后显示一致, 未能查询到相关解释</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num</span> <span class=kt>int</span> <span class=p>=</span> <span class=mi>68</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num8</span> <span class=kt>int8</span> <span class=p>=</span> <span class=mi>66</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num16</span> <span class=kt>int16</span> <span class=p>=</span> <span class=mi>66</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num32</span> <span class=kt>int32</span> <span class=p>=</span> <span class=mi>25991</span>
+</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=nx>num64</span> <span class=kt>int64</span> <span class=p>=</span> <span class=o>-</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type %T, value: %c\n&#34;</span><span class=p>,</span> <span class=nx>num16</span><span class=p>,</span> <span class=nb>byte</span><span class=p>(</span><span class=nx>num16</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type %T, value: %c\n&#34;</span><span class=p>,</span> <span class=nx>num32</span><span class=p>,</span> <span class=nb>rune</span><span class=p>(</span><span class=nx>num32</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span> <span class=kt>int</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>D</span>                          
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span> <span class=kt>int8</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>B</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span> <span class=kt>int16</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>B</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span> <span class=kt>int32</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>文</span>                          
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span> <span class=kt>int64</span><span class=p>,</span> <span class=nx>value</span><span class=p>:</span> <span class=err>�</span>                           
+</span></span></code></pre></td></tr></table></div></div><h3 id=字符串操作>字符串操作</h3><p>字符串定义后可以查看但不可更改</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>str</span> <span class=o>:=</span> <span class=s>&#34;learning&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T value: %c base: %v\n&#34;</span><span class=p>,</span> <span class=nx>str</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=nx>str</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=nx>str</span><span class=p>[</span><span class=mi>2</span><span class=p>])</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span> <span class=nx>value</span><span class=p>:</span> <span class=nx>e</span> <span class=nx>base</span><span class=p>:</span> <span class=mi>97</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>str</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=p>=</span> <span class=s>&#34;m&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=p>.</span><span class=o>/</span><span class=nx>main</span><span class=p>.</span><span class=k>go</span><span class=p>:</span><span class=mi>37</span><span class=p>:</span><span class=mi>2</span><span class=p>:</span> <span class=nx>cannot</span> <span class=nx>assign</span> <span class=nx>to</span> <span class=nx>str</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=p>(</span><span class=nx>value</span> <span class=nx>of</span> <span class=kd>type</span> <span class=kt>byte</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>uStr</span> <span class=o>:=</span> <span class=s>&#34;中文&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Type: %T value: %v length: %v\n&#34;</span><span class=p>,</span> <span class=nx>uStr</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=nx>uStr</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=nb>len</span><span class=p>(</span><span class=nx>uStr</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>Type</span><span class=p>:</span> <span class=kt>uint8</span> <span class=nx>value</span><span class=p>:</span> <span class=mi>184</span> <span class=nx>length</span><span class=p>:</span> <span class=mi>6</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>strRune</span> <span class=o>:=</span> <span class=p>[]</span><span class=nb>rune</span><span class=p>(</span><span class=nx>uStr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;value: %#v length: %v\n&#34;</span><span class=p>,</span> <span class=nx>strRune</span><span class=p>,</span> <span class=nb>len</span><span class=p>([]</span><span class=nb>rune</span><span class=p>(</span><span class=nx>strRune</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span> <span class=nx>value</span><span class=p>:</span> <span class=p>[]</span><span class=kt>int32</span><span class=p>{</span><span class=mi>20013</span><span class=p>,</span> <span class=mi>25991</span><span class=p>}</span> <span class=nx>length</span><span class=p>:</span> <span class=mi>2</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>strings</span><span class=p>.</span><span class=nf>Split</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=nx>sep</span><span class=p>)</span> <span class=p>[]</span><span class=kt>string</span>                   <span class=c1>// 以 sep 为分隔符, 切割字符串成切片
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>strings</span><span class=p>.</span><span class=nf>Contains</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=nx>sub</span><span class=p>)</span> <span class=kt>bool</span>                    <span class=c1>// 判断 s 是否包含 sub
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>strings</span><span class=p>.</span><span class=nf>Index</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=nx>sub</span><span class=p>)</span> <span class=kt>int</span>                        <span class=c1>// sub 在 s 的序号
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>strings</span><span class=p>.</span><span class=nf>Join</span><span class=p>(</span><span class=nx>slice</span><span class=p>,</span> <span class=nx>sep</span><span class=p>)</span> <span class=kt>string</span>                  <span class=c1>// 通过 sep 把 slice 连接成一个字符串
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>strings</span><span class=p>.</span><span class=nf>Replace</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=nx>old</span><span class=p>,</span> <span class=nx>new</span><span class=p>,</span> <span class=nx>count</span><span class=p>)</span> <span class=kt>string</span>       <span class=c1>// 将 s 中的 old 替换为 new, 替换 count 次
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>strings</span><span class=p>.</span><span class=nf>Count</span><span class=p>(</span><span class=nx>s</span><span class=p>,</span> <span class=nx>sub</span><span class=p>)</span> <span class=kt>int</span>                        <span class=c1>// 返回 sub 在 s 中出现次数
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=类型转换>类型转换</h2><p>任意类型数据都可以转换为字符串</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>s</span> <span class=o>:=</span> <span class=nx>fmt</span><span class=p>.</span><span class=nf>Sprinf</span><span class=p>(</span><span class=s>&#34;%v&#34;</span><span class=p>,</span> <span class=p>&lt;</span><span class=nx>variable</span><span class=p>&gt;)</span>                <span class=c1>// 万能转换, any -&gt; string
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=nx>s</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>Itoa</span><span class=p>(</span><span class=mi>32</span><span class=p>)</span>                            <span class=c1>// 32    int -&gt; string
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>s</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>FormatBool</span><span class=p>(</span><span class=kc>true</span><span class=p>)</span>                    <span class=c1>// true  bool -&gt; string
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>s</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>FormatInt</span><span class=p>(</span><span class=o>-</span><span class=mi>8</span><span class=p>,</span> <span class=mi>2</span><span class=p>)</span>                    <span class=c1>// -1000 int64 -&gt; string(2 进制) 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>s</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>FormatUint</span><span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>16</span><span class=p>)</span>                 <span class=c1>// ff    uint64 -&gt; string(16 进制)
+</span></span></span></code></pre></td></tr></table></div></div><p>字符串转其它类型可能会失败, 转数字时还需考虑进制和转换后的类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>i</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>Atoi</span><span class=p>(</span><span class=s>&#34;-42&#34;</span><span class=p>)</span>                    <span class=c1>// 42   string -&gt; int
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>b</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>ParseBool</span><span class=p>(</span><span class=s>&#34;true&#34;</span><span class=p>)</span>              <span class=c1>// true string -&gt; bool
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>f</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>ParseFloat</span><span class=p>(</span><span class=s>&#34;3.14&#34;</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>         <span class=c1>// 3.14 string -&gt; float64
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>i</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>ParseInt</span><span class=p>(</span><span class=s>&#34;-42&#34;</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>        <span class=c1>// -42  string -&gt; int64
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>u</span><span class=p>,</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nx>strconv</span><span class=p>.</span><span class=nf>ParseUint</span><span class=p>(</span><span class=s>&#34;42&#34;</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>32</span><span class=p>)</span>        <span class=c1>// 42   string -&gt; uint32
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// ParseFloat (str, bitSize)  bitSize:{32:float32, 64:float64}
+</span></span></span><span class=line><span class=cl><span class=c1>// ParseInt  ParseUint (str, base, bitSize)
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=c1>// str string: 待转换的字符串
+</span></span></span><span class=line><span class=cl><span class=c1>// base int: str 的进制( base=16, s 为 16 进制的字符串)
+</span></span></span><span class=line><span class=cl><span class=c1>// bitSize int: {0:int, 8:int8, 16:int16, 32:int32, 64:int64}
+</span></span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/go/>Go</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/gin/><div class=article-details><h2 class=article-title>Gin</h2></div></a></article><article><a href=/p/go-swagger/><div class=article-details><h2 class=article-title>Go Swagger</h2></div></a></article><article><a href=/p/go-%E7%BB%93%E6%9E%84%E4%BD%93/><div class=article-details><h2 class=article-title>Go 结构体</h2></div></a></article><article><a href=/p/go-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/><div class=article-details><h2 class=article-title>Go 流程控制</h2></div></a></article><article><a href=/p/go-%E5%87%BD%E6%95%B0/><div class=article-details><h2 class=article-title>Go 函数</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

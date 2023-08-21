@@ -1,0 +1,251 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="if else 分支 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 if expression { branch } else if expression { branch } else { branch } done := false if done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } if done := true; done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } for"><title>Go 流程控制</title><link rel=canonical href=https://facsert.github.io/p/go-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Go 流程控制"><meta property="og:description" content="if else 分支 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 if expression { branch } else if expression { branch } else { branch } done := false if done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } if done := true; done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } for"><meta property="og:url" content="https://facsert.github.io/p/go-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Go"><meta property="article:published_time" content="2023-04-19T19:21:24+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Go 流程控制"><meta name=twitter:description content="if else 分支 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 if expression { branch } else if expression { branch } else { branch } done := false if done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } if done := true; done { Println(&amp;#34;done, goodbye&amp;#34;) } else { Println(&amp;#34;not done, continue&amp;#34;) } for"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#if-else-分支>if else 分支</a></li><li><a href=#for-循环>for 循环</a><ol><li><a href=#for-range>for range</a></li><li><a href=#continue>continue</a></li><li><a href=#break>break</a></li><li><a href=#goto>goto</a></li></ol></li><li><a href=#switch-case>switch case</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/go-%E6%95%99%E7%A8%8B/ style=background-color:#2a9d8f;color:#fff>Go 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/go-%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/>Go 流程控制</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2023-04-19</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h2 id=if-else-分支>if else 分支</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>if</span> <span class=nx>expression</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>     <span class=nx>branch</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=nx>expression</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>     <span class=nx>branch</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>branch</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> <span class=nx>done</span> <span class=o>:=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>done</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;done, goodbye&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;not done, continue&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>if</span> <span class=nx>done</span> <span class=o>:=</span> <span class=kc>true</span><span class=p>;</span> <span class=nx>done</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;done, goodbye&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;not done, continue&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=for-循环>for 循环</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>for</span> <span class=nx>initial</span><span class=p>;</span> <span class=nx>expression</span><span class=p>;</span> <span class=nx>end</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>loop</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=nx>i</span><span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;index: %d\n&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>index</span><span class=p>:</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>index</span><span class=p>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>index</span><span class=p>:</span> <span class=mi>2</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=for-range>for range</h3><p>遍历数组, 切片, map</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=nx>intSlice</span> <span class=o>:=</span> <span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>0</span><span class=p>,</span> <span class=mi>1</span><span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=nx>index</span><span class=p>,</span> <span class=nx>elem</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>intSlice</span> <span class=p>{</span>             <span class=c1>// 数组和切片会返回索引和值
+</span></span></span><span class=line><span class=cl><span class=c1></span>     <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%d: %d\n&#34;</span><span class=p>,</span> <span class=nx>index</span><span class=p>,</span> <span class=nx>elem</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>0</span><span class=p>:</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>1</span><span class=p>:</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=nx>intMap</span> <span class=o>:=</span> <span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>int</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;1st&#34;</span><span class=p>:</span> <span class=mi>1</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s>&#34;2nd&#34;</span><span class=p>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=k>for</span> <span class=nx>key</span><span class=p>,</span> <span class=nx>value</span> <span class=o>:=</span> <span class=k>range</span> <span class=nx>intMap</span> <span class=p>{</span>                <span class=c1>// map 会返回 key 和 value
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;%s: %d\n&#34;</span><span class=p>,</span> <span class=nx>key</span><span class=p>,</span> <span class=nx>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>2</span><span class=nx>nd</span><span class=p>:</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>1</span><span class=nx>st</span><span class=p>:</span> <span class=mi>1</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=continue>continue</h3><p>提前结束本次循环, 直接进入下一次循环</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>for</span> <span class=nx>i</span><span class=o>:=</span><span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>i</span> <span class=o>==</span> <span class=mi>1</span> <span class=p>{</span>                                  <span class=c1>// 当 i == 1， 使用 continue 提前结束
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>continue</span>                                 <span class=c1>// 提前结束本次循环, 进入下一个循环
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>2</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=break>break</h3><p>结束最近的一层循环, 一个 break 结束一个 for 循环</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>for</span> <span class=nx>i</span><span class=o>:=</span><span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>i</span> <span class=o>==</span> <span class=mi>1</span> <span class=p>{</span>                                  <span class=c1>// 当 i == 1， 使用 break 结束循环
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>break</span>                                    <span class=c1>// break 只能跳出一层循环
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nf>Println</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=mi>0</span> 
+</span></span></code></pre></td></tr></table></div></div><h3 id=goto>goto</h3><p>设置 tag, 跳出复杂逻辑到 tag 语句</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>for</span> <span class=nx>i</span><span class=o>:=</span><span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=nx>j</span> <span class=o>:=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=p>&lt;</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>i</span> <span class=o>==</span> <span class=mi>1</span> <span class=o>&amp;&amp;</span> <span class=nx>j</span> <span class=o>==</span> <span class=mi>0</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;loop over i:%d j:%d\n&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>j</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>goto</span> <span class=nx>breakTwoLoop</span>                    <span class=c1>// 从复杂结构中跳到 tag 对应的语句
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;i:%d j:%d\n&#34;</span><span class=p>,</span> <span class=nx>i</span><span class=p>,</span> <span class=nx>j</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> <span class=nx>breakTwoLoop</span><span class=p>:</span>                                   <span class=c1>// 设置 tag 及执行语句, 提供可跳跃点
+</span></span></span><span class=line><span class=cl><span class=c1></span>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Get out of loop&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>i</span><span class=p>:</span><span class=mi>0</span> <span class=nx>j</span><span class=p>:</span><span class=mi>0</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>i</span><span class=p>:</span><span class=mi>0</span> <span class=nx>j</span><span class=p>:</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>i</span><span class=p>:</span><span class=mi>0</span> <span class=nx>j</span><span class=p>:</span><span class=mi>2</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>loop</span> <span class=nx>over</span> <span class=nx>i</span><span class=p>:</span><span class=mi>1</span> <span class=nx>j</span><span class=p>:</span><span class=mi>0</span>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>Get</span> <span class=nx>out</span> <span class=nx>of</span> <span class=nx>loop</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=switch-case>switch case</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl> <span class=k>switch</span> <span class=nx>expression</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=nx>branch</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nx>code</span>    
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=nx>branch</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nx>code</span>
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=nx>branch</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nx>code</span>
+</span></span><span class=line><span class=cl> <span class=k>default</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nx>code</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=k>switch</span> <span class=nx>nun</span> <span class=o>:=</span> <span class=mi>3</span><span class=p>;</span> <span class=nx>num</span> <span class=p>{</span>                          <span class=c1>// 值选择分支
+</span></span></span><span class=line><span class=cl><span class=c1></span> <span class=k>case</span> <span class=mi>1</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>9</span><span class=p>:</span>                                 <span class=c1>// 单个分支可容纳多个值
+</span></span></span><span class=line><span class=cl><span class=c1></span>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;奇数&#34;</span><span class=p>)</span>                               
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>8</span><span class=p>:</span>                                   <span class=c1>// 每个分支自带 break, 执行完分支即退出 switch
+</span></span></span><span class=line><span class=cl><span class=c1></span>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;偶数&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=k>default</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;超出范围&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>奇数</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> <span class=nx>grade</span> <span class=o>:=</span> <span class=mi>80</span>
+</span></span><span class=line><span class=cl> <span class=k>switch</span>  <span class=p>{</span>                                       <span class=c1>// 表达式选择分支, 变量需要在 switch 外初始化
+</span></span></span><span class=line><span class=cl><span class=c1></span> <span class=k>case</span> <span class=nx>grade</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=nx>grade</span> <span class=p>&lt;</span> <span class=mi>60</span><span class=p>:</span>                  
+</span></span><span class=line><span class=cl>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;不及格, 好好努力&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=nx>grade</span> <span class=o>&gt;=</span> <span class=mi>60</span> <span class=o>&amp;&amp;</span> <span class=nx>grade</span> <span class=p>&lt;</span> <span class=mi>80</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;不错的成绩, 继续加油!&#34;</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl> <span class=k>case</span> <span class=nx>grade</span> <span class=o>&gt;=</span> <span class=mi>80</span> <span class=o>&amp;&amp;</span> <span class=nx>grade</span> <span class=o>&lt;=</span> <span class=mi>100</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;很棒哦!&#34;</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl> <span class=k>default</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>     <span class=nf>Println</span><span class=p>(</span><span class=s>&#34;分数错误&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span><span class=line><span class=cl> 
+</span></span><span class=line><span class=cl> <span class=p>&gt;</span> <span class=nx>很棒哦</span><span class=p>!</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/go/>Go</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/gin/><div class=article-details><h2 class=article-title>Gin</h2></div></a></article><article><a href=/p/go-swagger/><div class=article-details><h2 class=article-title>Go Swagger</h2></div></a></article><article><a href=/p/go-%E7%BB%93%E6%9E%84%E4%BD%93/><div class=article-details><h2 class=article-title>Go 结构体</h2></div></a></article><article><a href=/p/go-%E5%87%BD%E6%95%B0/><div class=article-details><h2 class=article-title>Go 函数</h2></div></a></article><article><a href=/p/go-map/><div class=article-details><h2 class=article-title>Go Map</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

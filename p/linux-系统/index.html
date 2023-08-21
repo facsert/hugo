@@ -1,0 +1,195 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="系统 uname Unix name 1 2 $ uname -a # 打印操作系统的所有信息 &amp;gt; Linux master 3.10.0-1160.81.1.el7.x86_64 #1 SMP Fri Dec 16 17:29:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux date 1 2 3 4 5 6 7 $ date # 现实系统时间 &amp;gt; Fri 07 Apr 2023 02:16:35 AM EDT $ date +&amp;#34;%Y-%m-%d %H:%M:%S&amp;#34; # 格式"><title>Linux 系统</title><link rel=canonical href=https://facsert.github.io/p/linux-%E7%B3%BB%E7%BB%9F/><link rel=stylesheet href=/scss/style.min.f2f21d9d961219a01621263328d8997e1ae3b4f0371d455628df1fdc27d57bd6.css><meta property="og:title" content="Linux 系统"><meta property="og:description" content="系统 uname Unix name 1 2 $ uname -a # 打印操作系统的所有信息 &amp;gt; Linux master 3.10.0-1160.81.1.el7.x86_64 #1 SMP Fri Dec 16 17:29:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux date 1 2 3 4 5 6 7 $ date # 现实系统时间 &amp;gt; Fri 07 Apr 2023 02:16:35 AM EDT $ date +&amp;#34;%Y-%m-%d %H:%M:%S&amp;#34; # 格式"><meta property="og:url" content="https://facsert.github.io/p/linux-%E7%B3%BB%E7%BB%9F/"><meta property="og:site_name" content="Facsert"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="Linux"><meta property="article:published_time" content="2022-08-08T15:02:16+00:00"><meta property="article:modified_time" content="2023-08-21T22:05:07+08:00"><meta name=twitter:title content="Linux 系统"><meta name=twitter:description content="系统 uname Unix name 1 2 $ uname -a # 打印操作系统的所有信息 &amp;gt; Linux master 3.10.0-1160.81.1.el7.x86_64 #1 SMP Fri Dec 16 17:29:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux date 1 2 3 4 5 6 7 $ date # 现实系统时间 &amp;gt; Fri 07 Apr 2023 02:16:35 AM EDT $ date +&amp;#34;%Y-%m-%d %H:%M:%S&amp;#34; # 格式"><link rel="shortcut icon" href=/icon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu8c66f61f43e5a9e0cab5f9cdbd0d25cb_116453_300x0_resize_box_3.png width=300 height=300 class=site-logo loading=lazy alt=Avatar></a>
+<span class=emoji>🌟</span></figure><div class=site-meta><h1 class=site-name><a href=/>Facsert</a></h1><h2 class=site-description>学习与思考</h2></div></header><ol class=social-menu><li><a href=https://twitter.com target=_blank title=Email rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l9 6 9-6"/><path d="M21 8v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8m0-2a1 1 0 011-1h16a1 1 0 011 1v2"/></svg></a></li><li><a href=https://github.com/facsert target=_blank title=GitHub rel=me><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/search/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><div class=menu-bottom-section><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></div></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><ol><li><a href=#系统>系统</a><ol><li><a href=#unamehttpslinuxaliangacomcunamehtml><a href=https://linux.alianga.com/c/uname.html>uname</a></a></li><li><a href=#datehttpslinuxaliangacomcdatehtml><a href=https://linux.alianga.com/c/date.html>date</a></a></li><li><a href=#dfhttpslinuxaliangacomcdfhtml><a href=https://linux.alianga.com/c/df.html>df</a></a></li><li><a href=#duhttpslinuxaliangacomcduhtml><a href=https://linux.alianga.com/c/du.html>du</a></a></li><li><a href=#freehttpslinuxaliangacomcfreehtml><a href=https://linux.alianga.com/c/free.html>free</a></a></li><li><a href=#pshttpslinuxaliangacomcpshtml><a href=https://linux.alianga.com/c/ps.html>ps</a></a></li><li><a href=#systemctlhttpslinuxaliangacomcsystemctlhtml><a href=https://linux.alianga.com/c/systemctl.html>systemctl</a></a></li><li><a href=#netstathttpslinuxaliangacomcnetstathtml--network-statistics><a href=https://linux.alianga.com/c/netstat.html>netstat</a> : network statistics</a></li><li><a href=#ifconfighttpslinuxaliangacomcifconfightml><a href=https://linux.alianga.com/c/ifconfig.html>ifconfig</a></a></li><li><a href=#killhttpslinuxaliangacomckillhtml><a href=https://linux.alianga.com/c/kill.html>kill</a></a></li></ol></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/linux-%E6%95%99%E7%A8%8B/>Linux 教程</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/linux-%E7%B3%BB%E7%BB%9F/>Linux 系统</a></h2></div><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>2022-08-08</time></div>LastUpdate:
+<time class=article-time--updated datetime="2023-08-21 22:05:07 +0800 +0800" title="2023-08-21 22:05:07 +0800 +0800">2023-08-21</time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h2 id=系统>系统</h2><h3 id=unamehttpslinuxaliangacomcunamehtml><a class=link href=https://linux.alianga.com/c/uname.html target=_blank rel=noopener>uname</a></h3><p>Unix name</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ uname -a                                      <span class=c1># 打印操作系统的所有信息</span>
+</span></span><span class=line><span class=cl> &gt; Linux master 3.10.0-1160.81.1.el7.x86_64 <span class=c1>#1 SMP Fri Dec 16 17:29:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=datehttpslinuxaliangacomcdatehtml><a class=link href=https://linux.alianga.com/c/date.html target=_blank rel=noopener>date</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ date                                          <span class=c1># 现实系统时间</span>
+</span></span><span class=line><span class=cl> &gt; Fri <span class=m>07</span> Apr <span class=m>2023</span> 02:16:35 AM EDT
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ date +<span class=s2>&#34;%Y-%m-%d %H:%M:%S&#34;</span>                     <span class=c1># 格式化输出时间</span>
+</span></span><span class=line><span class=cl> &gt; 2023-04-07 02:16:52
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ date -s <span class=s2>&#34;01:01:01 2022-08-09&#34;</span>                 <span class=c1># 设置时间</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=dfhttpslinuxaliangacomcdfhtml><a class=link href=https://linux.alianga.com/c/df.html target=_blank rel=noopener>df</a></h3><p>disk free</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ df                                            <span class=c1># 显示系统磁盘占用信息, 默认以 KB 为单位</span>
+</span></span><span class=line><span class=cl> $ df -h                                         <span class=c1># 容量数据以 MB 为单位</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ df -h                                         <span class=c1># 容量信息智能添加单位 </span>
+</span></span><span class=line><span class=cl> &gt; Filesystem      Size  Used Avail Use% Mounted on
+</span></span><span class=line><span class=cl> &gt; udev            3.9G     <span class=m>0</span>  3.9G   0% /dev
+</span></span><span class=line><span class=cl> &gt; tmpfs           796M   41M  755M   6% /run
+</span></span><span class=line><span class=cl> &gt; /dev/sda1        58G   17G   39G  30% /
+</span></span></code></pre></td></tr></table></div></div><h3 id=duhttpslinuxaliangacomcduhtml><a class=link href=https://linux.alianga.com/c/du.html target=_blank rel=noopener>du</a></h3><p>disk usage: 查看文件或文件夹占用大小</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ du &lt;arg&gt; &lt;file&gt;                               <span class=c1># 显示目录占用空间大小</span>
+</span></span><span class=line><span class=cl> $ du -s &lt;file&gt;                                  <span class=c1># --summarize 只显示总计占用</span>
+</span></span><span class=line><span class=cl> $ du -h &lt;file&gt;                                  <span class=c1># --human-readable 添加单位</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ du *                                          <span class=c1># 列出所有文件及大小</span>
+</span></span><span class=line><span class=cl> &gt; <span class=m>97764</span>   go20.tar.gz
+</span></span><span class=line><span class=cl> &gt; <span class=m>4</span>       host.txt
+</span></span><span class=line><span class=cl> &gt; <span class=m>24</span>      mongo.tar.gz
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ du -h                                         <span class=c1># 智能显示单位</span>
+</span></span><span class=line><span class=cl> &gt; 4.0K    ./test
+</span></span><span class=line><span class=cl> &gt; 834M    .
+</span></span></code></pre></td></tr></table></div></div><h3 id=freehttpslinuxaliangacomcfreehtml><a class=link href=https://linux.alianga.com/c/free.html target=_blank rel=noopener>free</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ free                                          <span class=c1># 显示系统内存占用(KB)</span>
+</span></span><span class=line><span class=cl> $ free -m                                       <span class=c1># 以 MB 为单位显示</span>
+</span></span><span class=line><span class=cl> $ free -g                                       <span class=c1># 以 GB 为单位显示</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ free -h                                       <span class=c1># 智能显示单位</span>
+</span></span><span class=line><span class=cl>                total        used        free      shared  buff/cache   available
+</span></span><span class=line><span class=cl> &gt; Mem:          7.8Gi       1.2Gi       5.3Gi        41Mi       1.3Gi       6.3Gi
+</span></span><span class=line><span class=cl> &gt; Swap:         974Mi          0B       974Mi
+</span></span></code></pre></td></tr></table></div></div><h3 id=pshttpslinuxaliangacomcpshtml><a class=link href=https://linux.alianga.com/c/ps.html target=_blank rel=noopener>ps</a></h3><p>process status: 进程状态</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ ps &lt;opt&gt;                                      <span class=c1># 显示系统进程状态</span>
+</span></span><span class=line><span class=cl> $ ps aux                                        <span class=c1># 显示系统所有进程的详细信息</span>
+</span></span><span class=line><span class=cl> &gt; USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl> &gt; root         <span class=m>1</span>  0.0  0.1 <span class=m>104188</span> <span class=m>10472</span> ?        Ss   Apr02   0:03 /sbin/init
+</span></span><span class=line><span class=cl> &gt; root         <span class=m>2</span>  0.0  0.0      <span class=m>0</span>     <span class=m>0</span> ?        S    Apr02   0:00 <span class=o>[</span>kthreadd<span class=o>]</span>
+</span></span><span class=line><span class=cl> &gt; root         <span class=m>3</span>  0.0  0.0      <span class=m>0</span>     <span class=m>0</span> ?        I&lt;   Apr02   0:00 <span class=o>[</span>rcu_gp<span class=o>]</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=systemctlhttpslinuxaliangacomcsystemctlhtml><a class=link href=https://linux.alianga.com/c/systemctl.html target=_blank rel=noopener>systemctl</a></h3><p>systemctl control</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ systemctl &lt;opt&gt; &lt;service&gt;                     <span class=c1># 设置某项服务</span>
+</span></span><span class=line><span class=cl> $ systemctl start &lt;service&gt;                     <span class=c1># 启动nfs服务</span>
+</span></span><span class=line><span class=cl> $ systemctl <span class=nb>enable</span> &lt;service&gt;                    <span class=c1># 设置开机自启动</span>
+</span></span><span class=line><span class=cl> $ systemctl disable &lt;service&gt;                   <span class=c1># 停止开机自启动</span>
+</span></span><span class=line><span class=cl> $ systemctl status &lt;service&gt;                    <span class=c1># 查看服务当前状态</span>
+</span></span><span class=line><span class=cl> $ systemctl restart &lt;service&gt;                   <span class=c1># 重新启动某服务</span>
+</span></span><span class=line><span class=cl> $ systemctl list-units --type<span class=o>=</span>service           <span class=c1># 查看所有已启动的服务</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ systemctl statuc docker
+</span></span><span class=line><span class=cl> &gt; ● docker.service - Docker Application Container Engine
+</span></span><span class=line><span class=cl> &gt;   Loaded: loaded <span class=o>(</span>/lib/systemd/system/docker.service<span class=p>;</span> enabled<span class=p>;</span> vendor preset: enabled<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt;   Active: active <span class=o>(</span>running<span class=o>)</span> since Sun 2023-04-02 20:24:38 EDT<span class=p>;</span> <span class=m>4</span> days ago
+</span></span><span class=line><span class=cl> &gt;     Docs: https://docs.docker.com
+</span></span><span class=line><span class=cl> &gt; Main PID: <span class=m>704</span> <span class=o>(</span>dockerd<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt; ......
+</span></span></code></pre></td></tr></table></div></div><h3 id=netstathttpslinuxaliangacomcnetstathtml--network-statistics><a class=link href=https://linux.alianga.com/c/netstat.html target=_blank rel=noopener>netstat</a> : network statistics</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ netstat &lt;opt&gt;                                 <span class=c1># 显示网络端口信息</span>
+</span></span><span class=line><span class=cl> $ netstat -a                                    <span class=c1># 显示所有网络端口信息</span>
+</span></span><span class=line><span class=cl> $ netstat -t                                    <span class=c1># 显示 TCP 网络端口信息</span>
+</span></span><span class=line><span class=cl> $ netstat -u                                    <span class=c1># 显示 UDP 网络端口信息</span>
+</span></span><span class=line><span class=cl> $ netstat -l                                    <span class=c1># --listening 显示处于监听状态的端口</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ netstat -anlp <span class=p>|</span> grep <span class=m>22</span>
+</span></span><span class=line><span class=cl> &gt; tcp        <span class=m>0</span>      <span class=m>0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      577/sshd            
+</span></span><span class=line><span class=cl> &gt; tcp        <span class=m>0</span>      <span class=m>0</span> 10.0.2.15:22            10.0.2.2:61110          ESTABLISHED 19205/sshd: root@no 
+</span></span><span class=line><span class=cl> &gt; tcp6       <span class=m>0</span>      <span class=m>0</span> :::22                   :::*                    LISTEN      577/sshd      
+</span></span></code></pre></td></tr></table></div></div><h3 id=ifconfighttpslinuxaliangacomcifconfightml><a class=link href=https://linux.alianga.com/c/ifconfig.html target=_blank rel=noopener>ifconfig</a></h3><p>network interfaces configuring</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ ifconfig                                      <span class=c1># 显示网络接口配置和参数</span>
+</span></span><span class=line><span class=cl> &gt; enp0s3: <span class=nv>flags</span><span class=o>=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class=m>1500</span>
+</span></span><span class=line><span class=cl> &gt;       inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+</span></span><span class=line><span class=cl> &gt;       inet6 fe80::a00:27ff:fe2e:3801  prefixlen <span class=m>64</span>  scopeid 0x20&lt;link&gt;
+</span></span><span class=line><span class=cl> &gt;       ether 08:00:27:2e:38:01  txqueuelen <span class=m>1000</span>  <span class=o>(</span>Ethernet<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt;       RX packets <span class=m>1226712</span>  bytes <span class=m>239728472</span> <span class=o>(</span>228.6 MiB<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt;       RX errors <span class=m>0</span>  dropped <span class=m>0</span>  overruns <span class=m>0</span>  frame <span class=m>0</span>
+</span></span><span class=line><span class=cl> &gt;       TX packets <span class=m>857854</span>  bytes <span class=m>146145492</span> <span class=o>(</span>139.3 MiB<span class=o>)</span>
+</span></span><span class=line><span class=cl> &gt;       TX errors <span class=m>0</span>  dropped <span class=m>0</span> overruns <span class=m>0</span>  carrier <span class=m>0</span>  collisions <span class=m>0</span>
+</span></span><span class=line><span class=cl> &gt; ......
+</span></span></code></pre></td></tr></table></div></div><h3 id=killhttpslinuxaliangacomckillhtml><a class=link href=https://linux.alianga.com/c/kill.html target=_blank rel=noopener>kill</a></h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ <span class=nb>kill</span> &lt;opt&gt; &lt;pid&gt;                              <span class=c1># 杀死进程</span>
+</span></span><span class=line><span class=cl> $ <span class=nb>kill</span> -9 &lt;pid&gt;                                 <span class=c1># 强制杀死 &lt;pid&gt; 进程</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ killall &lt;name&gt;                                <span class=c1># 杀死所有名字为 &lt;name&gt; 进程</span>
+</span></span><span class=line><span class=cl> $ pkill -o &lt;name&gt;                               <span class=c1># 杀死 &lt;name&gt; 进程中进程号最小的</span>
+</span></span><span class=line><span class=cl> $ pkill -n &lt;name&gt;                               <span class=c1># 杀死 &lt;name&gt; 进程中进程号最大的</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> $ sleep <span class=m>300</span> <span class=p>&amp;</span>                                   <span class=c1># 后台执行 sleep 指令</span>
+</span></span><span class=line><span class=cl> &gt; <span class=o>[</span>1<span class=o>]</span> <span class=m>23287</span>                                     <span class=c1># 系统返回后台的进程 pid</span>
+</span></span><span class=line><span class=cl> $ <span class=nb>kill</span> -9 <span class=m>23287</span>                                 <span class=c1># 根据 pip 杀死指定进程</span>
+</span></span><span class=line><span class=cl> &gt; <span class=o>[</span>1<span class=o>]</span>  + <span class=m>23287</span> killed     sleep <span class=m>300</span> 
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/linux/>Linux</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/linux-%E5%8C%85%E7%AE%A1%E7%90%86/><div class=article-details><h2 class=article-title>Linux 包管理</h2></div></a></article><article><a href=/p/linux-%E9%85%8D%E7%BD%AE/><div class=article-details><h2 class=article-title>Linux 配置</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E6%9C%AC/><div class=article-details><h2 class=article-title>Linux 文本</h2></div></a></article><article><a href=/p/linux-%E6%96%87%E4%BB%B6/><div class=article-details><h2 class=article-title>Linux 文件</h2></div></a></article><article><a href=/p/linux-%E5%9F%BA%E7%A1%80/><div class=article-details><h2 class=article-title>Linux 基础</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=facsert/discussion data-repo-id=R_kgDOIBKyeA data-category=Announcements data-category-id=DIC_kwDOIBKyeM4CRf1a data-mapping=title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=en crossorigin=anonymous async></script>
+<script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark_dimmed")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2023&nbsp; Facsert&nbsp;<br>博客运行 <i class="fas fa-bell"></i> <a id=days>0</a> 天
+&nbsp;&nbsp;
+⌨️&nbsp;
+46.79k&nbsp;
+&nbsp;&nbsp;
+📄&nbsp;
+48篇&nbsp;</section><section class=powerby></section><script>var s1="2023-07-22",days,number_of_days,s1=new Date(s1.replace(/-/g,"/"));s2=new Date,days=s2.getTime()-s1.getTime(),number_of_days=parseInt(days/(1e3*60*60*24)),document.getElementById("days").innerHTML=number_of_days</script></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
